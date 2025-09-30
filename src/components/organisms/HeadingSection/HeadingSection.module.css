@@ -1,0 +1,35 @@
+.subHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: var(--p-20);
+}
+.input{
+    border-radius: 100px !important;
+}
+.searchFilter{
+    display: flex;
+    align-items: center;
+    gap: var(--g-10);
+}
+.heading{
+    font-size: var(--fs18);
+    font-weight: 600;
+    color: var(--black-200);
+    font-family: var(--font-rethink);
+}
+
+.button{
+   background: transparent !important;
+   border: none !important  ;
+   outline: none !important;
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.button label{
+    color: var(--black-200) !important;
+    font-size: var(--fs14) !important;
+    font-weight: 500 !important;
+    font-family: var(--font-rethink) !important;
+}

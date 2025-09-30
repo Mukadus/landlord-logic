@@ -97,6 +97,18 @@
   --error: #db1717;
   --error-bg: #ffe6e6;
   --error-bg-light: #ffe6e6;
+
+  /* ===== PENDING STATUS COLORS ===== */
+  --pending: #f59e0b;
+  --pending-light: #fbbf24;
+  --pending-bg: #fef3c7;
+  --pending-bg-light: #fffbeb;
+
+  /* ===== ONGOING STATUS COLORS ===== */
+  --ongoing: #3b82f6;
+  --ongoing-light: #60a5fa;
+  --ongoing-bg: #dbeafe;
+  --ongoing-bg-light: #eff6ff;
   /* ===== HOVER STATES ===== */
   --hover-primary: #0a5afe;
   --hover-secondary: #996314;

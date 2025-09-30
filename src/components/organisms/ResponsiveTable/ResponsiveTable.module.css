@@ -4,7 +4,8 @@
   border-radius: 10px;
   background-color: var(--Poor-white);
   overflow-y: auto; /* allows vertical scrolling */
-  max-height: 500px;
+  /* max-height: 500px; */
+  height: 100%;
 }
 .tableWrapper::-webkit-scrollbar {
   display: none;
@@ -51,7 +52,7 @@
 }
 
 .tableBody tr:hover td {
-  background: var(--success-bg);
+  background: #e6f4eb6e;
 }
 
 .imageContainer {

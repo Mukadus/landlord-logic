@@ -30,13 +30,13 @@
   transition: all 0.2s ease;
 }
 
-.inputContainer:hover {
+/* .inputContainer:hover {
   transform: translateY(-0.5px);
-}
+} */
 
 .inputContainer:focus-within {
   transform: translateY(-0.7px);
-  box-shadow: 0 4px 12px rgba(14, 14, 85, 0.15);
+  /* box-shadow: 0 4px 12px rgba(14, 14, 85, 0.15); */
 }
 
 /* Main Input Styling */
@@ -99,7 +99,7 @@
 /* Placeholder Styling */
 .inputClassName::placeholder {
   color: var(--dark-gray-200);
-  font-size: var(--fs14);
+  font-size: var(--fs16);
   font-weight: 400;
   line-height: 20px;
   opacity: 1;
