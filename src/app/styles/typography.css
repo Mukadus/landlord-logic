@@ -1,29 +1,17 @@
 :root {
-  --fs12: 12px; /* Extra Small */
-  --fs13: 13px; /* Small */
+  /* Base font sizes */
+  --fs10: 10px; /* Extra Small */
+  --fs12: 12px; /* Small */
+  --fs13: 13px; /* Small Medium */
   --fs14: 14px; /* Base */
-  --fs15: 15px; /* Medium */
   --fs16: 16px; /* Medium */
-  --fs17: 17px; /* Large */
-  --fs18: 18px; /* Extra Large */
-  --fs20: 20px; /* 2XL */
-  --fs22: 22px; /* 3XL */
-  --fs24: 24px; /* 4XL */
-  --fs28: 28px; /* 5XL */
-  --fs30: 30px; /* 6XL */
-  --fs32: 32px; /* 7XL */
-  --fs34: 34px; /* 8XL */
-  --fs36: 36px; /* 8XL */
-  --fs40: 40px; /* 9XL */
-  --fs41: 41px; /* 10XL */
-  --fs44: 44.3px; /* 10XL */
-  --fs45: 45px; /* 11XL */
-  --fs48: 48px; /* 12XL */
-  --fs54: 54px; /* 13XL */
-  --fs56: 54px; /* 13XL */
-  --fs64: 64px; /* 14XL */
-  --fs96: 96px; /* 15XL */
+  --fs18: 18px; /* Large */
+  --fs20: 20px; /* Extra Large */
+  --fs24: 24px; /* 2XL */
+  --fs30: 30px; /* 3XL */
+  --fs32: 32px; /* 4XL */
 }
+
 
 p,
 span {
@@ -50,3 +38,89 @@ span {
 .fw700 {
   font-weight: 700;
 }
+
+
+
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+  :root {
+    --fs10: 10px;
+    --fs12: 12px;
+    --fs13: 13px;
+    --fs14: 14px;
+    --fs16: 16px;
+    --fs18: 18px;
+    --fs20: 20px;
+    --fs24: 24px;
+    --fs30: 30px;
+    --fs32: 32px;
+  }
+}
+
+
+/* Large devices (1024px and up) */
+@media (min-width: 1024px) {
+  :root {
+    --fs10: 10px;
+    --fs12: 12px;
+    --fs13: 13px;
+    --fs14: 14px;
+    --fs16: 16px;
+    --fs18: 18px;
+    --fs20: 20px;
+    --fs24: 24px;
+    --fs30: 30px;
+    --fs32: 32px;
+  }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 768px) {
+  :root {
+    --fs10: 10px;
+    --fs12: 12px;
+    --fs13: 13px;
+    --fs14: 14px;
+    --fs16: 16px;
+    --fs18: 18px;
+    --fs20: 20px;
+    --fs24: 24px;
+    --fs30: 30px;
+    --fs32: 32px;
+  }
+}
+
+
+/* Small devices (480px and up) */
+@media (min-width: 480px) {
+  :root {
+    --fs10: 10px;
+    --fs12: 12px;
+    --fs13: 13px;
+    --fs14: 14px;
+    --fs16: 16px;
+    --fs18: 18px;
+    --fs20: 20px;
+    --fs24: 24px;
+    --fs30: 30px;
+    --fs32: 32px;
+  }
+}
+
+/* Mobile devices (320px and up) */
+@media (min-width: 320px) {
+  :root {
+    --fs10: 9px;
+    --fs12: 11px;
+    --fs13: 12px;
+    --fs14: 13px;
+    --fs16: 15px;
+    --fs18: 17px;
+    --fs20: 19px;
+    --fs24: 22px;
+    --fs30: 28px;
+    --fs32: 30px;
+  }
+}
+

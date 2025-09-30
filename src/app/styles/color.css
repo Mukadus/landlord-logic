@@ -63,6 +63,7 @@
   --black-200: #111216;
   --black-300: #232323;
   --black-400: #344054;
+  --black-500: #000000;
 
   /* ===== NEUTRAL GRAY SCALE ===== */
   --neutral-50: #FFFFFF;
@@ -102,6 +103,7 @@
   --warning: #FFBF00;
   --info: #1C75BC;
   --success: #006644;
+  --error: #db1717;
 
   /* ===== HOVER STATES ===== */
   --hover-primary: #0A5AFE;
