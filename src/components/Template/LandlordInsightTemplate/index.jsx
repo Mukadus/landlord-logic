@@ -15,6 +15,7 @@ const LandlordInsightTemplate = () => {
         tableHeader={landlordInsightTableHeader}
         data={data}
         loading={loading}
+        pagination={true}
       />
     </Container>
   );

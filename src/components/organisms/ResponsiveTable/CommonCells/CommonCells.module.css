@@ -1,0 +1,147 @@
+.date {
+    color: var(--text-primary);
+  }
+  .iconButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--fs40);
+    cursor: pointer;
+  }
+  
+  .active {
+    background: var(--success);
+  }
+  .standby {
+    background: var(--warning);
+  }
+  
+  .userDataCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .avatarDiv {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+    background: var(--white);
+  }
+  .userAvatar {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--fs12);
+    object-fit: cover;
+    background: var(--border-light);
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .userName {
+    font-size: var(--fs14);
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.1;
+  }
+  
+  .userId {
+    font-size: var(--fs14);
+    color: var(--text-primary);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  
+  .ratingCell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 120px;
+    padding: 0 4px;
+  }
+  
+  .status {
+    display: flex;
+    padding: 2px 8px 2px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    border-radius: 100px;
+    font-size: var(--fs12);
+    font-family: var(--font-rethink);
+  }
+  .name {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  .dotIcon {
+    width: 10px;
+    height: 10px;
+    flex: none;
+  }
+  /* Status Colors */
+  .statusTrue,
+  .statusCompleted,
+  .statusPaid,
+  .activeStatus {
+    background-color: var(--success-bg);
+    color: var(--success);
+    white-space: nowrap;
+  }
+  
+  .statusFalse,
+  .statusRejected,
+  .statusUnpaid,
+  .deactiveStatus {
+    background-color: var(--error);
+    color: var(--white);
+  }
+  
+  .statusPending {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+  
+  .userDataCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .userAvatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .userName {
+    font-size: var(--fs16);
+    font-weight: 400;
+    color: var(--text-primary);
+    font-family: var(--font-rethink);
+  }  
+  .date{
+    font-size: var(--fs16);
+    font-weight: 600;
+    font-family: var(--font-rethink);
+  }

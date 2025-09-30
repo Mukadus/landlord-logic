@@ -11,6 +11,11 @@ export const getFormattedParams = (label) => {
   return capitalizeEachWord(label.replace(formRegEx, formRegExReplacer));
 };
 
+export const capitalizeFirstLetter = (l) => {
+  if (typeof l !== "string") return "";
+  return l.charAt(0).toUpperCase() + l.slice(1);
+};
+
 export const getFormattedPrice = (price, currency = "$", toFixed) => {
   return `${currency}${parseFloat(price).toFixed(
     toFixed !== undefined ? toFixed : 2
