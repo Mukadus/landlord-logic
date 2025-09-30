@@ -11,6 +11,10 @@ import { LoginSchema } from "@/formik/schema";
 import { HiOutlineLockClosed, HiOutlineMail } from "react-icons/hi";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import RenderToast from "@/components/atoms/RenderToast";
+import Cookies from "js-cookie";
+import { TOKEN_COOKIE_NAME } from "@/resources/utils/cookie";
+import { handleEncrypt } from "@/interceptor/encryption";
 
 export default function LoginTemplate() {
   const router = useRouter();
@@ -25,7 +29,24 @@ export default function LoginTemplate() {
   const [loading, setLoading] = useState("");
 
   const handleSubmit = async (values) => {
-    setLoading("login");
+    // setLoading("login");
+
+    if (
+      values.email === "admin@yopmail.com" &&
+      values.password === "12345678"
+    ) {
+      router.push("/dashboard");
+      Cookies.set(TOKEN_COOKIE_NAME, handleEncrypt("12345678"));
+      RenderToast({
+        message: "Login successful",
+        type: "success",
+      });
+    } else {
+      RenderToast({
+        message: "Invalid email or password",
+        type: "error",
+      });
+    }
   };
 
   return (
