@@ -11,6 +11,7 @@ import { FiLogOut } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { TOKEN_COOKIE_NAME } from "@/resources/utils/cookie";
 import Cookies from "js-cookie";
+import { HiOutlineUserCircle } from "react-icons/hi";
 
 export default function SideBar({ isCollapsed, setIsCollapsed }) {
   const router = useRouter();
@@ -62,9 +63,7 @@ export default function SideBar({ isCollapsed, setIsCollapsed }) {
               </div>
               {!isCollapsed && (
                 <p
-                  className={`fs-14 lh-24 ${
-                    item?.path === pathName ? "fw-700" : "fw-500"
-                  }`}
+                  className={`${item?.path === pathName ? "fw-700" : "fw-500"}`}
                 >
                   {item?.title}
                 </p>
@@ -72,46 +71,24 @@ export default function SideBar({ isCollapsed, setIsCollapsed }) {
             </div>
           ))}
         </div>
-        <div className={isCollapsed ? classes.subNavItem : ""}>
-          {/* {SIDE_BAR_BOTTOM_DATA?.map((item, index) => (
-            <div
-              className={clsx(
-                item?.path === pathName && classes.selectedNavItem,
-                classes.navItem,
-                isCollapsed && classes.closedNavItem
-              )}
-              key={index}
-              onClick={() => router.push(item?.path)}
-              title={isCollapsed ? item?.title : ""}
-            >
-              {item?.icon}
-              {!isCollapsed && (
-                <p
-                  className={`fs-14 lh-24 ${
-                    item?.path === pathName ? "fw-700" : "fw-500"
-                  }`}
-                >
-                  {item?.title}
-                </p>
-              )}
-            </div>
-          ))} */}
-          {/* <div className={classes.profile}>
-            <div className={classes.profileImage}>
-              {getInitials(user?.fullName)}
-            </div>
+        <div
+          className={clsx(
+            classes.subBottom,
+            isCollapsed && classes.closedSubBottom
+          )}
+        >
+          <div className={clsx(classes.profile, classes.navItem)}>
+            <HiOutlineUserCircle className={classes.navItemIcon} />
             {!isCollapsed && (
-              <div>
-                <p className={clsx(classes.fullName, "fs-14 lh-20 fw-600")}>
-                  {user?.fullName}
-                </p>
-                <p className="fs-13 lh-20 fw-400 maxLine1">{user?.email}</p>
-              </div>
+              <p className={clsx(classes.navItemText)}>Profile</p>
             )}
+          </div>
+          <div className={clsx(classes.navItem)}>
+            <FiLogOut className={classes.navItemIcon} />
             {!isCollapsed && (
-              <FiLogOut size={20} className={classes.icon} onClick={logout} />
+              <p className={clsx(classes.navItemText)}>Logout</p>
             )}
-          </div> */}
+          </div>
         </div>
       </div>
       <button

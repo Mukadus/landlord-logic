@@ -5,6 +5,7 @@ import { useState } from "react";
 import SideBar from "../SideBar";
 import classes from "./SideBarSkeleton.module.css";
 import { pagesWithoutSideBar } from "@/developmentContext/app-data";
+import AfterLoginHeader from "../AfterLoginHeader";
 
 export default function SideBarSkeleton({ children }) {
   const pathName = usePathname();
@@ -19,7 +20,7 @@ export default function SideBarSkeleton({ children }) {
     <div className={classes.mainDiv}>
       <SideBar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       <div className={clsx(isCollapsed ? classes.closedDiv : classes.bodyDiv)}>
-        <div>{children}</div>
+        <AfterLoginHeader>{children}</AfterLoginHeader>
       </div>
     </div>
   );
