@@ -1,10 +1,7 @@
 @import "./typography.css";
 @import "./color.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: var(--black);
-}
+
 
 html,
 body {

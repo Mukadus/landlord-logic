@@ -1,7 +1,7 @@
 "use client";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
-import SpinnerLoading from "@/components/atoms/SpinnerLoading/SpinnerLoading";
-import Pagination from "@/components/molecules/Pagination";
+// import SpinnerLoading from "@/components/atoms/SpinnerLoading/SpinnerLoading";
+import Pagination from "@/components/molecules/Pagination/Pagination";
 import { RECORDS_LIMIT } from "@/resources/utils/constant";
 import { imageUrl, mergeClass } from "@/resources/utils/helper";
 import Image from "next/image";
@@ -49,7 +49,7 @@ export default function ResponsiveTable({
             {loading ? (
               <tr>
                 <td colSpan={tableHeader.length + (actions.length ? 1 : 0)}>
-                  <SpinnerLoading />
+                  {/* <SpinnerLoading /> */}
                 </td>
               </tr>
             ) : data?.length ? (
