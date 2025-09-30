@@ -4,7 +4,6 @@ import classes from "./Button.module.css";
 import { Spinner } from "react-bootstrap";
 import { mergeClass } from "@/resources/utils/helper";
 
-
 const Button = ({
   label,
   fullWidth = false,
@@ -19,7 +18,6 @@ const Button = ({
   variant = "",
   type = "button",
   loading = false,
-  showSpinner = false,
   spinnerStyles = {},
   ...props
 }) => {
@@ -41,8 +39,8 @@ const Button = ({
         {leftIcon && leftIcon}
         {label && <label>{label}</label>}
         {children && { children }}
-        {rightIcon && !(loading && showSpinner) && rightIcon}
-        {showSpinner && loading && <Spinner size="sm" style={spinnerStyles} />}
+        {rightIcon && !loading && rightIcon}
+        {loading && <Spinner size="sm" style={spinnerStyles} />}
       </button>
     </>
   );

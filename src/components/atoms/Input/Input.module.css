@@ -1,126 +1,197 @@
+/* Input Container */
 .container {
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 }
 
+/* Label Styling */
 .labelText {
-  color: var(--label);
-  font-family: var(--font-inter) !important;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-
-.noBorder {
-  border: none;
-}
-
-.inputContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  position: relative;
-  border-radius: 6px;
-}
-
-.inputClassName {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-inline: 16px;
-  width: 100%;
-  height: 40px;
-  border-radius: inherit;
-  border: 1px solid var(--border);
-  background-color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--black);
-  font-family: var(--font-inter);
-}
-
-.inputClassName:disabled {
-  box-shadow: none;
-  cursor: not-allowed;
-  background-color: rgba(220, 220, 220, 0.348);
-}
-
-.inputClassName::placeholder {
-  color: var(--gray-v1);
-  font-size: 14px;
-  text-transform: capitalize;
-  font-family: var(--font-inter);
-  font-weight: 500;
-}
-
-.inputContainer .passwordIcon {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  bottom: 50%;
-  transform: translateY(-50%);
-  color: var(--gray-v1);
-  cursor: pointer;
-}
-
-.error {
-  font-family: var(--font-inter);
-  font-size: 14px;
+  color: var(--black-50);
+  font-size: var(--fs14);
   font-weight: 400;
-  color: var(--error);
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+  line-height: 20px;
 }
 
+.labelText.disabled {
+  color: var(--text-disabled);
+}
+
+/* Input Container */
+.inputContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.inputContainer:hover {
+  transform: translateY(-0.5px);
+}
+
+.inputContainer:focus-within {
+  transform: translateY(-0.7px);
+  box-shadow: 0 4px 12px rgba(14, 14, 85, 0.15);
+}
+
+/* Main Input Styling */
+.inputClassName {
+  width: 100%;
+  height: var(--h-48);
+  padding: var(--p-12) var(--p-16);
+  border: 1px solid var(--border-light);
+  border-radius: var(--br-8);
+  background-color: var(--white);
+  font-size: var(--fs14);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+/* Input States */
+.inputClassName:hover {
+  border-color: var(--border-medium);
+  background-color: var(--bg-secondary);
+}
+
+.inputClassName:focus {
+  border-color: none;
+  background-color: none;
+  box-shadow: 0 0 0 3px rgba(46, 104, 250, 0.1);
+}
+
+.inputClassName:active {
+  border-color: none;
+  transform: scale(0.998);
+}
+
+/* Input with icons */
+.inputClassName[data-has-left-icon="true"] {
+  padding-left: 48px;
+}
+
+.inputClassName[data-has-right-icon="true"] {
+  padding-right: var(--p-48);
+}
+
+/* Disabled State */
+.inputClassName:disabled {
+  background-color: var(--bg-quaternary);
+  border-color: var(--border-light);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.inputClassName:disabled:hover {
+  transform: none;
+  background-color: var(--bg-quaternary);
+  border-color: var(--border-light);
+}
+
+/* Placeholder Styling */
+.inputClassName::placeholder {
+  color: var(--dark-gray-200);
+  font-size: var(--fs14);
+  font-weight: 400;
+  line-height: 20px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.inputClassName:focus::placeholder {
+  opacity: 0.6;
+}
+
+/* No Border Variant */
+.noBorder {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Icon Styling */
 .leftIconBox,
 .rightIconBox {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black-200);
+  transition: color 0.2s ease;
+  z-index: 2;
 }
 
 .leftIconBox {
-  left: 20px;
+  left: 16px;
 }
 
 .rightIconBox {
-  right: 10px;
+  right: 16px;
 }
 
-.inputClassName ::-webkit-outer-spin-button,
-.inputClassName ::-webkit-inner-spin-button {
+.inputContainer:focus-within .leftIconBox,
+.inputContainer:focus-within .rightIconBox {
+  color: var(--primary-light);
+}
+
+/* Password Icon */
+.passwordIcon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--black-200);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 3;
+  width: var(--s-20);
+  height: var(--s-20);
+}
+
+.passwordIcon:hover {
+  color: var(--primary-light);
+  background-color: var(--bg-secondary);
+}
+
+.passwordIcon:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Error State Input */
+.inputClassName.hasError {
+  border-color: var(--warning);
+  background-color: rgba(255, 191, 0, 0.05);
+}
+
+.inputClassName.hasError:focus {
+  border-color: var(--warning);
+  box-shadow: 0 0 0 3px rgba(255, 191, 0, 0.1);
+}
+
+/* Remove default number input spinners */
+.inputClassName::-webkit-outer-spin-button,
+.inputClassName::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.inputClassName:focus {
-  outline: none;
-}
-/*  Firefox  */
+/* Firefox number input styling */
 .inputClassName[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-@media (max-width: 991px) {
-  .labelText {
-    font-size: 14px;
-  }
-  .inputContainer input {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 576px) {
-  .labelText {
-    font-size: 12px;
-  }
-
-  .inputContainer input {
-    font-size: 11px;
-  }
-
-  .inputClassName {
-    padding: 12px 8px;
-  }
+/* Focus ring for accessibility */
+.inputClassName:focus-visible {
+  outline: none;
+  outline-offset: 2px;
 }

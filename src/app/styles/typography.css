@@ -10,8 +10,23 @@
   --fs24: 24px; /* 2XL */
   --fs30: 30px; /* 3XL */
   --fs32: 32px; /* 4XL */
-}
 
+  /* sizes */
+
+  --s-20: 20px;
+
+  /* height */
+  --h-48: 48px;
+  --h-40: 40px;
+
+  /* border radius */
+  --br-8: 8px;
+  --br-6: 6px;
+
+  /* padding */
+  --p-12: 12px;
+  --p-16: 16px;
+}
 
 p,
 span {
@@ -39,9 +54,6 @@ span {
   font-weight: 700;
 }
 
-
-
-
 /* Extra large devices (1200px and up) */
 @media (min-width: 1200px) {
   :root {
@@ -57,7 +69,6 @@ span {
     --fs32: 32px;
   }
 }
-
 
 /* Large devices (1024px and up) */
 @media (min-width: 1024px) {
@@ -91,7 +102,6 @@ span {
   }
 }
 
-
 /* Small devices (480px and up) */
 @media (min-width: 480px) {
   :root {
@@ -123,4 +133,3 @@ span {
     --fs32: 30px;
   }
 }
-

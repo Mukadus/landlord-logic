@@ -16,8 +16,15 @@ export default function middleware(req) {
     "/profile",
   ];
 
+  const authRoutes = [
+    "/",
+    "/forgot-password",
+    "/verify-otp",
+    "/reset-password",
+  ];
+
   if (cookies.has(TOKEN_COOKIE_NAME)) {
-    if (nextUrl.pathname === "/") {
+    if (authRoutes.includes(nextUrl.pathname)) {
       return NextResponse.redirect(new URL("/dashboard", req.url));
     }
   } else {

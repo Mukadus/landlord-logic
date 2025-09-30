@@ -10,18 +10,6 @@
   overflow: hidden;
 }
 
-.loginWrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23007fff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
-    repeat;
-  pointer-events: none;
-}
-
 .container {
   padding: 0;
   height: 100vh;
@@ -48,25 +36,11 @@
   height: 100vh;
 }
 
-.brandingContent::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 0%,
-    transparent 50%
-  );
-  animation: float 20s ease-in-out infinite;
-}
-
 .logoSection {
   text-align: center;
-  color: var(--White);
+  color: var(--white);
   z-index: 2;
+  color: var(--white);
   position: relative;
   max-width: 500px;
   padding: 2rem;
@@ -110,7 +84,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: var(--bg-primary);
+  background: var(--white);
 }
 
 .formWrapper {
@@ -140,7 +114,7 @@
 }
 
 .formSubtitle {
-  font-size: 1rem;
+  font-size: var(--fs18);
   color: var(--text-secondary);
   margin: 0;
   opacity: 0.8;
@@ -156,23 +130,16 @@
   position: relative;
 }
 
-.formOptions {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
 .forgotPassword {
-  font-size: 0.9rem;
+  font-size: var(--fs16);
   color: var(--primary-light);
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
   text-decoration: none;
   position: relative;
+  width: max-content;
+  margin: 0 0 10px auto;
 }
 
 .forgotPassword:hover {
@@ -270,7 +237,7 @@
   }
 
   .loginWrapper {
-    background: var(--bg-primary);
+    background: var(--white);
   }
 
   .formWrapper {
@@ -285,10 +252,6 @@
 
   .formHeader {
     margin-bottom: 2rem;
-  }
-
-  .formOptions {
-    justify-content: center;
   }
 
   .inputGroup {
@@ -313,30 +276,4 @@
     width: 60px;
     height: 60px;
   }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .loginWrapper::before,
-  .brandingContent::before,
-  .logoIcon,
-  .logoSection,
-  .formWrapper,
-  .forgotPassword,
-  .loginButton {
-    animation: none;
-    transition: none;
-  }
-
-  .forgotPassword:hover,
-  .loginButton:hover {
-    transform: none;
-  }
-}
-
-/* Focus States for Accessibility */
-.forgotPassword:focus {
-  outline: 2px solid var(--primary-light);
-  outline-offset: 2px;
-  border-radius: 4px;
 }

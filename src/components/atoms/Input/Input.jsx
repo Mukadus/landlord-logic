@@ -1,9 +1,8 @@
 "use client";
 import { mergeClass } from "@/resources/utils/helper";
 import React, { useState } from "react";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import classes from "./Input.module.css";
-
 
 export default function Input({
   type = "text",
@@ -65,9 +64,12 @@ export default function Input({
             className={mergeClass(
               inputClass,
               classes.inputClassName,
-              noBorder && classes.noBorder
+              noBorder && classes.noBorder,
+              error && classes.hasError
             )}
-            style={{ ...inputStyle, ...(leftIcon && { paddingLeft: 50 }) }}
+            style={inputStyle}
+            data-has-left-icon={!!leftIcon}
+            data-has-right-icon={!!(rightIcon || type === "password")}
             onKeyDownCapture={(e) => {
               ["Enter", "NumpadEnter"].includes(e.code) &&
                 onEnterClick &&
@@ -95,25 +97,19 @@ export default function Input({
 
           {rightIcon && <div className={classes.rightIconBox}>{rightIcon}</div>}
           {type == "password" && show == false && (
-            <FaRegEyeSlash
+            <FaEyeSlash
               className={mergeClass(classes.passwordIcon)}
               onClick={() => setShow(!show)}
-              size={24}
-              color="var(--black)"
             />
           )}
           {type == "password" && show && (
-            <FaRegEye
-              className={mergeClass(classes.passwordIcon, "pointer")}
+            <FaEye
+              className={mergeClass(classes.passwordIcon)}
               onClick={() => setShow(!show)}
-              size={24}
-              color="var(--black)"
             />
           )}
         </div>
-        {error && (
-          <p className={`mt-1 ${[classes.error].join(" ")}`}>*{error}</p>
-        )}
+        {error && <p className={`mt-1 errorText`}>*{error}</p>}
       </div>
     </>
   );

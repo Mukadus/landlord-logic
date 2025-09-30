@@ -10,8 +10,11 @@ import { useFormik } from "formik";
 import { LoginSchema } from "@/formik/schema";
 import { HiOutlineLockClosed, HiOutlineMail } from "react-icons/hi";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function LoginTemplate() {
+  const router = useRouter();
+
   const loginForm = useFormik({
     initialValues: loginFormValues,
     validationSchema: LoginSchema,
@@ -22,7 +25,7 @@ export default function LoginTemplate() {
   const [loading, setLoading] = useState("");
 
   const handleSubmit = async (values) => {
-    console.log(values);
+    setLoading("login");
   };
 
   return (
@@ -68,10 +71,12 @@ export default function LoginTemplate() {
                     setValue={(value) =>
                       loginForm.setFieldValue("email", value)
                     }
+                    disabled={loading === "login"}
                     error={loginForm.touched.email && loginForm.errors.email}
                     leftIcon={
                       <HiOutlineMail size={20} color="var(--primary)" />
                     }
+                    onEnterClick={() => loginForm.handleSubmit()}
                   />
                 </div>
 
@@ -90,23 +95,24 @@ export default function LoginTemplate() {
                     leftIcon={
                       <HiOutlineLockClosed size={20} color="var(--primary)" />
                     }
+                    disabled={loading === "login"}
+                    onEnterClick={() => loginForm.handleSubmit()}
                   />
                 </div>
 
-                <div className={classes.formOptions}>
-                  <span className={classes.forgotPassword}>
-                    Forgot Password?
-                  </span>
-                </div>
-
+                <p
+                  className={classes.forgotPassword}
+                  onClick={() => router.push("/forgot-password")}
+                >
+                  Forgot Password?
+                </p>
                 <Button
                   type="submit"
-                  label={loading ? "Signing In..." : "Sign In"}
+                  label={loading === "login" ? "Signing In..." : "Sign In"}
                   variant="primary"
                   fullWidth
-                  loading={loading}
-                  showSpinner={loading}
-                  disabled={loading}
+                  loading={loading === "login"}
+                  disabled={loading === "login"}
                   className={classes.loginButton}
                 />
               </form>
