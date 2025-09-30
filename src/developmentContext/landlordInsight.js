@@ -7,7 +7,7 @@ import {
 
 export const landlordInsightTableHeader = [
   {
-    title: "User",
+    title: "Landlord",
     key: "user",
     style: { width: "30%" },
     renderItem: ({ data }) => <RenderUserCell cellValue={data?.user}  />,
@@ -43,7 +43,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: "Active",
+    status: false,
     totalProperties: 10,
   },
   {
@@ -53,7 +53,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: "Active",
+    status: true,
     totalProperties: 10,
   },
   {
@@ -63,7 +63,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: "Active",
+    status: false,
     totalProperties: 10,
   },
   {
@@ -73,7 +73,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: "Active",
+    status: true,
     totalProperties: 10,
   },
   {
@@ -83,7 +83,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: "Active",
+    status: false,
     totalProperties: 10,
   },
   {
@@ -93,7 +93,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: "Active",
+    status: false,
     totalProperties: 10,
   },
   {
@@ -103,7 +103,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: "Active",
+    status: true,
     totalProperties: 10,
   },
 ];
