@@ -1,25 +1,35 @@
 import { CustomProvider } from "@/store/customProvider";
 import "aos/dist/aos.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Inter } from "next/font/google";
+import { Libre_Baskerville, Rethink_Sans } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles/globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const libre = Libre_Baskerville({
+  variable: "--font-libre",
   subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const reThink = Rethink_Sans({
+  variable: "--font-rethink",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
-  title: "next-web",
-  description: `A Next.js web application with custom fonts and styles`,
+  title: "My Landlord Logic Admin Panel",
+  description: `Admin panel for My Landlord Logic`,
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable}`} suppressHydrationWarning>
+      <body
+        className={`${libre.variable} ${reThink.variable}`}
+        suppressHydrationWarning
+      >
         <ToastContainer />
         <CustomProvider>
           {/* <SocketProvider> */}

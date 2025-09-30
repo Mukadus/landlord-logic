@@ -1,19 +1,28 @@
 import { NextResponse } from "next/server";
+import { TOKEN_COOKIE_NAME } from "./resources/utils/cookie";
 
 export default function middleware(req) {
   const { cookies, nextUrl } = req;
-  const publicRoutes = [
 
+  const privateRoutes = [
+    "/dashboard",
+    "/landlord-insights",
+    "/tenant-profiles",
+    "/contractor-profiles",
+    "/job-requests",
+    "/subscription-management",
+    "/complains-management",
+    "/notifications-center",
+    "/profile",
   ];
-  return NextResponse.next();
 
   if (cookies.has(TOKEN_COOKIE_NAME)) {
-    if (nextUrl.pathname === "/login") {
+    if (nextUrl.pathname === "/") {
       return NextResponse.redirect(new URL("/dashboard", req.url));
     }
   } else {
-    if (nextUrl.pathname === "/dashboard") {
-      return NextResponse.redirect(new URL("/login", req.url));
+    if (privateRoutes.includes(nextUrl.pathname)) {
+      return NextResponse.redirect(new URL("/", req.url));
     }
   }
   return NextResponse.next();

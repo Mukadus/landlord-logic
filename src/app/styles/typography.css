@@ -25,18 +25,28 @@
   --fs96: 96px; /* 15XL */
 }
 
-body {
-  font-family: var(--font-inter);
-  font-size: var(--fs14);
-}
-
 p,
 span {
   font-size: var(--fs14);
-  font-family: var(--font-inter);
   font-weight: 400;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+.fw400 {
+  font-weight: 400;
+}
+
+.fw500 {
+  font-weight: 500;
+}
+
+.fw600 {
+  font-weight: 600;
+}
+
+.fw700 {
+  font-weight: 700;
 }

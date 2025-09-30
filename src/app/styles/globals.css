@@ -16,7 +16,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-rethink), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -32,9 +32,8 @@ a {
   text-decoration: none;
 }
 
-.containerFluid {
-  width: 100%;
-  max-width: 100%;
-  margin: 0px;
-  padding: 0px 60px;
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1440px !important;
+  }
 }

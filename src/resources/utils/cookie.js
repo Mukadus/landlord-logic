@@ -1,9 +1,7 @@
 import { handleDecrypt, handleEncrypt } from "@/interceptor/encryption";
 import Cookies from "js-cookie";
 
-// ! replace _proj with YOUR_PROJ_NAME for samurai and _projx for projexor
-export const PROJECT_NAME = "proj";
-
+export const PROJECT_NAME = "landlord-logic";
 
 export const TOKEN_COOKIE_NAME = `_xpdx_${PROJECT_NAME}`;
 export const REFRESH_TOKEN_COOKIE_NAME = `_xpdx_rf_${PROJECT_NAME}`;
@@ -23,7 +21,9 @@ export const removeTokenCookie = () => {
 };
 
 export const setRefreshTokenCookie = (refreshToken) => {
-  Cookies.set(REFRESH_TOKEN_COOKIE_NAME, handleEncrypt(refreshToken), { expires: 90 });
+  Cookies.set(REFRESH_TOKEN_COOKIE_NAME, handleEncrypt(refreshToken), {
+    expires: 90,
+  });
 };
 
 export const setUserMetadataCookie = (user) => {
