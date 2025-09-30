@@ -15,11 +15,11 @@ import { FaRegCheckCircle } from "react-icons/fa";
 // statusClassMap - a map of status classes
 const statusClassMap = {
   active: {
-    className: classes.active,
+    className: classes.activeStatus,
     icon: <FaRegCheckCircle />,
   },
   inactive: {
-    className: classes.inactive,
+    className: classes.deactiveStatus,
     icon: <FaRegCheckCircle />, 
   },
 
