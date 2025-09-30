@@ -4,32 +4,7 @@ import React, { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import classes from "./Input.module.css";
 
-/**
- * Input component for user text, password, or number entry.
- *
- * @param {Object} props
- * @param {string} [props.type="text"] - Input type ("text", "password", "number", etc.).
- * @param {string} [props.label=""] - Main label for the input.
- * @param {string} [props.label2=""] - Sub label for the input.
- * @param {string|number} [props.value=""] - Input value.
- * @param {function} [props.setValue=()=>{}] - Function to update input value.
- * @param {boolean} [props.noBorder=false] - If true, removes border from input.
- * @param {string} [props.placeholder=""] - Placeholder text.
- * @param {boolean} [props.disabled=false] - If true, disables the input.
- * @param {React.CSSProperties} [props.customStyle={}] - Inline style for input container.
- * @param {React.CSSProperties} [props.inputStyle={}] - Inline style for input element.
- * @param {React.CSSProperties} [props.labelStyle={}] - Inline style for label.
- * @param {string} [props.error=""] - Error text to display.
- * @param {React.ReactNode} [props.leftIcon=null] - Icon to display on the left.
- * @param {React.ReactNode} [props.rightIcon=null] - Icon to display on the right.
- * @param {React.Ref} [props.inputRef=null] - Ref for the input element.
- * @param {string} [props.inputClass=""] - Additional class for input element.
- * @param {function} [props.onEnterClick=()=>{}] - Callback for Enter key.
- * @param {string} [props.className=""] - Additional class for container.
- * @param {React.CSSProperties} [props.containerStyles={}] - Inline style for container.
- * @param {string} [props.containerClass=""] - Additional class for input container.
- * @returns {JSX.Element}
- */
+
 export default function Input({
   type = "text",
   label = "",
