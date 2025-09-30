@@ -32,11 +32,26 @@ a {
   text-decoration: none;
 }
 
-/* --black: var(--black-500);
-  --placeholder: var(--text-placeholder);
-  --text: var(--text-primary);
-  --label: var(--text-secondary);
-  --border: var(--border-medium); */
+.white {
+  color: var(--neutral-50);
+}
+.black {
+  color: var(--black);
+}
+.placeholder {
+  color: var(--dark-gray-100);
+}
+.text {
+  color: var(--text-primary);
+}
+.label {
+  color: var(--black-50);
+}
+.error-text {
+  color: var(--error);
+  font-size: var(--fs12);
+  font-weight: 400;
+}
 
 @media screen and (min-width: 1400px) {
   .container {
