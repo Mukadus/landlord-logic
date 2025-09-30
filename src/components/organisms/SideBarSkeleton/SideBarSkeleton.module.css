@@ -3,10 +3,22 @@
 }
 .closedDiv,
 .bodyDiv {
-  padding: 25px;
-  width: calc(100vw - 22.3%);
+  padding: 25px 20px;
+  width: calc(100vw - 16.8%);
 }
 
 .closedDiv {
   width: calc(100vw - 7%);
+}
+
+@media screen and (min-width: 1600px) {
+  .bodyDiv {
+    width: calc(100vw - 21%);
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .bodyDiv {
+    width: calc(100vw - 24.6%);
+  }
 }

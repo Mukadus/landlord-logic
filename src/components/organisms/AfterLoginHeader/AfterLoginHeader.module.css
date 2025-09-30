@@ -1,0 +1,14 @@
+.header {
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid var(--border-light);
+}
+.headerTitle {
+  font-size: var(--fs20);
+  font-weight: 500;
+  color: var(--gray-700);
+}
+.body {
+  padding-top: 32px;
+  max-height: calc(100vh - 125px);
+  overflow-y: auto;
+}
