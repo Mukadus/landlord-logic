@@ -1,124 +1,131 @@
 import {
-    // calculateAge,
-    capitalizeFirstLetter,
-    getFormattedPrice,
-    imageUrl,
-  } from "@/resources/utils/helper";
-  // import Rating from "@mui/material/Rating";
-  import clsx from "clsx";
-  import moment from "moment";
-  import { GoDotFill } from "react-icons/go";
-  import Image from "next/image";
-  import classes from "./CommonCells.module.css";
-  
-  const statusClassMap = {
-    true: "statusFalse",
-    false: "statusTrue",
-    completed: "statusCompleted",
-    pending: "statusPending",
-    active: "activeStatus",
-    deactive: "deactiveStatus",
-  };
-  
-  export const RenderCurrencyCell = ({ cellValue }) => {
-    return <span>{cellValue != null ? getFormattedPrice(cellValue) : "-"}</span>;
-  };
-  
-  export const RenderTextCell = ({ cellValue: item }) => {
-    return (
-      <span className={clsx("maxLine1")}>
-        {item ? capitalizeFirstLetter(item?.toString()) : item ?? "-"}
-      </span>
-    );
-  };
-  export const RenderBoldTextCell = ({ cellValue: item }) => {
-    return (
-      <span className={clsx("maxLine1 fw-500")}>
-        {item ? capitalizeFirstLetter(item?.toString()) : item ?? "-"}
-      </span>
-    );
-  };
-  export const RenderCategoryCell = ({ cellValue: { item } }) => {
-    return (
-      <span title={item} className={clsx("maxLine1")}>
-        {item ? capitalizeFirstLetter(item) : "-"}
-      </span>
-    );
-  };
-  
-  export const RenderDateCell = ({ cellValue: item }) => {
-    return (
-      <span className={clsx(classes?.date)}>{moment(item).format("ll")}</span>
-    );
-  };
-  
-  export const RenderPhoneNumber = ({ cellValue: item, rowData: rowItem }) => {
-    if (!rowItem) return null;
-    const { fullName, phoneNumber } = rowItem;
-    return (
-      <div className={classes.phoneNumberCell}>
-        <p className={clsx(classes.name, "fs-14 fw-500 lh-20")}>{fullName}</p>
-        <p className={"fs-14 fw-400 lh-20"}>{phoneNumber}</p>
+  // calculateAge,
+  capitalizeFirstLetter,
+  getFormattedPrice,
+  imageUrl,
+} from "@/resources/utils/helper";
+// import Rating from "@mui/material/Rating";
+import clsx from "clsx";
+import moment from "moment";
+import { GoDotFill } from "react-icons/go";
+import Image from "next/image";
+import classes from "./CommonCells.module.css";
+import { FaRegCheckCircle } from "react-icons/fa";
+
+// statusClassMap - a map of status classes
+const statusClassMap = {
+  Active: {
+    className: classes.active,
+    icon: <FaRegCheckCircle />,
+  },
+  Inactive: {
+    className: classes.inactive,
+    icon: <FaRegCheckCircle />, 
+  },
+
+  Completed: {
+    // icon: <LuCheck />,
+    className: classes.completed,
+  },
+  Ongoing: {
+    // icon: <LuHourglass />,
+    className: classes.waiting,
+  },
+  Pending: {
+    // icon: <LuHourglass />,
+    className: classes.pending,
+  },
+};
+export const RenderCurrencyCell = ({ cellValue }) => {
+  return <span>{cellValue != null ? getFormattedPrice(cellValue) : "-"}</span>;
+};
+
+export const RenderTextCell = ({ cellValue: item }) => {
+  return (
+    <span className={clsx("maxLine1")}>
+      {item ? capitalizeFirstLetter(item?.toString()) : item ?? "-"}
+    </span>
+  );
+};
+export const RenderBoldTextCell = ({ cellValue: item }) => {
+  return (
+    <span className={clsx("maxLine1 fw-500")}>
+      {item ? capitalizeFirstLetter(item?.toString()) : item ?? "-"}
+    </span>
+  );
+};
+export const RenderCategoryCell = ({ cellValue: { item } }) => {
+  return (
+    <span title={item} className={clsx("maxLine1")}>
+      {item ? capitalizeFirstLetter(item) : "-"}
+    </span>
+  );
+};
+
+export const RenderDateCell = ({ cellValue: item }) => {
+  return (
+    <span className={clsx(classes?.date)}>
+      {moment(item).format("DD.MM.YYYY")}
+    </span>
+  );
+};
+
+export const RenderPhoneNumber = ({ cellValue: item, rowData: rowItem }) => {
+  if (!rowItem) return null;
+  const { fullName, phoneNumber } = rowItem;
+  return (
+    <div className={classes.phoneNumberCell}>
+      <p className={clsx(classes.name, "fs-14 fw-500 lh-20")}>{fullName}</p>
+      <p className={"fs-14 fw-400 lh-20"}>{phoneNumber}</p>
+    </div>
+  );
+};
+
+export const RenderStatusCell = ({ cellValue: item  }) => {
+  const isBoolean = typeof item === "boolean";
+  const displayValue = isBoolean ? (item ? "Inactive" : "Active") : item;
+
+  const statusClass = statusClassMap[displayValue];
+
+  return (
+    <span
+      className={clsx(
+        classes.status,
+        "fs-12 fw-600 lh-18",
+        statusClass && classes[statusClass?.className]
+      )}
+    >
+      {statusClass?.icon && statusClass.icon}
+      {capitalizeFirstLetter(displayValue)}
+    </span>
+  );
+};
+export const IconButton = ({ icon, onClick }) => {
+  return (
+    <div className={classes?.iconButton} onClick={onClick}>
+      {icon}
+    </div>
+  );
+};
+
+export const RenderUserCell = ({ cellValue }) => {
+  if (!cellValue) return null;
+  console.log("cellValue", cellValue);
+
+  return (
+    <div className={classes.userDataCell}>
+      <div className={classes.userAvatar}>
+        <Image
+          src={imageUrl(cellValue?.photo) || cellValue?.photo}
+          alt={cellValue?.fullName}
+          width={48}
+          height={48}
+        />
       </div>
-    );
-  };
-  
-  export const RenderStatusCell = ({ cellValue: item }) => {
-    const isBoolean = typeof item === "boolean";
-    const displayValue = isBoolean ? (item ? "Inactive" : "Active") : item;
-  
-    // Normalize specific leave status strings
-    let normalized = String(item).toLowerCase();
-    if (normalized === "paid leaves") {
-      normalized = "paid"; // Map 'Paid Leaves' and 'Approved' to 'approved' for green styling
-    } else if (normalized === "unpaid") {
-      normalized = "unpaid"; // Map 'Unpaid' to 'unpaid' for red styling
-    }
-  
-    const statusClass = statusClassMap[normalized];
-  
-    const shouldShowDot = normalized !== "paid" && normalized !== "unpaid"; // Also hide dot for approved status
-  
-    return (
-      <span
-        className={clsx(
-          classes.status,
-          "fs-12 fw-600 lh-18",
-          statusClass && classes[statusClass]
-        )}
-      >
-        {shouldShowDot && <GoDotFill className={classes.dotIcon} />}
-        {capitalizeFirstLetter(displayValue)}
-      </span>
-    );
-  };
-  export const IconButton = ({ icon, onClick }) => {
-    return (
-      <div className={classes?.iconButton} onClick={onClick}>
-        {icon}
+      <div className={classes.userInfo}>
+        <div className={classes.userName}>{cellValue?.fullName}</div>
+        <div className={classes.userEmail}>{cellValue?.email}</div>
       </div>
-    );
-  };
-  
-  export const RenderUserCell = ({ cellValue }) => {
-    if (!cellValue) return null;
-    console.log("cellValue", cellValue);
-  
-    return (
-      <div className={classes.userDataCell}>
-        <div className={classes.userAvatar}>
-          <Image
-            src={imageUrl(cellValue?.photo) || cellValue?.photo}
-            alt={cellValue?.fullName}
-            width={48}
-            height={48}
-          />
-        </div>
-        <div className={classes.userInfo}>
-          <div className={classes.userName}>{cellValue?.fullName}</div>
-          <div className={classes.userId}>{cellValue?.email}</div>
-        </div>
-      </div>
-    );
-  };
-  
+    </div>
+  );
+};

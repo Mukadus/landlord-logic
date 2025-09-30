@@ -67,7 +67,7 @@
   
   .status {
     display: flex;
-    padding: 2px 8px 2px 6px;
+    padding: var(--p-2) var(--p-8) var(--p-2) var(--p-6);
     justify-content: center;
     align-items: center;
     gap: 6px;
@@ -75,15 +75,17 @@
     border-radius: 100px;
     font-size: var(--fs12);
     font-family: var(--font-rethink);
+    font-weight: 400;
+    line-height: var(--lh-20);
   }
   .name {
     color: var(--text-primary);
     font-weight: 500;
   }
   .dotIcon {
-    width: 10px;
-    height: 10px;
-    flex: none;
+    width: 13px;
+    height: 13px;
+    /* color: var(--green); */
   }
   /* Status Colors */
   .statusTrue,
@@ -91,16 +93,18 @@
   .statusPaid,
   .activeStatus {
     background-color: var(--success-bg);
-    color: var(--success);
+    color: var(--green);
     white-space: nowrap;
+    border: 1px solid var(--green-bg);
   }
   
   .statusFalse,
   .statusRejected,
   .statusUnpaid,
   .deactiveStatus {
-    background-color: var(--error);
-    color: var(--white);
+    background-color: var(--error-bg);
+    color: var(--error);
+    border: 1px solid var(--error-bg-light);
   }
   
   .statusPending {
@@ -137,11 +141,76 @@
   .userName {
     font-size: var(--fs16);
     font-weight: 400;
-    color: var(--text-primary);
+    color: var(  --blue-bg-darker);
     font-family: var(--font-rethink);
+    line-height: var(--lh-24);
   }  
+
+  .userEmail{
+    font-size: var(--fs12);
+    font-weight: 400;
+    color: var(  --blue-bg-darker);
+    font-family: var(--font-rethink);
+    line-height: var(--lh-20);
+  }
   .date{
     font-size: var(--fs16);
     font-weight: 600;
     font-family: var(--font-rethink);
+    line-height: var(--lh-24);
+  }
+
+  /* Status Classes */
+  .active {
+    background-color: var(--success-bg);
+    color: var(--green);
+    border: 1px solid var(--green-bg);
+  }
+
+  .inactive {
+    background-color: var(--error-bg);
+    color: var(--error);
+    border: 1px solid var(--error-bg-light);
+  }
+
+  .failed {
+    background-color: var(--error-bg);
+    color: var(--error);
+    border: 1px solid var(--error-bg-light);
+  }
+
+  .completed {
+    background-color: var(--success-bg);
+    color: var(--green);
+    border: 1px solid var(--green-bg);
+  }
+
+  .cancelled {
+    background-color: var(--error-bg);
+    color: var(--error);
+    border: 1px solid var(--error-bg-light);
+  }
+
+  .buzz {
+    background-color: var(--warning-bg);
+    color: var(--warning);
+    border: 1px solid var(--warning-bg-light);
+  }
+
+  .waiting {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+  }
+
+  .pending {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+  }
+
+  .success {
+    background-color: var(--success-bg);
+    color: var(--green);
+    border: 1px solid var(--green-bg);
   }

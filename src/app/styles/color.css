@@ -92,7 +92,8 @@
   --warning: #ffbf00;
   --info: #1c75bc;
   --error: #db1717;
-
+  --error-bg: #ffe6e6;
+  --error-bg-light: #ffe6e6;
   /* ===== HOVER STATES ===== */
   --hover-primary: #0a5afe;
   --hover-secondary: #996314;
