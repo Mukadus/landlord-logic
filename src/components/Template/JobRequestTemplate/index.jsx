@@ -1,33 +1,37 @@
 "use client";
 import { useState, useEffect } from "react";
-import classes from "./LandlordInsightTemplate.module.css";
+// import classes from "./JobRequestTemplate.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Table from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import {
-  landlordInsightTableHeader,
-  guardiansBodyData,
-} from "@/developmentContext/landlordInsight";
+  jobRequestTableHeader,
+  jobRequestBodyData,
+} from "@/developmentContext/jobRequest";
 import HeadingSection from "@/components/organisms/HeadingSection";
 
-const LandlordInsightTemplate = () => {
+const JobRequestTemplate = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(guardiansBodyData);
+  const [data, setData] = useState(jobRequestBodyData);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
-  const[totalRecords, setTotalRecords] = useState(0);
+  const [totalRecords, setTotalRecords] = useState(0);
+  const [page, setPage] = useState(1);
 
   return (
     <Container fluid>
       <Row>
         <Col lg={12} className="p-0">
-          <HeadingSection heading="Landlord Insights" search={true} filter={true} />
+          <HeadingSection heading="Job Requests" search={true} filter={true} />
         </Col>
         <Col lg={12} className="p-0">
           <Table
-            tableHeader={landlordInsightTableHeader}
+            tableHeader={jobRequestTableHeader}
             data={data}
             loading={loading}
             pagination={true}
+            page={page}
+            totalRecords={totalRecords}
+            onPageChange={setPage}
           />
         </Col>
       </Row>
@@ -35,4 +39,4 @@ const LandlordInsightTemplate = () => {
   );
 };
 
-export default LandlordInsightTemplate;
+export default JobRequestTemplate;

@@ -11,6 +11,9 @@ import { GoDotFill } from "react-icons/go";
 import Image from "next/image";
 import classes from "./CommonCells.module.css";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { MdOutlineCancel } from "react-icons/md";
+import { MdOutlineWatchLater } from "react-icons/md";
+import { MdOutlinePending } from "react-icons/md";
 
 // statusClassMap - a map of status classes
 const statusClassMap = {
@@ -20,29 +23,29 @@ const statusClassMap = {
   },
   inactive: {
     className: classes.deactiveStatus,
-    icon: <FaRegCheckCircle />, 
+    icon: <MdOutlineCancel />,
   },
 
   completed: {
-    // icon: <LuCheck />,
-    className: classes.completed,
+    icon: <FaRegCheckCircle />,
+    className: classes.statusCompleted,
   },
   ongoing: {
-    // icon: <LuHourglass />,
-    className: classes.waiting,
+    icon: <MdOutlinePending />,
+    className: classes.statusOngoing,
   },
   pending: {
-    // icon: <LuHourglass />,
-    className: classes.pending,
+    icon: <MdOutlineWatchLater />,
+    className: classes.statusPending,
   },
 };
 export const RenderCurrencyCell = ({ cellValue }) => {
-  return <span>{cellValue != null ? getFormattedPrice(cellValue) : "-"}</span>;
+  return <span className={classes.textCell}>{cellValue != null ? getFormattedPrice(cellValue) : "-"}</span>;
 };
 
 export const RenderTextCell = ({ cellValue: item }) => {
   return (
-    <span className={clsx("maxLine1")}>
+    <span className={clsx("maxLine1", classes.textCell)}>
       {item ? capitalizeFirstLetter(item?.toString()) : item ?? "-"}
     </span>
   );
@@ -54,13 +57,7 @@ export const RenderBoldTextCell = ({ cellValue: item }) => {
     </span>
   );
 };
-export const RenderCategoryCell = ({ cellValue: { item } }) => {
-  return (
-    <span title={item} className={clsx("maxLine1")}>
-      {item ? capitalizeFirstLetter(item) : "-"}
-    </span>
-  );
-};
+
 
 export const RenderDateCell = ({ cellValue: item }) => {
   return (
@@ -81,7 +78,7 @@ export const RenderPhoneNumber = ({ cellValue: item, rowData: rowItem }) => {
   );
 };
 
-export const RenderStatusCell = ({ cellValue: item  }) => {
+export const RenderStatusCell = ({ cellValue: item }) => {
   const isBoolean = typeof item === "boolean";
   const displayValue = isBoolean ? (item ? "active" : "inactive") : item;
 
@@ -92,7 +89,7 @@ export const RenderStatusCell = ({ cellValue: item  }) => {
       className={clsx(
         classes.status,
         "fs-12 fw-600 lh-18",
-        statusClass && classes[statusClass?.className]
+        statusClass && statusClass?.className
       )}
     >
       {statusClass?.icon && statusClass.icon}
@@ -114,18 +111,31 @@ export const RenderUserCell = ({ cellValue }) => {
 
   return (
     <div className={classes.userDataCell}>
-      <div className={classes.userAvatar}>
-        <Image
-          src={imageUrl(cellValue?.photo) || cellValue?.photo}
-          alt={cellValue?.fullName}
-          width={48}
-          height={48}
-        />
-      </div>
+      {cellValue?.photo && (
+        <div className={classes.userAvatar}>
+          <Image
+            src={imageUrl(cellValue?.photo) || cellValue?.photo}
+            alt={cellValue?.fullName}
+            width={48}
+            height={48}
+          />
+        </div>
+      )}
       <div className={classes.userInfo}>
         <div className={classes.userName}>{cellValue?.fullName}</div>
         <div className={classes.userEmail}>{cellValue?.email}</div>
       </div>
     </div>
+  );
+};
+
+
+export const categoryCell = ({ cellValue: { item } }) => {
+  return (
+    item?.map((item, index) => (
+      <div title={item} key={index} className={ classes.categoryCell}>
+        {item ? capitalizeFirstLetter(item) : "-"}
+      </div>
+    ))
   );
 };

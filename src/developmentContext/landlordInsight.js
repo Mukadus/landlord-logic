@@ -43,7 +43,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: false,
+    status: "pending",
     totalProperties: 10,
   },
   {
@@ -83,7 +83,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: false,
+    status: "completed",
     totalProperties: 10,
   },
   {
@@ -103,7 +103,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: true,
+    status: "ongoing",
     totalProperties: 10,
   },
 ];

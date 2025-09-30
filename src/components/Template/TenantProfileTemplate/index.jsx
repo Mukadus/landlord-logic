@@ -1,30 +1,29 @@
 "use client";
 import { useState, useEffect } from "react";
-import classes from "./LandlordInsightTemplate.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Table from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import {
-  landlordInsightTableHeader,
-  guardiansBodyData,
-} from "@/developmentContext/landlordInsight";
+  tenantProfileTableHeader,
+  tenantProfileBodyData,
+} from "@/developmentContext/tenantProfile";
 import HeadingSection from "@/components/organisms/HeadingSection";
 
-const LandlordInsightTemplate = () => {
+const TenantProfileTemplate = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(guardiansBodyData);
+  const [data, setData] = useState(tenantProfileBodyData);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
-  const[totalRecords, setTotalRecords] = useState(0);
+  const [totalRecords, setTotalRecords] = useState(0);
 
   return (
     <Container fluid>
       <Row>
         <Col lg={12} className="p-0">
-          <HeadingSection heading="Landlord Insights" search={true} filter={true} />
+          <HeadingSection heading="Tenant Profile" search={true} filter={true} />
         </Col>
         <Col lg={12} className="p-0">
           <Table
-            tableHeader={landlordInsightTableHeader}
+            tableHeader={tenantProfileTableHeader}
             data={data}
             loading={loading}
             pagination={true}
@@ -35,4 +34,4 @@ const LandlordInsightTemplate = () => {
   );
 };
 
-export default LandlordInsightTemplate;
+export default TenantProfileTemplate;

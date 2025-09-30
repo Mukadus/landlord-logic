@@ -16,9 +16,9 @@ export const capitalizeFirstLetter = (l) => {
   return l.charAt(0).toUpperCase() + l.slice(1);
 };
 
-export const getFormattedPrice = (price, currency = "$", toFixed) => {
+export const getFormattedPrice = (price, currency = "£", toFixed) => {
   return `${currency}${parseFloat(price).toFixed(
-    toFixed !== undefined ? toFixed : 2
+    toFixed !== undefined ? toFixed : 0
   )}`;
 };
 

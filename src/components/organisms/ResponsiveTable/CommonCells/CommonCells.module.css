@@ -1,6 +1,4 @@
-.date {
-    color: var(--text-primary);
-  }
+
   .iconButton {
     display: flex;
     justify-content: center;
@@ -108,8 +106,15 @@
   }
   
   .statusPending {
-    background-color: var(--bg-tertiary);
-    color: var(--text-primary);
+    background-color: var(--pending-bg);
+    color: var(--pending);
+    border: 1px solid var(--pending-bg-light);
+  }
+
+  .statusOngoing {
+    background-color: var(--ongoing-bg);
+    color: var(--ongoing);
+    border: 1px solid var(--ongoing-bg-light);
   }
   
   .userDataCell {
@@ -158,6 +163,7 @@
     font-weight: 600;
     font-family: var(--font-rethink);
     line-height: var(--lh-24);
+    color:var(--blue-bg-dark);
   }
 
   /* Status Classes */
@@ -213,4 +219,12 @@
     background-color: var(--success-bg);
     color: var(--green);
     border: 1px solid var(--green-bg);
+  }
+
+  .textCell {
+    color: var(--blue-bg-dark);
+    font-size: var(--fs16);
+    font-weight: 600;
+    line-height: var(--lh-24);
+    font-family: var(--font-rethink);
   }
