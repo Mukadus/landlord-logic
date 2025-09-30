@@ -1,10 +1,10 @@
 import {
-    calculateAge,
+    // calculateAge,
     capitalizeFirstLetter,
     getFormattedPrice,
-    mediaUrl,
-  } from "@/utils/helper";
-  import Rating from "@mui/material/Rating";
+    imageUrl,
+  } from "@/resources/utils/helper";
+  // import Rating from "@mui/material/Rating";
   import clsx from "clsx";
   import moment from "moment";
   import { GoDotFill } from "react-icons/go";
@@ -100,27 +100,23 @@ import {
     );
   };
   
-  export const RenderAgeCell = ({ cellValue: item }) => {
-    return <span className={clsx(classes?.age)}>{calculateAge(item)} Years</span>;
-  };
-  
-  export const RenderProductCell = ({ cellValue }) => {
+  export const RenderUserCell = ({ cellValue }) => {
     if (!cellValue) return null;
+    console.log("cellValue", cellValue);
   
     return (
-      <div className={classes.productDataCell}>
-        <div className={classes.productAvatar}>
+      <div className={classes.userDataCell}>
+        <div className={classes.userAvatar}>
           <Image
-            src={mediaUrl(cellValue?.icon)}
-            // src={"/app-images/star.svg"}
-            alt={cellValue?.name}
+            src={imageUrl(cellValue?.photo) || cellValue?.photo}
+            alt={cellValue?.fullName}
             width={48}
             height={48}
           />
         </div>
-        <div className={classes.productInfo}>
-          <div className={classes.productName}>{cellValue?.name}</div>
-          <div className={classes.productId}>{cellValue?.description}</div>
+        <div className={classes.userInfo}>
+          <div className={classes.userName}>{cellValue?.fullName}</div>
+          <div className={classes.userId}>{cellValue?.email}</div>
         </div>
       </div>
     );
