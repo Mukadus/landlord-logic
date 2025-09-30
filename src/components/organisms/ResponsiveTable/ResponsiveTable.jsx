@@ -1,11 +1,12 @@
 "use client";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
-import SpinnerLoading from "@/components/atoms/SpinnerLoading/SpinnerLoading";
-import Pagination from "@/components/molecules/Pagination";
+// import SpinnerLoading from "@/components/atoms/SpinnerLoading/SpinnerLoading";
+import Pagination from "@/components/molecules/Pagination/Pagination";
 import { RECORDS_LIMIT } from "@/resources/utils/constant";
 import { imageUrl, mergeClass } from "@/resources/utils/helper";
 import Image from "next/image";
 import classes from "./ResponsiveTable.module.css";
+import TableSkeleton from "@/components/molecules/TableSkeleton";
 
 export default function ResponsiveTable({
   onRowClick = () => {},
@@ -47,11 +48,7 @@ export default function ResponsiveTable({
           </thead>
           <tbody className={classes.tableBody}>
             {loading ? (
-              <tr>
-                <td colSpan={tableHeader.length + (actions.length ? 1 : 0)}>
-                  <SpinnerLoading />
-                </td>
-              </tr>
+              <TableSkeleton rowsCount={RECORDS_LIMIT} colsData={tableHeader} />
             ) : data?.length ? (
               data.map((item, rowIndex) => (
                 <tr
