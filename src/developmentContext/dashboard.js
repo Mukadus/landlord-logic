@@ -52,6 +52,29 @@ export const dashboardData = {
     { name: "Nov", value: 580 },
     { name: "Dec", value: 670 },
   ],
+  registrations: [
+    {
+      fullName: "Helen Emmerich",
+      email: "helen.emmerich@email.com",
+      createdAt: "2021-01-01",
+      status: true,
+      totalProperties: 10,
+    },
+    {
+      fullName: "Helen Emmerich",
+      email: "helen.emmerich@email.com",
+      createdAt: "2021-01-01",
+      status: true,
+      totalProperties: 10,
+    },
+    {
+      fullName: "Helen Emmerich",
+      email: "helen.emmerich@email.com",
+      createdAt: "2021-01-01",
+      status: true,
+      totalProperties: 10,
+    },
+  ],
 };
 
 export const statsData = (data) => [

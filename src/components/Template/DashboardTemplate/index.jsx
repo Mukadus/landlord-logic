@@ -18,7 +18,7 @@ export default function DashboardTemplate() {
 
   return (
     <Container fluid>
-      <Row className={classes.dashboardRow}>
+      <Row className={clsx(classes.dashboardRow)}>
         <Col md={12}>
           <Row>
             {loading === "getData"
