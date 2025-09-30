@@ -45,7 +45,7 @@ export default function SideBar({ isCollapsed, setIsCollapsed }) {
           MyLandlordLogic
         </p>
       </div>
-      <div className={classes.nav}>
+      <div className={clsx(classes.nav, isCollapsed && classes.collapsedNav)}>
         <div className={isCollapsed ? classes.subNavItem : ""}>
           {NAV_DATA?.map((item, index) => (
             <div
@@ -83,7 +83,7 @@ export default function SideBar({ isCollapsed, setIsCollapsed }) {
               <p className={clsx(classes.navItemText)}>Profile</p>
             )}
           </div>
-          <div className={clsx(classes.navItem)}>
+          <div className={clsx(classes.navItem)} onClick={logout}>
             <FiLogOut className={classes.navItemIcon} />
             {!isCollapsed && (
               <p className={clsx(classes.navItemText)}>Logout</p>

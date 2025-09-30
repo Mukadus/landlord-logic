@@ -1,0 +1,32 @@
+.fullName {
+  color: var(--dark-gray-900);
+}
+.email {
+  color: var(--gray-600);
+}
+.userDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cardDiv {
+  border-bottom: 0.5px solid var(--gray-150);
+}
+.cardDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.amountDiv {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 5px;
+}
+.nextPaymentDate {
+  color: var(--gray-600);
+}
+.amount {
+  color: var(--info);
+}

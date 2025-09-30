@@ -9,6 +9,7 @@ import { forgotPasswordValues } from "@/formik/initialValues";
 import { ForgotPasswordSchema } from "@/formik/schema";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function ForgotPasswordTemplate() {
   const router = useRouter();
@@ -33,8 +34,13 @@ export default function ForgotPasswordTemplate() {
         <Row className={classes.row}>
           <Col lg={6} className={classes.brandingContent}>
             <div className={classes.logoSection}>
-              <h1 className={classes.brandTitle}>Landlord Logic</h1>
-              <p className={classes.brandSubtitle}>Secure account recovery</p>
+              <div className={classes.logoIcon}>
+                <Image src="/svgs/logo.svg" alt="Landlord Logic" fill />
+              </div>
+              <div className={classes.logoSection}>
+                <h1 className={classes.brandTitle}>Landlord Logic</h1>
+                <p className={classes.brandSubtitle}>Secure account recovery</p>
+              </div>
             </div>
           </Col>
 

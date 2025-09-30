@@ -27,6 +27,7 @@
   --blue-bg: rgba(0, 17, 102, 0.1);
   --blue-bg-dark: rgba(0, 9, 51, 0.65);
   --blue-bg-darker: rgba(0, 6, 38, 0.9);
+  --blue-graph: #1c68a4;
 
   /* ===== GREEN SHADES ===== */
   --green: #067a58;
@@ -35,7 +36,9 @@
 
   /* ===== GRAY SCALE ===== */
   --gray-50: #f8fafb;
+
   --gray-100: #f5f6f6;
+  --gray-150: #ebebeb;
   --gray-200: #e8ebee;
   --gray-300: #e0e0e1;
   --gray-400: #dfe1e7;

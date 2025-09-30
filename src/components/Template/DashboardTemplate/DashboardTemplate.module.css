@@ -1,0 +1,37 @@
+.dashboardRow {
+  row-gap: 26px;
+}
+.subscriptionRow {
+  row-gap: 10px;
+}
+.subscriptionDiv {
+  border-radius: 12px;
+  background: var(--white);
+  padding: 13px 15px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.iconDiv {
+  border-radius: 5px;
+  background: var(--white);
+  display: flex;
+  padding: 10px;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+  max-width: max-content;
+}
+
+.img {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.subscriptionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}

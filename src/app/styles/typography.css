@@ -40,6 +40,37 @@
   --p-30: 30px;
 }
 
+.fs10 {
+  font-size: var(--fs10);
+}
+.fs12 {
+  font-size: var(--fs12);
+}
+.fs13 {
+  font-size: var(--fs13);
+}
+.fs14 {
+  font-size: var(--fs14);
+}
+.fs16 {
+  font-size: var(--fs16);
+}
+.fs18 {
+  font-size: var(--fs18);
+}
+.fs20 {
+  font-size: var(--fs20);
+}
+.fs24 {
+  font-size: var(--fs24);
+}
+.fs30 {
+  font-size: var(--fs30);
+}
+.fs32 {
+  font-size: var(--fs32);
+}
+
 p,
 span,
 h1,

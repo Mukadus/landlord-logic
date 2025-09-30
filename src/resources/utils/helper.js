@@ -16,10 +16,19 @@ export const capitalizeFirstLetter = (l) => {
   return l.charAt(0).toUpperCase() + l.slice(1);
 };
 
-export const getFormattedPrice = (price, currency = "$", toFixed) => {
-  return `${currency}${parseFloat(price).toFixed(
-    toFixed !== undefined ? toFixed : 2
-  )}`;
+export const getFormattedPrice = (price, currency = "£", toFixed) => {
+  const amount = Number(price);
+  const fractionDigits = 0; // no fractions
+  const formatted = isNaN(amount)
+    ? (0).toLocaleString(undefined, {
+        minimumFractionDigits: fractionDigits,
+        maximumFractionDigits: fractionDigits,
+      })
+    : amount.toLocaleString(undefined, {
+        minimumFractionDigits: fractionDigits,
+        maximumFractionDigits: fractionDigits,
+      });
+  return `${currency}${formatted}`;
 };
 
 export const capitalizeEachWord = (str) => {

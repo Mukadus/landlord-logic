@@ -48,9 +48,3 @@ a {
   font-size: var(--fs14);
   font-weight: 400;
 }
-
-@media screen and (min-width: 1400px) {
-  .container {
-    max-width: 1440px !important;
-  }
-}

@@ -60,7 +60,7 @@
 }
 
 .nav {
-  max-height: calc(100vh - 190px);
+  max-height: calc(100vh - 180px);
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -72,6 +72,9 @@
   display: none;
 }
 
+.collapsedNav {
+  max-height: calc(100vh - 115px);
+}
 .navItem {
   display: flex;
   padding: 8px;
@@ -155,6 +158,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.closedSubBottom {
+  padding-block-start: var(--p-16);
 }
 @media screen and (max-width: 1600px) {
   .sideBar {
