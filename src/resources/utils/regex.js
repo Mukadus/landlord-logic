@@ -5,3 +5,6 @@ export const phoneRegex = /^[0-9]{10,15}$/;
 export const formRegEx = /([a-z])([A-Z0-9])|([A-Za-z])([0-9])/g;
 
 export const formRegExReplacer = "$1$3 $2$4";
+
+export const passwordRegex =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;

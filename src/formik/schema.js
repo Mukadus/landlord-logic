@@ -1,4 +1,4 @@
-import { emailRegex } from "@/resources/utils/regex";
+import { emailRegex, passwordRegex } from "@/resources/utils/regex";
 import * as Yup from "yup";
 
 export const LoginSchema = Yup.object({
@@ -28,9 +28,10 @@ export const OtpVerificationSchema = Yup.object({
 export const UpdatePasswordSchema = Yup.object({
   password: Yup.string()
     .required("Password is required")
-    .matches(
-      passwordRegex,
-      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+    .test(
+      "password-regex",
+      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+      (value) => passwordRegex.test(value)
     ),
   confirmPassword: Yup.string()
     .required("Confirm password is required")
