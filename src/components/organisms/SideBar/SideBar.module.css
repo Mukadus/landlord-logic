@@ -1,0 +1,180 @@
+.sideBar {
+  height: 100vh;
+  width: 22.3%;
+  background-color: var(--white);
+  padding: 20px 12px;
+  position: relative;
+  transition: all 0.3s ease;
+  border-right: 0.5px solid var(--gray-500);
+}
+
+.collapsed {
+  width: 7%;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 11px;
+  margin-block-end: 40px;
+}
+
+.logo {
+  margin-inline: 20px;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  transition: all 0.3s ease;
+}
+
+.logo img {
+  object-fit: contain;
+}
+.collapsedLogo {
+  margin-block: 0px;
+  width: 50px;
+  height: 50px;
+  margin-inline: 0px;
+}
+
+.logoText {
+  font-size: var(--fs24);
+  font-weight: 400;
+  color: var(--primary);
+  font-family: var(--font-libre);
+  margin-block: 0px;
+}
+
+.collapsedLogoText {
+  display: none;
+}
+
+.navItemIcon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.nav {
+  /* max-height: calc(100vh - 150px); */
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-inline: 16px;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+.subNavItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.fullName {
+  color: var(--white);
+}
+.navItem {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.navItem p {
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.collapsed .navItem p {
+  opacity: 0;
+  transform: translateX(-10px);
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem:hover {
+  background: var(--warning);
+  color: var(--gray-900);
+}
+
+.selectedNavItem {
+  border-radius: 6px;
+  background: var(--warning);
+  color: var(--gray-900);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--border-color-v2);
+  padding-block-start: 24px;
+  margin-block-start: 24px;
+  margin-block-end: 32px;
+  transition: all 0.3s ease;
+}
+
+.profileImage {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 8px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  background: var(--white-color-v1);
+  color: var(--black-color-v2);
+  font-weight: 600;
+  font-size: var(--fs12);
+  flex-shrink: 0;
+}
+
+.collapseButton {
+  position: absolute;
+  top: 20px;
+  right: -13px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--black-color-v2);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.icon {
+  cursor: pointer;
+  flex: none;
+}
+.collapseButton:hover {
+  transform: scale(1.1);
+}
+.closedNavItem {
+  display: inline-flex;
+}
+
+@media screen and (max-width: 1400px) {
+}
+@media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 992px) {
+}

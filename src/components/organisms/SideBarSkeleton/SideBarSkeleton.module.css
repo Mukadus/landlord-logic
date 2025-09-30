@@ -1,0 +1,12 @@
+.mainDiv {
+  display: flex;
+}
+.closedDiv,
+.bodyDiv {
+  padding: 25px;
+  width: calc(100vw - 22.3%);
+}
+
+.closedDiv {
+  width: calc(100vw - 7%);
+}

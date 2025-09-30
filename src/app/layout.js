@@ -5,6 +5,7 @@ import { Libre_Baskerville, Rethink_Sans } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles/globals.css";
+import SideBarSkeleton from "@/components/organisms/SideBarSkeleton";
 
 const libre = Libre_Baskerville({
   variable: "--font-libre",
@@ -32,9 +33,11 @@ export default function RootLayout({ children }) {
       >
         <ToastContainer />
         <CustomProvider>
-          {/* <SocketProvider> */}
-          {children}
-          {/* </SocketProvider> */}
+          <SideBarSkeleton>
+            {/* <SocketProvider> */}
+            {children}
+            {/* </SocketProvider> */}
+          </SideBarSkeleton>
         </CustomProvider>
       </body>
     </html>
