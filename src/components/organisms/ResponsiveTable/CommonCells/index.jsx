@@ -14,24 +14,24 @@ import { FaRegCheckCircle } from "react-icons/fa";
 
 // statusClassMap - a map of status classes
 const statusClassMap = {
-  Active: {
+  active: {
     className: classes.active,
     icon: <FaRegCheckCircle />,
   },
-  Inactive: {
+  inactive: {
     className: classes.inactive,
     icon: <FaRegCheckCircle />, 
   },
 
-  Completed: {
+  completed: {
     // icon: <LuCheck />,
     className: classes.completed,
   },
-  Ongoing: {
+  ongoing: {
     // icon: <LuHourglass />,
     className: classes.waiting,
   },
-  Pending: {
+  pending: {
     // icon: <LuHourglass />,
     className: classes.pending,
   },
@@ -83,7 +83,7 @@ export const RenderPhoneNumber = ({ cellValue: item, rowData: rowItem }) => {
 
 export const RenderStatusCell = ({ cellValue: item  }) => {
   const isBoolean = typeof item === "boolean";
-  const displayValue = isBoolean ? (item ? "Inactive" : "Active") : item;
+  const displayValue = isBoolean ? (item ? "active" : "inactive") : item;
 
   const statusClass = statusClassMap[displayValue];
 
