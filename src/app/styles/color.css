@@ -1,35 +1,110 @@
 :root {
-  --primary: #4b5563;
-  --error: #db1717;
+  /* ===== PRIMARY COLORS ===== */
+  --primary: #0E0E55;
+  --primary-light: #2F68FA;
+  --primary-dark: #000080;
+  --primary-accent: #0A5AFE;
+  --primary-cyan: #00BEBE;
+  --primary-cyan-light: #00B7C9;
+  --primary-cyan-bg: #C9FFF8;
+  --primary-cyan-bg-light: #E9FFFC;
 
-  /* Black Shades */
-  --black: #000000;
-  --black-1: #374151;
+  /* ===== SECONDARY COLORS ===== */
+  --secondary: #FFBF00;
+  --secondary-dark: #996314;
+  --secondary-bg: #FDF8E3;
 
-  /* White Shades */
-  --white: #ffffff;
-  --white-1: #f8fafc;
-  --white-2: #e2e8f0;
+  /* ===== SUCCESS COLORS ===== */
+  --success: #006644;
+  --success-light: #067A58;
+  --success-bg: #E6F4EB;
+  --success-bg-light: #E3FCEF;
 
-  /* Blue Shades */
-  --blue: #007fff;
-  --blue-1: #0d9488;
-  --blue-light: #bfdbfe;
+  /* ===== BLUE SHADES ===== */
+  --blue: #1C75BC;
+  --blue-light: #0B373C;
+  --blue-bg: rgba(0, 17, 102, 0.10);
+  --blue-bg-dark: rgba(0, 9, 51, 0.65);
+  --blue-bg-darker: rgba(0, 6, 38, 0.9);
 
-  /* Purple Shades */
-  --purple: #9333ea;
+  /* ===== GREEN SHADES ===== */
+  --green: #067A58;
+  --green-bg: rgba(6, 122, 88, 0.20);
+  --green-bg-light: rgba(10, 204, 146, 0.05);
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(
-    90deg,
-    var(--blue) 0%,
-    var(--blue-1) 100%
-  );
+  /* ===== GRAY SHADES ===== */
+  --gray-50: #F8FAFB;
+  --gray-100: #F5F6F6;
+  --gray-200: #E8EBEE;
+  --gray-300: #E0E0E1;
+  --gray-400: #DFE1E7;
+  --gray-500: #B8B8B8;
+  --gray-600: #949494;
+  --gray-650: #888888;
+  --gray-675: #787878;
+  --gray-700: #808080;
+  --gray-800: #7E7E7E;
+  --gray-900: #4D4D4D;
 
-  /* Misc */
-  --border: #e0e0e0;
-  --border-1: #002850;
-  --placeholder: #4b5563;
-  --text: #222;
-  --label: #4b5563;
+  /* ===== DARK GRAY SHADES ===== */
+  --dark-gray-100: #818898;
+  --dark-gray-200: #798A9A;
+  --dark-gray-300: #6B7280;
+  --dark-gray-400: #666666;
+  --dark-gray-500: #5A5A5A;
+  --dark-gray-600: #48494C;
+  --dark-gray-700: #454545;
+  --dark-gray-800: #333333;
+  --dark-gray-900: #232323;
+
+  /* ===== BLACK SHADES ===== */
+  --black-50: #161A1D;
+  --black-100: #111827;
+  --black-200: #111216;
+  --black-300: #232323;
+  --black-400: #344054;
+
+  /* ===== NEUTRAL GRAY SCALE ===== */
+  --neutral-50: #FFFFFF;
+  --neutral-100: #F8FAFB;
+  --neutral-200: #E8EBEE;
+  --neutral-300: #DFE1E7;
+  --neutral-400: #B8B8B8;
+  --neutral-500: #9A9A9A;
+  --neutral-600: #858585;
+  --neutral-700: #7E7E7E;
+  --neutral-800: #606060;
+  --neutral-900: #4D4D4D;
+
+  /* ===== TEXT COLORS ===== */
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9A9A9A;
+  --text-quaternary: #B8B8B8;
+  --text-placeholder: #798A9A;
+  --text-disabled: #9A9A9A;
+
+  /* ===== BACKGROUND COLORS ===== */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFB;
+  --bg-tertiary: #F5F6F6;
+  --bg-quaternary: #E8EBEE;
+  --bg-dark: #111216;
+  --bg-darker: #0B373C;
+
+  /* ===== BORDER COLORS ===== */
+  --border-light: #E8EBEE;
+  --border-medium: #DFE1E7;
+  --border-dark: #B8B8B8;
+  --border-darker: #9A9A9A;
+
+  /* ===== STATUS COLORS ===== */
+  --warning: #FFBF00;
+  --info: #1C75BC;
+  --success: #006644;
+
+  /* ===== HOVER STATES ===== */
+  --hover-primary: #0A5AFE;
+  --hover-secondary: #996314;
+  --hover-gray: #F5F6F6;
 }
