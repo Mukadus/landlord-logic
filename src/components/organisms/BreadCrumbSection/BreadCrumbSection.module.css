@@ -1,0 +1,25 @@
+.breadCrumbSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.headingTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--g-8);
+}
+
+.title {
+  color: var(--text-tertiary);
+}
+
+.title2 {
+  color: var(--black-200);
+}
+
+.separator {
+  color: var(--dark-gray-400);
+}

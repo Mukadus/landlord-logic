@@ -1,0 +1,82 @@
+.mainDiv {
+  display: flex;
+  padding: 24px 16px 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-right: 1px solid var(--gray-300);
+  height: calc(100vh - 436px);
+}
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.title {
+  color: var(--dark-gray-400);
+  line-height: 140%;
+}
+
+.bodyDiv {
+  height: 100%;
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.propertyDiv {
+  display: flex;
+  border-radius: 4px;
+  background: var(--green-light);
+  display: flex;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 4px 8px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--gray-300);
+}
+.propertyDiv:hover {
+  transform: translateY(1px);
+  background: var(--success-bg);
+}
+
+.propertyLeftCol {
+  display: flex;
+  gap: 16px;
+}
+
+.propertyImage {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  border-radius: 8px;
+  background: var(--gray-100);
+  overflow: hidden;
+}
+
+.propertyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.propertyName {
+  color: var(--dark-gray-400);
+  line-height: 140%;
+}
+
+.propertyStatus {
+  color: var(--gray-650);
+  text-transform: capitalize;
+  line-height: 140%;
+}
+
+.arrowIcon {
+  width: var(--w-24);
+  height: var(--h-24);
+  color: var(--dark-gray-400);
+}

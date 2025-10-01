@@ -111,28 +111,112 @@ export const landlordInsightBodyData = [
 ];
 
 export const landlordInsightDetailData = {
+  user: {
+    fullName: "Gustavo Lima",
+    createdOn: "2021-01-01T00:00:00.000Z",
+    status: "active",
+    photo: "/app-images/Avatar.png",
+    lastMonthSpending: 244,
+    totalSpending: 50222,
+    subscription: {
+      package: {
+        name: "Intermediate",
+      },
+    },
+  },
   properties: [
     {
-      image: "/app-images/property-one.png",
+      image: "/app-images/property-one.jpg",
       title: "Mataram Griya Residence",
       status: "active",
       location: "3967 Bosco Circles, Weberboro 61294",
       tenant: {
         fullName: "Gail Cole",
         createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
       },
-      user: {
-        fullName: "Gustavo Lima",
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+      complains: [
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+
+          createdOn: "2021-01-01T00:00:00.000Z", //time stamp
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+      ],
+    },
+    {
+      image: "/app-images/property-two.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
         createdOn: "2021-01-01T00:00:00.000Z",
         photo: "/app-images/Avatar.png",
-        lastMonthSpending: 244,
-        totalSpending: 50222,
-        subscription: {
-          package: {
-            name: "Intermediate",
-          },
-        },
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
       },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+      complains: [
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+
+          createdOn: "2021-01-01T00:00:00.000Z", //time stamp
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+      ],
+    },
+    {
+      image: "/app-images/property-three.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
       registrationDate: "2021-01-01T00:00:00.000Z",
       complains: [
         {

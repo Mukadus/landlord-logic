@@ -14,12 +14,10 @@
 
 .btn,
 .btn label {
-  font-size: var(--fs16);
   line-height: normal;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
-  /* color: var(--blue-dark); */
 }
 
 .btn:disabled,
@@ -32,6 +30,7 @@
 .btn[color-variant="primary"] {
   color: var(--blue-dark);
   background-color: var(--secondary);
+  font-size: var(--fs16);
 }
 
 .btn[color-variant="primary"]:hover:not(:disabled) {
@@ -50,6 +49,7 @@
   border: 1px solid var(--primary-dark);
   color: var(--primary-dark);
   font-weight: 600;
+  font-size: var(--fs16);
   background-color: transparent;
 }
 
@@ -60,6 +60,26 @@
 }
 
 .btn[color-variant="outlined"]:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.btn[color-variant="transparent"] {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  color: var(--black-200);
+  font-size: var(--fs14);
+}
+.btn[color-variant="transparent"]:hover:not(:disabled) {
+  background-color: transparent;
+  transform: translateY(-1px);
+  padding: 5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.btn[color-variant="transparent"]:active:not(:disabled) {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }

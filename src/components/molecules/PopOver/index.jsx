@@ -77,7 +77,7 @@ export default function PopOver({
                     item?.borderTop && Style.borderTop
                   )}
                   onClick={() => {
-                    onClick(item?.label);
+                    onClick(item?.value);
                     setShow(false);
                   }}
                 >

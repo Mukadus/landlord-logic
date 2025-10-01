@@ -2,25 +2,64 @@
 import PopOver from "@/components/molecules/PopOver";
 import HeadingSection from "@/components/organisms/HeadingSection";
 import AppTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
-import {
-  actionPopoverOptions,
-  popoverOptions,
-} from "@/developmentContext/dropDownOption";
+import { popoverOptions } from "@/developmentContext/dropDownOption";
 import {
   landlordInsightBodyData,
   landlordInsightTableHeader,
 } from "@/developmentContext/landlordInsight";
+import useAxios from "@/interceptor/axios-functions";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./LandlordInsightTemplate.module.css";
 
 const LandlordInsightTemplate = () => {
-  const [loading, setLoading] = useState(false);
+  // HOOKS
+  const { Get } = useAxios();
+
+  // ROUTER
+  const router = useRouter();
+
+  // STATE
+  const [loading, setLoading] = useState("");
   const [data, setData] = useState(landlordInsightBodyData);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
+
+  // API FUNCTION
+  const getData = async ({
+    _page = page,
+    _search = search,
+    _filter = filter,
+  }) => {
+    setLoading("getData");
+
+    const params = {
+      page: _page,
+      limit: 10,
+      search: _search,
+      filter: _filter?.value,
+    };
+
+    const queryParams = new URLSearchParams(params).toString();
+
+    const { response } = await Get({
+      route: `landlord-insights?${queryParams}`,
+    });
+    if (response) {
+      setData(response?.data?.data);
+      setTotalRecords(response?.data?.totalRecords);
+      setPage(_page);
+    }
+    setLoading("");
+  };
+
+  // useEffect
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   // Handle popover click
   const onClickPopover = (value, rowItem) => {
@@ -29,6 +68,7 @@ const LandlordInsightTemplate = () => {
     }
   };
 
+  // JSX
   return (
     <Container fluid>
       <Row>
@@ -64,8 +104,8 @@ const LandlordInsightTemplate = () => {
                   <div className={classes.actionButtons}>
                     <PopOver
                       popover={popoverOptions}
-                      onClick={(label) => {
-                        onClickPopover(label, rowItem);
+                      onClick={(val) => {
+                        onClickPopover(val, rowItem);
                       }}
                     />
                   </div>
