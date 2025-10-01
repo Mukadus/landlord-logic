@@ -11,31 +11,31 @@ export const tenantProfileTableHeader = [
     title: "Tenant",
     key: "user",
     style: { width: "30%" },
-    renderItem: ({ data }) => <RenderUserCell cellValue={data?.user} />,
+    renderValue: ({ data }) => <RenderUserCell cellValue={data?.user} />,
   },
   {
     title: "Landlord",
     key: "landlord",
     style: { width: "20%" },
-    renderItem: ({ item }) => <RenderTextCell cellValue={item} />,
+    renderValue: ({ item }) => <RenderTextCell cellValue={item} />,
   },
   {
     title: "Joined On",
     key: "joinedOn",
     style: { width: "10%" },
-    renderItem: ({ item }) => <RenderDateCell cellValue={item} />,
+    renderValue: ({ item }) => <RenderDateCell cellValue={item} />,
   },
   {
     title: "Status",
     key: "status",
     style: { width: "20%" },
-    renderItem: ({ item }) => <RenderStatusCell cellValue={item} />,
+    renderValue: ({ item }) => <RenderStatusCell cellValue={item} />,
   },
   {
     title: "Total Spent",
     key: "totalSpent",
     style: { width: "10%" },
-    renderItem: ({ item }) => <RenderCurrencyCell cellValue={item} />,
+    renderValue: ({ item }) => <RenderCurrencyCell cellValue={item} />,
   },
   {
     title: "",
@@ -54,7 +54,7 @@ export const tenantProfileBodyData = [
     landlord: "Sarah Johnson",
     joinedOn: "2023-01-15",
     status: "active",
-    totalSpent: 2500.00,
+    totalSpent: 2500.0,
   },
   {
     user: {
@@ -65,7 +65,7 @@ export const tenantProfileBodyData = [
     landlord: "Michael Brown",
     joinedOn: "2023-03-22",
     status: "pending",
-    totalSpent: 1800.50,
+    totalSpent: 1800.5,
   },
   {
     user: {
@@ -98,7 +98,7 @@ export const tenantProfileBodyData = [
     landlord: "Jennifer White",
     joinedOn: "2023-02-28",
     status: "active",
-    totalSpent: 4100.00,
+    totalSpent: 4100.0,
   },
   {
     user: {
@@ -109,7 +109,7 @@ export const tenantProfileBodyData = [
     landlord: "Christopher Lee",
     joinedOn: "2023-04-12",
     status: "pending",
-    totalSpent: 1200.00,
+    totalSpent: 1200.0,
   },
   {
     user: {
@@ -120,6 +120,6 @@ export const tenantProfileBodyData = [
     landlord: "Amanda Clark",
     joinedOn: "2022-12-05",
     status: "active",
-    totalSpent: 2800.50,
+    totalSpent: 2800.5,
   },
 ];

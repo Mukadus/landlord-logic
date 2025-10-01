@@ -1,19 +1,18 @@
 import {
-  // calculateAge,
   capitalizeFirstLetter,
   getFormattedPrice,
   imageUrl,
 } from "@/resources/utils/helper";
-// import Rating from "@mui/material/Rating";
 import clsx from "clsx";
 import moment from "moment";
-import { GoDotFill } from "react-icons/go";
 import Image from "next/image";
-import classes from "./CommonCells.module.css";
 import { FaRegCheckCircle } from "react-icons/fa";
-import { MdOutlineCancel } from "react-icons/md";
-import { MdOutlineWatchLater } from "react-icons/md";
-import { MdOutlinePending } from "react-icons/md";
+import {
+  MdOutlineCancel,
+  MdOutlinePending,
+  MdOutlineWatchLater,
+} from "react-icons/md";
+import classes from "./CommonCells.module.css";
 
 // statusClassMap - a map of status classes
 const statusClassMap = {
@@ -54,30 +53,12 @@ export const RenderTextCell = ({ cellValue: item }) => {
     </span>
   );
 };
-export const RenderBoldTextCell = ({ cellValue: item }) => {
-  return (
-    <span className={clsx("maxLine1 fw-500")}>
-      {item ? capitalizeFirstLetter(item?.toString()) : item ?? "-"}
-    </span>
-  );
-};
 
 export const RenderDateCell = ({ cellValue: item }) => {
   return (
     <span className={clsx(classes?.date)}>
       {moment(item).format("DD.MM.YYYY")}
     </span>
-  );
-};
-
-export const RenderPhoneNumber = ({ cellValue: item, rowData: rowItem }) => {
-  if (!rowItem) return null;
-  const { fullName, phoneNumber } = rowItem;
-  return (
-    <div className={classes.phoneNumberCell}>
-      <p className={clsx(classes.name, "fs-14 fw-500 lh-20")}>{fullName}</p>
-      <p className={"fs-14 fw-400 lh-20"}>{phoneNumber}</p>
-    </div>
   );
 };
 
@@ -100,13 +81,6 @@ export const RenderStatusCell = ({ cellValue: item }) => {
     </span>
   );
 };
-export const IconButton = ({ icon, onClick }) => {
-  return (
-    <div className={classes?.iconButton} onClick={onClick}>
-      {icon}
-    </div>
-  );
-};
 
 export const RenderUserCell = ({ cellValue }) => {
   if (!cellValue) return null;
@@ -126,8 +100,12 @@ export const RenderUserCell = ({ cellValue }) => {
         </div>
       )}
       <div className={classes.userInfo}>
-        <div className={classes.userName}>{cellValue?.fullName}</div>
-        <div className={classes.userEmail}>{cellValue?.email}</div>
+        <div className={clsx(classes.userName, "maxLine1")}>
+          {cellValue?.fullName}
+        </div>
+        <div className={clsx(classes.userEmail, "maxLine1")}>
+          {cellValue?.email}
+        </div>
       </div>
     </div>
   );
@@ -135,7 +113,7 @@ export const RenderUserCell = ({ cellValue }) => {
 
 export const categoryCell = ({ cellValue: { item } }) => {
   return item?.map((item, index) => (
-    <div title={item} key={index} className={classes.categoryCell}>
+    <div title={item} key={index} className={classes.textCell}>
       {item ? capitalizeFirstLetter(item) : "-"}
     </div>
   ));

@@ -12,3 +12,25 @@ export const FILTER_OPTIONS = [
     value: "inactive",
   },
 ];
+
+export const popoverOptions = [
+  {
+    label: "View Details",
+    value: "viewDetails",
+  },
+];
+// Popover options for action menu
+export const actionPopoverOptions = [
+  {
+    label: "View Details",
+    value: "viewDetails",
+  },
+  {
+    label: "Edit",
+    value: "edit",
+  },
+  {
+    label: "Delete",
+    value: "delete",
+  },
+];

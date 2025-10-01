@@ -11,37 +11,37 @@ export const jobRequestTableHeader = [
     title: "Tenant",
     key: "tenant",
     style: { width: "20%" },
-    renderItem: ({ data }) => <RenderUserCell cellValue={data?.tenant} />,
+    renderValue: ({ data }) => <RenderUserCell cellValue={data?.tenant} />,
   },
   {
     title: "Contractor",
     key: "contractor",
     style: { width: "20%" },
-    renderItem: ({ data }) => <RenderUserCell cellValue={data?.contractor} />,
+    renderValue: ({ data }) => <RenderUserCell cellValue={data?.contractor} />,
   },
   {
     title: "Category",
     key: "category",
     style: { width: "15%" },
-    renderItem: ({ item }) => <RenderTextCell cellValue={item} />,
+    renderValue: ({ item }) => <RenderTextCell cellValue={item} />,
   },
   {
     title: "Requested On",
     key: "requestedOn",
     style: { width: "15%" },
-    renderItem: ({ item }) => <RenderDateCell cellValue={item} />,
+    renderValue: ({ item }) => <RenderDateCell cellValue={item} />,
   },
   {
     title: "Status",
     key: "status",
     style: { width: "10%" },
-    renderItem: ({ item }) => <RenderStatusCell cellValue={item} />,
+    renderValue: ({ item }) => <RenderStatusCell cellValue={item} />,
   },
   {
     title: "Amount",
     key: "amount",
     style: { width: "10%" },
-    renderItem: ({ item }) => <RenderCurrencyCell cellValue={item} />,
+    renderValue: ({ item }) => <RenderCurrencyCell cellValue={item} />,
   },
   {
     title: "",
@@ -61,7 +61,7 @@ export const jobRequestBodyData = [
     category: "Plumbing",
     requestedOn: "2024-01-15",
     status: "pending",
-    amount: 250.00,
+    amount: 250.0,
   },
   {
     tenant: {
@@ -73,7 +73,7 @@ export const jobRequestBodyData = [
     category: "Electrical",
     requestedOn: "2024-01-14",
     status: "ongoing",
-    amount: 450.00,
+    amount: 450.0,
   },
   {
     tenant: {
@@ -85,7 +85,7 @@ export const jobRequestBodyData = [
     category: "HVAC",
     requestedOn: "2024-01-13",
     status: "completed",
-    amount: 750.00,
+    amount: 750.0,
   },
   {
     tenant: {
@@ -97,7 +97,7 @@ export const jobRequestBodyData = [
     category: "Carpentry",
     requestedOn: "2024-01-12",
     status: "pending",
-    amount: 320.00,
+    amount: 320.0,
   },
   {
     tenant: {
@@ -109,7 +109,7 @@ export const jobRequestBodyData = [
     category: "Painting",
     requestedOn: "2024-01-11",
     status: "ongoing",
-    amount: 180.00,
+    amount: 180.0,
   },
   {
     tenant: {
@@ -121,7 +121,7 @@ export const jobRequestBodyData = [
     category: "Flooring",
     requestedOn: "2024-01-10",
     status: "completed",
-    amount: 650.00,
+    amount: 650.0,
   },
   {
     tenant: {
@@ -133,7 +133,7 @@ export const jobRequestBodyData = [
     category: "HVAC",
     requestedOn: "2024-01-13",
     status: "completed",
-    amount: 750.00,
+    amount: 750.0,
   },
   {
     tenant: {
@@ -145,7 +145,7 @@ export const jobRequestBodyData = [
     category: "Carpentry",
     requestedOn: "2024-01-12",
     status: "pending",
-    amount: 320.00,
+    amount: 320.0,
   },
   {
     tenant: {
@@ -157,7 +157,7 @@ export const jobRequestBodyData = [
     category: "Painting",
     requestedOn: "2024-01-11",
     status: "ongoing",
-    amount: 180.00,
+    amount: 180.0,
   },
   {
     tenant: {
@@ -169,6 +169,6 @@ export const jobRequestBodyData = [
     category: "Flooring",
     requestedOn: "2024-01-10",
     status: "completed",
-    amount: 650.00,
+    amount: 650.0,
   },
 ];

@@ -1,25 +1,54 @@
 "use client";
+import Button from "@/components/atoms/Button";
 import LoadingSkeleton from "@/components/atoms/LoadingSkeleton";
+import PopOver from "@/components/molecules/PopOver";
 import RevenueChart from "@/components/molecules/RevenueChart";
 import StatsCard from "@/components/molecules/Stats";
+import SubscriptionCard from "@/components/molecules/SubscriptionCard";
+import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import {
   dashboardData,
   registrationTableHeader,
   statsData,
 } from "@/developmentContext/dashboard";
-import React, { useState } from "react";
+import { popoverOptions } from "@/developmentContext/dropDownOption";
+import useAxios from "@/interceptor/axios-functions";
+import clsx from "clsx";
+import Image from "next/image";
+import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./DashboardTemplate.module.css";
-import SubscriptionCard from "@/components/molecules/SubscriptionCard";
-import clsx from "clsx";
-import Button from "@/components/atoms/Button";
-import Image from "next/image";
-import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 
 export default function DashboardTemplate() {
+  // HOOKS
+  const { Get } = useAxios();
+
+  // STATE
   const [data, setData] = useState(dashboardData);
   const [loading, setLoading] = useState("");
   const [year, setYear] = useState("");
+
+  // API FUNCTION
+  const getData = async () => {
+    setLoading("getData");
+
+    const { response } = await Get({ route: "dashboard" });
+    if (response) {
+      setData(response.data);
+    }
+    setLoading("");
+  };
+
+  // useEffect
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // JSX
+  const onClickPopover = (value, rowItem) => {
+    console.log("Popover clicked:", value, rowItem);
+  };
 
   return (
     <Container fluid>
@@ -82,6 +111,29 @@ export default function DashboardTemplate() {
             <ResponsiveTable
               tableHeader={registrationTableHeader}
               data={data?.registrations}
+              loading={loading === "getData"}
+              hasPagination={false}
+              renderItem={({ item, key, rowIndex, renderValue }) => {
+                const rowItem = data?.registrations[rowIndex];
+
+                if (renderValue) {
+                  return renderValue(item, rowItem);
+                }
+
+                if (key == "action") {
+                  return (
+                    <div className={classes.actionButtons}>
+                      <PopOver
+                        popover={popoverOptions}
+                        onClick={(label) => {
+                          onClickPopover(label, rowItem);
+                        }}
+                      />
+                    </div>
+                  );
+                }
+                return item || "";
+              }}
             />
           </div>
         </Col>

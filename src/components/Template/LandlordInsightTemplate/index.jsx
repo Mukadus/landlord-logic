@@ -1,14 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
-import classes from "./LandlordInsightTemplate.module.css";
-import { Container, Row, Col } from "react-bootstrap";
+import PopOver from "@/components/molecules/PopOver";
+import HeadingSection from "@/components/organisms/HeadingSection";
 import AppTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import {
-  landlordInsightTableHeader,
+  actionPopoverOptions,
+  popoverOptions,
+} from "@/developmentContext/dropDownOption";
+import {
   landlordInsightBodyData,
+  landlordInsightTableHeader,
 } from "@/developmentContext/landlordInsight";
-import HeadingSection from "@/components/organisms/HeadingSection";
-import PopOver from "@/components/molecules/PopOver";
+import { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import classes from "./LandlordInsightTemplate.module.css";
 
 const LandlordInsightTemplate = () => {
   const [loading, setLoading] = useState(false);
@@ -17,39 +21,25 @@ const LandlordInsightTemplate = () => {
   const [filter, setFilter] = useState("");
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
- 
-  // Popover options for action menu
-  const popoverOptions = [
-    {
-      label: "View Details",
-      value: "viewDetails",
-    },
-    {
-      label: "Edit",
-   value: "edit",
-    },
-    {
-        label: "Delete",
-        value: "delete",
-    },
-  ];
 
   // Handle popover click
   const onClickPopover = (value, rowItem) => {
-    console.log("Popover clicked:", value, rowItem);
+    if (value === "viewDetails") {
+      router.push(`/landlord-insights/detail`);
+    }
   };
 
   return (
     <Container fluid>
       <Row>
-        <Col lg={12} className="p-0">
+        <Col lg={12}>
           <HeadingSection
             heading="Landlord Insights"
             search={true}
             filter={true}
           />
         </Col>
-        <Col lg={12} className="p-0">
+        <Col lg={12}>
           <AppTable
             tableHeader={landlordInsightTableHeader}
             data={data}
@@ -64,19 +54,21 @@ const LandlordInsightTemplate = () => {
             currentPage={page}
             renderItem={({ item, key, rowIndex, renderValue }) => {
               const rowItem = data[rowIndex];
+
               if (renderValue) {
                 return renderValue(item, rowItem);
               }
 
-              if (key === "action") {
+              if (key == "action") {
                 return (
+                  <div className={classes.actionButtons}>
                     <PopOver
                       popover={popoverOptions}
-                      onClick={(value) => {
-                        onClickPopover(value, rowItem);
+                      onClick={(label) => {
+                        onClickPopover(label, rowItem);
                       }}
                     />
-                 
+                  </div>
                 );
               }
               return item || "";

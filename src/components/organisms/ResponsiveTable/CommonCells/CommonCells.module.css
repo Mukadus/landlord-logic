@@ -1,230 +1,101 @@
+.status {
+  display: flex;
+  padding: var(--p-2) var(--p-8) var(--p-2) var(--p-6);
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  border-radius: 100px;
+  font-size: var(--fs12);
+  font-family: var(--font-rethink);
+  font-weight: 400;
+  line-height: var(--lh-20);
+}
+/* Status Colors */
+.statusTrue,
+.statusCompleted,
+.statusPaid,
+.activeStatus {
+  background-color: var(--success-bg);
+  color: var(--green);
+  white-space: nowrap;
+  border: 1px solid var(--green-bg);
+}
 
-  .iconButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--fs40);
-    cursor: pointer;
-  }
-  
-  .active {
-    background: var(--success);
-  }
-  .standby {
-    background: var(--warning);
-  }
-  
-  .userDataCell {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .avatarDiv {
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid var(--border-light);
-    background: var(--white);
-  }
-  .userAvatar {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--fs12);
-    object-fit: cover;
-    background: var(--border-light);
-  }
-  
-  .userInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .userName {
-    font-size: var(--fs14);
-    font-weight: 500;
-    color: var(--text-primary);
-    line-height: 1.1;
-  }
-  
-  .userId {
-    font-size: var(--fs14);
-    color: var(--text-primary);
-    margin-top: 4px;
-    font-weight: 400;
-  }
-  
-  .ratingCell {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-width: 120px;
-    padding: 0 4px;
-  }
-  
-  .status {
-    display: flex;
-    padding: var(--p-2) var(--p-8) var(--p-2) var(--p-6);
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    width: fit-content;
-    border-radius: 100px;
-    font-size: var(--fs12);
-    font-family: var(--font-rethink);
-    font-weight: 400;
-    line-height: var(--lh-20);
-  }
-  .name {
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-  .dotIcon {
-    width: 13px;
-    height: 13px;
-    /* color: var(--green); */
-  }
-  /* Status Colors */
-  .statusTrue,
-  .statusCompleted,
-  .statusPaid,
-  .activeStatus {
-    background-color: var(--success-bg);
-    color: var(--green);
-    white-space: nowrap;
-    border: 1px solid var(--green-bg);
-  }
-  
-  .statusFalse,
-  .statusRejected,
-  .statusUnpaid,
-  .deactiveStatus {
-    background-color: var(--error-bg);
-    color: var(--error);
-    border: 1px solid var(--error-bg-light);
-  }
-  
-  .statusPending {
-    background-color: var(--pending-bg);
-    color: var(--pending);
-    border: 1px solid var(--pending-bg-light);
-  }
+.statusFalse,
+.statusRejected,
+.statusUnpaid,
+.deactiveStatus {
+  background-color: var(--error-bg);
+  color: var(--error);
+  border: 1px solid var(--error-bg-light);
+}
 
-  .statusOngoing {
-    background-color: var(--ongoing-bg);
-    color: var(--ongoing);
-    border: 1px solid var(--ongoing-bg-light);
-  }
-  
-  .userDataCell {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .userAvatar {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--border-light);
-    background: var(--white);
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .userInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-  }
-  
-  .userName {
-    font-size: var(--fs16);
-    font-weight: 400;
-    color: var(  --blue-bg-darker);
-    font-family: var(--font-rethink);
-    line-height: var(--lh-24);
-  }  
+.statusPending {
+  background-color: var(--pending-bg);
+  color: var(--pending);
+  border: 1px solid var(--pending-bg-light);
+}
 
-  .userEmail{
-    font-size: var(--fs12);
-    font-weight: 400;
-    color: var(  --blue-bg-darker);
-    font-family: var(--font-rethink);
-    line-height: var(--lh-20);
-  }
-  .date{
-    font-size: var(--fs16);
-    font-weight: 600;
-    font-family: var(--font-rethink);
-    line-height: var(--lh-24);
-    color:var(--blue-bg-dark);
-  }
+.statusOngoing {
+  background-color: var(--ongoing-bg);
+  color: var(--ongoing);
+  border: 1px solid var(--ongoing-bg-light);
+}
 
-  /* Status Classes */
-  .active {
-    background-color: var(--success-bg);
-    color: var(--green);
-    border: 1px solid var(--green-bg);
-  }
+.userDataCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-  .inactive {
-    background-color: var(--error-bg);
-    color: var(--error);
-    border: 1px solid var(--error-bg-light);
-  }
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  background: var(--white);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .failed {
-    background-color: var(--error-bg);
-    color: var(--error);
-    border: 1px solid var(--error-bg-light);
-  }
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
 
-  .completed {
-    background-color: var(--success-bg);
-    color: var(--green);
-    border: 1px solid var(--green-bg);
-  }
+.userName {
+  font-size: var(--fs16);
+  font-weight: 400;
+  color: var(--blue-bg-darker);
+  font-family: var(--font-rethink);
+  line-height: var(--lh-24);
+}
 
-  .cancelled {
-    background-color: var(--error-bg);
-    color: var(--error);
-    border: 1px solid var(--error-bg-light);
-  }
+.userEmail {
+  font-size: var(--fs12);
+  font-weight: 400;
+  color: var(--blue-bg-darker);
+  font-family: var(--font-rethink);
+  line-height: var(--lh-20);
+}
+.date {
+  font-size: var(--fs16);
+  font-weight: 600;
+  font-family: var(--font-rethink);
+  line-height: var(--lh-24);
+  color: var(--blue-bg-dark);
+}
 
-  .buzz {
-    background-color: var(--warning-bg);
-    color: var(--warning);
-    border: 1px solid var(--warning-bg-light);
-  }
-
-  .waiting {
-    background-color: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-light);
-  }
-
-  .pending {
-    background-color: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-light);
-  }
-
-  .success {
-    background-color: var(--success-bg);
-    color: var(--green);
-    border: 1px solid var(--green-bg);
-  }
-
-  .textCell {
-    color: var(--blue-bg-dark);
-    font-size: var(--fs16);
-    font-weight: 600;
-    line-height: var(--lh-24);
-    font-family: var(--font-rethink);
-  }
+.textCell {
+  color: var(--blue-bg-dark);
+  font-size: var(--fs16);
+  font-weight: 600;
+  line-height: var(--lh-24);
+  font-family: var(--font-rethink);
+}

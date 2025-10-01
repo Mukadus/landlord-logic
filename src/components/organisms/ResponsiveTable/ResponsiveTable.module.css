@@ -6,22 +6,26 @@
 .responsiveTable {
   width: 100%;
 }
-.tableHeader th {
+.tableHeader {
   background: var(--white);
   border-bottom: 1px solid var(--blue-bg);
-  color: var(--blue-bg-dark);
-  font-size: var(--fs12);
   position: sticky;
   top: 0;
+}
+.tableHeader th {
+  color: var(--blue-bg-dark);
+  font-size: var(--fs12);
+
   font-weight: 600;
   padding: 15px 24px;
 }
 
-.tableBody tr {
+.tableBody .bodyRow {
   border-bottom: 1px solid var(--blue-bg);
+  transition: all 0.3s ease;
 }
 
-.tableBody tr:last-child {
+.tableBody .bodyRow:last-child {
   border-bottom: none;
 }
 
@@ -32,11 +36,11 @@
   padding: 18px 16px;
 }
 
-.tableBody tr:nth-child(even) td {
+.tableBody .bodyRow:nth-child(even) {
   background: var(--success-bg);
 }
 
-.tableBody .bodyRow:hover td {
+.tableBody .bodyRow:hover {
   background: #e6f4eb34;
 }
 

@@ -67,6 +67,7 @@
   justify-content: space-between;
   transition: all 0.3s ease;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .nav::-webkit-scrollbar {
   display: none;
@@ -87,6 +88,7 @@
   transform: translateX(0px);
   transition: transform 0.3s ease;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .navItem p {

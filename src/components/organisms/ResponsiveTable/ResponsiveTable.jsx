@@ -15,6 +15,7 @@ export default function ResponsiveTable({
   renderTableHeader = null,
   hasPagination,
   props,
+  renderItem,
 }) {
   return (
     <>
@@ -45,7 +46,7 @@ export default function ResponsiveTable({
                   className={clsx(classes.bodyRow, rowClassName)}
                 >
                   {tableHeader?.map(
-                    ({ key, style, title, renderItem }, colIndex) => (
+                    ({ key, style, title, renderValue }, colIndex) => (
                       <td key={colIndex} style={{ ...style }}>
                         <div style={{ width: "100%" }}>
                           {renderItem
@@ -56,8 +57,11 @@ export default function ResponsiveTable({
                                 rowIndex,
                                 key,
                                 title,
+                                renderValue,
                               })
-                            : item[key] || "NA"}
+                            : renderValue
+                            ? renderValue(item[key], item)
+                            : item[key]}
                         </div>
                       </td>
                     )

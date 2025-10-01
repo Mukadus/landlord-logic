@@ -8,7 +8,7 @@
   color: var(--gray-700);
 }
 .body {
-  padding-top: 32px;
+  margin-block-start: 32px;
   max-height: calc(100vh - 125px);
   overflow-y: auto;
 }
