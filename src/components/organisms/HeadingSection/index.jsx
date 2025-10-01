@@ -5,7 +5,7 @@ import Filter from "@/components/atoms/Filter";
 import { FaSearch } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import Button from "@/components/atoms/Button";
-import Tabs from "@/components/molecules/Tabs";
+import Tabs from "@/components/molecules/Tabs/Tabs";
 
 export default function HeadingSection({
   heading,
