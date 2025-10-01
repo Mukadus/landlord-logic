@@ -5,6 +5,8 @@ import {
   RenderUserCell,
   RenderCurrencyCell,
 } from "@/components/organisms/ResponsiveTable/CommonCells";
+import { PiFolderOpenLight } from "react-icons/pi";
+import { PiTagSimple } from "react-icons/pi";
 
 export const subscriptionManagementTableHeader = [
   {
@@ -101,9 +103,50 @@ export const subscriptionTabs = [
   {
     label: "Billing",
     value: "billing",
+    icon: <PiFolderOpenLight />,
   },
   {
     label: "Plans",
     value: "plans",
+    icon: <PiTagSimple />,
+  },
+];
+
+export const subscriptionPlansData = [
+  {
+    plan: "Starter",
+    price: 10,
+    features: [
+      "Compliance-only plan (meaning that landlord can upload their compliances documents)    ",
+      "AI compliance reminders (up to 5 documents/year)",
+      "Document uploads with auto-expiry detection",
+      "Dashboard countdowns + push/email reminders",
+      "Export basic compliance report (CSV/Excel)",
+      "No tenant job reporting, contractor acces, payments, or messaging",
+    ],
+  },
+  {
+    plan: "Intermediate",
+    price: 10,
+    features: [
+      "Compliance-only plan (meaning that landlord can upload their compliances documents)    ",
+      "AI compliance reminders (up to 5 documents/year)",
+      "Document uploads with auto-expiry detection",
+      "Dashboard countdowns + push/email reminders",
+      "Export basic compliance report (CSV/Excel)",
+      "No tenant job reporting, contractor acces, payments, or messaging",
+    ],
+  },
+  {
+    plan: "Expert",
+    price: 10,
+    features: [
+      "Compliance-only plan (meaning that landlord can upload their compliances documents)    ",
+      "AI compliance reminders (up to 5 documents/year)",
+      "Document uploads with auto-expiry detection",
+      "Dashboard countdowns + push/email reminders",
+      "Export basic compliance report (CSV/Excel)",
+      "No tenant job reporting, contractor acces, payments, or messaging",
+    ],
   },
 ];

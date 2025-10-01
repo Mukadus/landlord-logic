@@ -25,7 +25,8 @@
 .list {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  gap: 8px;
+  padding: 12px 20px 0 20px;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -35,31 +36,52 @@
   transition: all 0.3s ease;
   position: relative;
   white-space: nowrap;
+  font-family: var(--font-rethink);
+  color: var(--dark-gray-600);
   min-width: fit-content;
+}
+
+/* Icon styling */
+.icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 /* Tab Hover State */
 .list:hover {
-  color: var(--primary);
+  color: var(--hover-primary);
   background-color: transparent;
+}
+
+/* Tab Hover Icon */
+.list:hover .icon {
+  color: var(--hover-primary);
 }
 
 /* Active Tab */
 .listSelected {
-  color: var(--primary) !important;
-  font-weight: 600;
+  color: var(--hover-primary) !important;
+  /* font-weight: 600; */
   position: relative;
+}
+
+/* Active Tab Icon */
+.listSelected .icon {
+  color: var(--hover-primary);
 }
 
 /* Active Tab Underline */
 .listSelected::after {
-  content: '';
+  content: "";
   position: absolute;
-  bottom: -1px;
+  bottom: -16px;
   left: 0;
   right: 0;
-  height: 2px;
-  background-color: var(--primary);
+  height: 1px;
+  background-color: var(--hover-primary);
   border-radius: 1px;
 }
 

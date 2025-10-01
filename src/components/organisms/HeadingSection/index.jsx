@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./HeadingSection.module.css";
 import Input from "@/components/atoms/Input/Input";
 import Filter from "@/components/atoms/Filter";
-import { FaSearch } from "react-icons/fa";
+import { LuSearch } from "react-icons/lu";
 import { FiUser } from "react-icons/fi";
 import Button from "@/components/atoms/Button";
 import Tabs from "@/components/molecules/Tabs/Tabs";
@@ -20,11 +20,16 @@ export default function HeadingSection({
   buttonText,
   tabs,
   setTabs,
-  tabsOptions,
+  tabsData,
 }) {
   return (
     <div className={classes.subHeader}>
       {heading && <h6 className={classes.heading}>{heading}</h6>}
+      {tabs && (
+        <div className={classes.tabs}>
+          <Tabs selected={tabs} setSelected={setTabs} tabsData={tabsData} />
+        </div>
+      )}
       <div className={classes.searchFilter}>
         {search && (
           <div className={classes.search}>
@@ -32,7 +37,7 @@ export default function HeadingSection({
               type="text"
               placeholder="Search"
               inputClass={classes.input}
-              leftIcon={<FaSearch color="var(--dark-gray-100)" />}
+              leftIcon={<LuSearch color="var(--dark-gray-100)" size={22} />}
             />
           </div>
         )}
@@ -56,17 +61,6 @@ export default function HeadingSection({
             />
           </div>
         )}
-
-        {tabs && (
-          <div className={classes.tabs}>
-            <Tabs
-              tabs={tabs}
-              setTabs={setTabs}
-              tabsOptions={tabsOptions}
-            />
-          </div>
-        )}
-
       </div>
     </div>
   );

@@ -4,11 +4,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import AppTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import {
   subscriptionManagementTableHeader,
-  subscriptionManagementBodyData, 
+  subscriptionManagementBodyData,
   subscriptionTabs,
+  subscriptionPlansData,
 } from "@/developmentContext/subscriptionManagement";
 import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
+import classes from "./subscriptionManagement.module.css";
+import SubscriptionCard from "@/components/molecules/SubscriptionCard";
 
 const SubscriptionManagement = () => {
   const [loading, setLoading] = useState(false);
@@ -26,11 +29,11 @@ const SubscriptionManagement = () => {
     },
     {
       label: "Edit",
-   value: "edit",
+      value: "edit",
     },
     {
-        label: "Delete",
-        value: "delete",
+      label: "Delete",
+      value: "delete",
     },
   ];
 
@@ -39,19 +42,9 @@ const SubscriptionManagement = () => {
     console.log("Popover clicked:", value, rowItem);
   };
 
-  return (
-    <Container fluid>
-      <Row>
-        <Col lg={12} className="p-0">
-          <HeadingSection
-            heading="Subscription Management"
-            search={true}
-            filter={true}
-            tabs={true}
-            tabsOptions={subscriptionTabs}
-            setTabs={setTabs}
-          />
-        </Col>
+  const renderContent = () => {
+    if (tabs === "billing") {
+      return (
         <Col lg={12} className="p-0">
           <AppTable
             tableHeader={subscriptionManagementTableHeader}
@@ -73,19 +66,51 @@ const SubscriptionManagement = () => {
 
               if (key === "action") {
                 return (
-                    <PopOver
-                      popover={popoverOptions}
-                      onClick={(value) => {
-                        onClickPopover(value, rowItem);
-                      }}
-                    />
-                 
+                  <PopOver
+                    popover={popoverOptions}
+                    onClick={(value) => {
+                      onClickPopover(value, rowItem);
+                    }}
+                  />
                 );
               }
               return item || "";
             }}
           />
         </Col>
+      );
+    }
+    if (tabs === "plans") {
+      return (
+        <Col lg={12} className="p-0">
+          <div className={classes.plansDiv}>
+            <h6 className={classes.heading}>For Landlords</h6>
+            <Row>
+              {subscriptionPlansData?.map((item, index) => (
+                <Col lg={4} key={index}>
+                  <SubscriptionCard data={item} />
+                </Col>
+              ))}
+            </Row>
+          </div>
+        </Col>
+      );
+    }
+  };
+  return (
+    <Container fluid>
+      <Row>
+        <Col lg={12} className="p-0">
+          <h6 className={classes.heading}>Subscription Management</h6>
+          <HeadingSection
+            search={true}
+            filter={true}
+            tabs={tabs}
+            tabsData={subscriptionTabs}
+            setTabs={setTabs}
+          />
+        </Col>
+        {renderContent()}
       </Row>
     </Container>
   );

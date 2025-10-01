@@ -10,5 +10,5 @@
 .body {
   padding-top: 32px;
   max-height: calc(100vh - 125px);
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
