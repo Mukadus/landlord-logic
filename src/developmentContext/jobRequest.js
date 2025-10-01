@@ -11,6 +11,8 @@ import { IoCalendarClearOutline } from "react-icons/io5";
 import { GrLocation } from "react-icons/gr";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import moment from "moment-timezone";
+import { PiSpinner } from "react-icons/pi";
+import { RiMoneyPoundCircleLine } from "react-icons/ri";
 
 export const jobRequestTableHeader = [
   {
@@ -205,7 +207,7 @@ export const jobRequestDetailData = {
   amount: 250.0,
   category: [{ name: "Carpentry" }, { name: "Painting" }],
   urgency: "high",
-  status: "ongoing",
+  status: "active",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
@@ -228,16 +230,19 @@ export const overViewDataJobRequestDetail = (data) => [
       value: data?.status,
     },
     {
-      label: "Amount",
-      value: data?.amount,
-    },
-    {
+      icon: <IoCalendarClearOutline />,
       label: "Category",
       value: data?.category?.map((item) => item?.name).join(", "),
     },
     {
+      icon: <PiSpinner />,
       label: "Urgency",
       value: data?.urgency,
+    },
+    {
+      icon: <RiMoneyPoundCircleLine />,
+      label: "Contractor Amount",
+      value: data?.amount,
     },
     {
       label: "Description",

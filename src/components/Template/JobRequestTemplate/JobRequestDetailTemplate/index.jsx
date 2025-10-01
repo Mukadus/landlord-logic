@@ -24,7 +24,7 @@ const JobRequestDetailTemplate = ({ slug = "" }) => {
           />
         </Col>
         <Col lg={12}>
-          <InformationSection data={overViewDataJobRequestDetail(data)} />
+          <InformationSection data={overViewDataJobRequestDetail(data)} containerClass={classes.informationSection} />
         </Col>
       </Row>
     </Container>
