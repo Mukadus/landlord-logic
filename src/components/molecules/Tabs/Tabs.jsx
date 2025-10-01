@@ -29,12 +29,12 @@ export default function Tabs({
             onClick={() => setSelected(item?.value)}
             className={clsx(
               classes.list,
-              "fs14 fw500",
               selected === item.value && classes.listSelected,
               listClass
             )}
           >
-            {item.label}
+            {item.icon && <span className={classes.icon}>{item.icon}</span>}
+            <span className={clsx(classes.label, "fs14  fw-500")}>{item.label}</span>
           </li>
         ))}
       </ul>

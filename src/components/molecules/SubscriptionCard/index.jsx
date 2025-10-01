@@ -2,25 +2,42 @@ import React from "react";
 import classes from "./SubscriptionCard.module.css";
 import clsx from "clsx";
 import { getFormattedPrice } from "@/resources/utils/helper";
+import Image from "next/image";
 
 export default function SubscriptionCard({ data }) {
   return (
     <div className={classes.cardDiv}>
-      <div className={classes.userDiv}>
-        <p className={clsx(classes.fullName, "fw500 fs13")}>
-          {data?.user?.fullName || "-"}
-        </p>
-        <p className={clsx(classes.email, "fw500 fs14")}>
-          {data?.user?.email || "-"}
-        </p>
+      <div className={classes.header}>
+        <div className={classes.headerSection}>
+          <div className={classes.iconContainer}>
+            <div className={classes.iconBackground}>
+              <div className={classes.iconSquare}>
+                <Image src={data?.icon} alt={data?.plan} height={16} width={16} />
+              </div>
+            </div>
+          </div>
+          <div className={classes.headerSection}>
+            <h3 className={clsx(classes.planName, "fw500 fs16")}>
+              {data?.plan || "Starter"}
+            </h3>
+          </div>
+        </div>
+
+        <h3 className={clsx(classes.price, "fw600 fs30")}>
+          {getFormattedPrice(data?.price) || "£14.99"}
+        </h3>
       </div>
-      <div className={classes.amountDiv}>
-        <p className={clsx(classes.nextPaymentDate, "fw500 fs14")}>
-          {data?.nextPaymentDate || "-"}
-        </p>
-        <p className={clsx(classes.amount, "fw500 fs14")}>
-          {getFormattedPrice(data?.amount) || "-"}
-        </p>
+
+      <div className={classes.body}>
+        <ul className={classes.featuresList}>
+          {data?.features && data.features.length > 0
+            ? data.features.map((feature, index) => (
+                <li key={index} className={clsx(classes.featureItem, "fs14")}>
+                  {feature}
+                </li>
+              ))
+            : null}
+        </ul>
       </div>
     </div>
   );

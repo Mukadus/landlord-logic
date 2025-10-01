@@ -10,5 +10,5 @@
 .body {
   margin-block-start: 32px;
   max-height: calc(100vh - 125px);
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
