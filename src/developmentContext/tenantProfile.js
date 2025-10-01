@@ -16,26 +16,31 @@ export const tenantProfileTableHeader = [
   {
     title: "Landlord",
     key: "landlord",
+    style: { width: "20%" },
     renderItem: ({ item }) => <RenderTextCell cellValue={item} />,
   },
   {
     title: "Joined On",
     key: "joinedOn",
+    style: { width: "10%" },
     renderItem: ({ item }) => <RenderDateCell cellValue={item} />,
   },
   {
     title: "Status",
     key: "status",
+    style: { width: "20%" },
     renderItem: ({ item }) => <RenderStatusCell cellValue={item} />,
   },
   {
     title: "Total Spent",
     key: "totalSpent",
+    style: { width: "10%" },
     renderItem: ({ item }) => <RenderCurrencyCell cellValue={item} />,
   },
   {
     title: "",
     key: "actions",
+    style: { width: "10%" },
   },
 ];
 

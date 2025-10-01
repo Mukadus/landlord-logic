@@ -15,11 +15,13 @@ export const landlordInsightTableHeader = [
   {
     title: "Joined On",
     key: "joinedOn",
+    style: { width: "20%" },
     renderItem: ({ item }) => <RenderDateCell cellValue={item} />,
   },
   {
     title: "Status",
     key: "status",
+    style: { width: "20%" },
     renderItem: ({ item }) => (
       <RenderStatusCell cellValue={item} />
     ),
@@ -27,15 +29,17 @@ export const landlordInsightTableHeader = [
   {
     title: "Total Properties",
     key: "totalProperties",
+    style: { width: "20%" },
     renderItem: ({ item }) => <RenderTextCell cellValue={item} />,
   },
   {
     title: "",
-    key: "actions",
+    key: "action",
+    style: { width: "10%" },
   },
 ];
 
-export const guardiansBodyData = [
+export const landlordInsightBodyData = [
   {
     user: {
       fullName: "Corey George",
@@ -43,7 +47,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: "pending",
+    status:false,
     totalProperties: 10,
   },
   {
@@ -53,7 +57,37 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: true,
+    status:false,
+    totalProperties: 10,
+  },
+  {
+    user: {
+      fullName: "Corey George",
+      photo: "/app-images/Avatar.png",
+      email: "Corey@yopmail.com",
+    },
+    joinedOn: "2021-01-01",
+    status:true,
+    totalProperties: 10,
+  },
+  {
+    user: {
+      fullName: "Corey George",
+      photo: "/app-images/Avatar.png",
+      email: "Corey@yopmail.com",
+    },
+    joinedOn: "2021-01-01",
+    status:false,
+    totalProperties: 10,
+  },
+  {
+    user: {
+      fullName: "Corey George",
+      photo: "/app-images/Avatar.png",
+      email: "Corey@yopmail.com",
+    },
+    joinedOn: "2021-01-01",
+    status:true,
     totalProperties: 10,
   },
   {
@@ -73,37 +107,7 @@ export const guardiansBodyData = [
       email: "Corey@yopmail.com",
     },
     joinedOn: "2021-01-01",
-    status: true,
-    totalProperties: 10,
-  },
-  {
-    user: {
-      fullName: "Corey George",
-      photo: "/app-images/Avatar.png",
-      email: "Corey@yopmail.com",
-    },
-    joinedOn: "2021-01-01",
-    status: "completed",
-    totalProperties: 10,
-  },
-  {
-    user: {
-      fullName: "Corey George",
-      photo: "/app-images/Avatar.png",
-      email: "Corey@yopmail.com",
-    },
-    joinedOn: "2021-01-01",
-    status: false,
-    totalProperties: 10,
-  },
-  {
-    user: {
-      fullName: "Corey George",
-      photo: "/app-images/Avatar.png",
-      email: "Corey@yopmail.com",
-    },
-    joinedOn: "2021-01-01",
-    status: "ongoing",
+    status:true,
     totalProperties: 10,
   },
 ];
