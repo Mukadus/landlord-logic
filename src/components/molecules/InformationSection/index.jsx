@@ -11,6 +11,7 @@ export default function InformationSection({
   containerClass = "",
   jobRequests,
 }) {
+  // console.log(jobRequests);
   return (
     <div className={jobRequests ? classes.mainDiv : ""}>
       <div
