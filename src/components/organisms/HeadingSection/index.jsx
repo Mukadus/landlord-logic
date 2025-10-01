@@ -6,6 +6,7 @@ import { LuSearch } from "react-icons/lu";
 import { FiUser } from "react-icons/fi";
 import Button from "@/components/atoms/Button";
 import Tabs from "@/components/molecules/Tabs/Tabs";
+import clsx from "clsx";
 
 export default function HeadingSection({
   heading,
@@ -23,12 +24,14 @@ export default function HeadingSection({
   tabsData,
   searchValue,  
   setSearchValue,
+  className,
+  classNameTabs,
 }) {
   return (
-    <div className={classes.subHeader}>
+    <div className={clsx(classes.subHeader, className)}>
       {heading && <h6 className={classes.heading}>{heading}</h6>}
       {tabs && (
-        <div className={classes.tabs}>
+        <div className={clsx(classes.tabs, classNameTabs)}>
           <Tabs selected={tabs} setSelected={setTabs} tabsData={tabsData} />
         </div>
       )}

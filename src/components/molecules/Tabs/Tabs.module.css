@@ -33,7 +33,6 @@
   font-family: var(--font-rethink);
   color: var(--dark-gray-600);
 
-  border-bottom: 1px solid var(--hover-primary);
 }
 
 /* Icon styling */
@@ -59,7 +58,8 @@
 /* Active Tab */
 .listSelected {
   color: var(--hover-primary) !important;
-  /* font-weight: 600; */
+  border-bottom: 1px solid var(--hover-primary);
+
   position: relative;
 }
 
@@ -85,17 +85,6 @@
   list-style: none;
 }
 
-/* Remove borders and shadows for clean look */
-.list,
-.list:hover,
-.list:active,
-.list:focus {
-  border: none;
-  box-shadow: none;
-  outline: none;
-}
-
-/* Removed unused classes for cleaner code */
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {

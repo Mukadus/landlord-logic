@@ -37,3 +37,7 @@
   font-weight: 500 !important;
   font-family: var(--font-rethink) !important;
 }
+
+.tabs{
+  width: 100%;
+}
