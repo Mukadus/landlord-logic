@@ -55,38 +55,39 @@
 }
 
 .activePage {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
+  color:var( --blue-bg-dark);
+  font-size: var(--fs12);
+  font-weight: 400;
   display: flex;
-  min-width: 40px;
-  height: 40px;
-  padding: 8px 12px;
+  min-width: var(--w-40);
+  height: var(--h-40);
+  padding: var(--p-8) var(--p-12);
   justify-content: center;
   align-items: center;
-  border-radius: 6px;
-  background: #0074d9;
-  border: 1px solid #0074d9;
+  border-radius: var(--br-6);
+  background: transparent;
+  border: 1px solid var(--blue-graph-light);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .activePage:hover {
-  background: #0056b3;
-  border-color: #0056b3;
+  background: var(--blue-graph-light);
+  border-color: var(--blue-graph-light);
+  color: var(--white);
 }
 
 .ellipsis {
-  color: #7a7a7a;
-  font-size: 14px;
+  color: var(--gray-600);
+  font-size: var(--fs12);
   font-weight: 400;
   display: flex;
-  min-width: 40px;
-  height: 40px;
-  padding: 8px 12px;
+  min-width: var(--w-40);
+  height: var(--h-40);
+  padding: var(--p-8) var(--p-12);
   justify-content: center;
   align-items: center;
-  border-radius: 6px;
+  border-radius: var(--br-6);
   border: 1px solid transparent;
   background: transparent;
   user-select: none;
@@ -94,15 +95,15 @@
 
 .arrowButton {
   display: flex;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
+  height: var(--h-40);
+  padding: var(--p-8);
   justify-content: center;
   align-items: center;
-  border-radius: 6px;
-  border: 1px solid #e0e0e0;
-  background: #fff;
-  color: #333;
+  border-radius: var(--br-6);
+  border: none;
+  outline: none;
+  background: var(--white);
+  color: var(--gray-600);
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;

@@ -1,117 +1,32 @@
-
+.fullName {
+  color: var(--dark-gray-900);
+}
+.email {
+  color: var(--gray-600);
+}
+.userDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 .cardDiv {
-  background: var(--white);
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--br-8) var(--br-8) 0 0;
-  border: 1px solid var(--gray-200);
-  width: 100%;
-  height: 100%;
+  border-bottom: 0.5px solid var(--gray-150);
 }
-
-.header {
-  padding: var(--p-16);
-  border-bottom: 1px solid var(--gray-200);
+.cardDiv {
   display: flex;
-  flex-direction: column;
-  gap: var(--g-24);
-}
-.body {
-  padding: var(--p-16);
-}
-.headerSection {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--g-16);
-  width: 100%;
+  justify-content: space-between;
   align-items: center;
 }
-
-
-.iconContainer {
-  flex-shrink: 0;
-}
-
-.iconBackground {
-  width: 40px;
-  height: 40px;
-  background: #E9FFFC;
-  border-radius: 50%;
+.amountDiv {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-}
-
-.iconSquare {
-  width: 24px;
-  height: 24px;
-  background: #C9FFF8;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.iconLayers {
-  width: 12px;
-  height: 12px;
-  background: var(--white);
-  border-radius: 2px;
-  position: relative;
-}
-
-.iconLayers::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 8px;
-  height: 8px;
-  background: var(--white);
-  border-radius: 1px;
-  opacity: 0.7;
-}
-
-
-.planInfo {
-  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   flex-direction: column;
-  gap: 8px;
-  flex: 1;
+  gap: 5px;
 }
-
-.planName {
-  color: var(--black-400);
-  font-family: var(--font-rethink);
-  line-height: var(--lh-24);
-
+.nextPaymentDate {
+  color: var(--gray-600);
 }
-
-.price {
-  color: var(--dark-gray-700);
-  line-height: var(--lh-30);
-  font-family: var(--font-rethink);
-}
-
-
-.featuresList {
-  padding-left: var(--p-16);
-  display: flex;
-  flex-direction: column;
-  gap: var(--g-12);
-}
-
-.featureItem {
-  color: var(--gray-675);
-  font-weight: 400;
-  line-height: var(--lh-24);
-  position: relative;
-}
-
-.featureItem::marker {
-  color: var(--gray-675);
-  font-size: var(--fs12);
-  margin-right: var(--g-12);
+.amount {
+  color: var(--info);
 }
