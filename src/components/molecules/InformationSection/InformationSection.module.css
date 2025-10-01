@@ -87,3 +87,27 @@
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+.mainDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+}
+
+.informationSectionJobRequests {
+  border-right: 1px solid var(--gray-300);
+  padding-right: 12px;
+}
+
+.jobRequestsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.jobRequestsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

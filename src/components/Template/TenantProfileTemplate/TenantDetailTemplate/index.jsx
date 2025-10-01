@@ -2,12 +2,14 @@
 import LoadingSkeleton from "@/components/atoms/LoadingSkeleton";
 import InformationSection from "@/components/molecules/InformationSection";
 import BreadCrumbSection from "@/components/organisms/BreadCrumbSection";
-import ComplaintsSection from "@/components/organisms/ComplaintsSection";
 import PropertyDetailSection from "@/components/organisms/PropertyDetailSection";
-import TenantSection from "@/components/organisms/TenantSection";
 import UserDetailSection from "@/components/organisms/UserDetailSection";
-import { propertyTabs } from "@/developmentContext/dropDownOption";
-import { tenantProfileDetailData } from "@/developmentContext/tenantProfile";
+import { tenantProfileTabs } from "@/developmentContext/dropDownOption";
+
+import {
+  overViewData,
+  tenantProfileDetailData,
+} from "@/developmentContext/tenantProfile";
 import useAxios from "@/interceptor/axios-functions";
 import { getFormattedPrice } from "@/resources/utils/helper";
 import { useState } from "react";
@@ -15,6 +17,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import { CiCircleMinus } from "react-icons/ci";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import classes from "./TenantDetailTemplate.module.css";
+import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
+import ReviewCard from "@/components/organisms/ReviewCard";
 
 export default function TenantDetailTemplate({ slug = "" }) {
   // HOOKS
@@ -25,7 +29,7 @@ export default function TenantDetailTemplate({ slug = "" }) {
 
   const [loading, setLoading] = useState("");
   const [filter, setFilter] = useState("");
-  const [selectedTab, setSelectedTab] = useState(propertyTabs[0]?.value);
+  const [selectedTab, setSelectedTab] = useState(tenantProfileTabs[0]?.value);
   // API FUNCTION
   const getData = async () => {
     setLoading("getData");
@@ -54,8 +58,8 @@ export default function TenantDetailTemplate({ slug = "" }) {
       title: getFormattedPrice(data?.user?.totalSpending),
     },
     {
-      value: "Subscription",
-      title: data?.user?.subscription?.package?.name,
+      value: "Total Jobs",
+      title: data?.user?.totalJobs,
     },
   ];
 
@@ -65,13 +69,18 @@ export default function TenantDetailTemplate({ slug = "" }) {
 
   const renderTabs = () => {
     if (selectedTab === "overview") {
-      return <InformationSection data={data?.properties} />;
+      return (
+        <InformationSection
+          data={overViewData(data?.properties)}
+          jobRequests={data?.properties?.jobRequests}
+        />
+      );
     }
-    if (selectedTab === "tenants") {
-      return <TenantSection data={data} />;
+    if (selectedTab === "allJobsHistory") {
+      return <NoDataFound title="No data found" subtitle="No data found" />;
     }
-    if (selectedTab === "complaints") {
-      return <ComplaintsSection data={data} />;
+    if (selectedTab === "ratingAndReviews") {
+      return <ReviewCard data={data?.reviews} />;
     }
   };
 
@@ -112,7 +121,7 @@ export default function TenantDetailTemplate({ slug = "" }) {
             data={data?.properties}
             filter={filter}
             showFilter={true}
-            tabsData={propertyTabs}
+            tabsData={tenantProfileTabs}
             selected={selectedTab}
             setSelected={setSelectedTab}
             setFilter={setFilter}

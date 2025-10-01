@@ -1,5 +1,7 @@
 import { BiMessageSquareError } from "react-icons/bi";
+import { IoIosCheckboxOutline } from "react-icons/io";
 import { LuSquareDashed } from "react-icons/lu";
+import { PiStarFill } from "react-icons/pi";
 import { RxCounterClockwiseClock } from "react-icons/rx";
 
 export const FILTER_OPTIONS = [
@@ -42,20 +44,37 @@ export const propertyTabs = [
   {
     label: "Overview",
     value: "overview",
-    icon: <LuSquareDashed />
+    icon: <LuSquareDashed />,
   },
   {
     label: "Assigned Tenants",
     value: "tenants",
-    icon:<RxCounterClockwiseClock />
+    icon: <RxCounterClockwiseClock />,
   },
   {
     label: "Complaints",
     value: "complaints",
-    icon: <BiMessageSquareError />
+    icon: <BiMessageSquareError />,
   },
 ];
 
+export const tenantProfileTabs = [
+  {
+    label: "Overview",
+    value: "overview",
+    icon: <LuSquareDashed />,
+  },
+  {
+    label: "All Jobs History",
+    value: "allJobsHistory",
+    icon: <IoIosCheckboxOutline />,
+  },
+  {
+    label: "Rating and Reviews",
+    value: "ratingAndReviews",
+    icon: <PiStarFill />,
+  },
+];
 
 export const categoryOptions = [
   {

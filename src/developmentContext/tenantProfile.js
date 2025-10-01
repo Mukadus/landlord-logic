@@ -5,6 +5,10 @@ import {
   RenderUserCell,
   RenderCurrencyCell,
 } from "@/components/organisms/ResponsiveTable/CommonCells";
+import moment from "moment-timezone";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { IoCalendarClearOutline } from "react-icons/io5";
+import { LuUser } from "react-icons/lu";
 
 export const tenantProfileTableHeader = [
   {
@@ -327,3 +331,23 @@ export const tenantProfileDetailData = {
     registrationDate: "2021-01-01T00:00:00.000Z",
   },
 };
+
+export const overViewData = (data) => [
+  {
+    icon: <LuUser />,
+    label: "Landlord Name",
+    value: data?.landlord?.fullName,
+  },
+  {
+    icon: <IoCalendarClearOutline />,
+    label: "Registration",
+    value: moment(data?.registrationDate).format("MMMM DD, YYYY"),
+  },
+
+  {
+    icon: <FaRegCircleCheck />,
+    label: "Status",
+    type: "status",
+    value: data?.status,
+  },
+];
