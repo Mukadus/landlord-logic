@@ -1,11 +1,13 @@
 import React from "react";
 import classes from "./Pagination.module.css";
-import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
+// import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
+import { RECORDS_LIMIT } from "@/resources/utils/constant";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 
 export default function Pagination({
   currentPage = 1,
-  limit = 10,
+  limit = RECORDS_LIMIT,
   totalRecords = 0,
   onPageChange,
   showResultsText = true,
@@ -48,7 +50,9 @@ export default function Pagination({
         aria-label="Previous page"
         type="button"
       >
-        <IoArrowBackOutline size={22} />
+             <FaArrowLeftLong size={16} />
+        <span>Previous</span>
+   
       </button>
     );
 
@@ -142,7 +146,8 @@ export default function Pagination({
         aria-label="Next page"
         type="button"
       >
-        <IoArrowForwardOutline size={22} />
+        <span>Next</span>
+        <FaArrowLeftLong size={16} />
       </button>
     );
 
@@ -155,14 +160,14 @@ export default function Pagination({
 
   return (
     <div className={classes.paginationContainer}>
+      <div className={classes.paginationButtons} role="navigation" aria-label="Pagination">
+        {renderPageNumbers()}
+      </div>
       {showResultsText && (
         <span className={classes.resultsText}>
           Showing {startResult} - {endResult} of {totalRecords} Results
         </span>
       )}
-      <div className={classes.paginationButtons} role="navigation" aria-label="Pagination">
-        {renderPageNumbers()}
-      </div>
     </div>
   );
 }

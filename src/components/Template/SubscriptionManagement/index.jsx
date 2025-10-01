@@ -11,7 +11,7 @@ import {
 import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
 import classes from "./subscriptionManagement.module.css";
-import SubscriptionCard from "@/components/molecules/SubscriptionCard";
+import PlanCards from "@/components/molecules/PlanCards";
 
 const SubscriptionManagement = () => {
   const [loading, setLoading] = useState(false);
@@ -88,7 +88,7 @@ const SubscriptionManagement = () => {
             <Row>
               {subscriptionPlansData?.map((item, index) => (
                 <Col lg={4} key={index}>
-                  <SubscriptionCard data={item} />
+                  <PlanCards data={item} />
                 </Col>
               ))}
             </Row>
