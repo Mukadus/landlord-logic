@@ -1,9 +1,9 @@
-import SubscriptionManagement from "@/components/Template/SubscriptionManagement";
+  import SubscriptionManagementTemplate from "@/components/Template/SubscriptionManagementTemplate";
 
 
 export default function SubscriptionManagementPage() {
     return (
-      <SubscriptionManagement />
+      <SubscriptionManagementTemplate />
     );
   }
   

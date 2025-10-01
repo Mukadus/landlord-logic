@@ -3,6 +3,7 @@
   padding: var(--p-16) 0;
   cursor: pointer;
   border-bottom: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
 }
 
 .notificationCardHeader {
@@ -18,3 +19,6 @@
 .message , .date{
     color: var(  --dark-gray-300);
 }
+/* .unseenNotificationCard{
+    background: var(--green-bg);
+} */

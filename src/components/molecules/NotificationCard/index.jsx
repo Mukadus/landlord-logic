@@ -10,6 +10,7 @@ export default function NotificationCard({ data, onClick }) {
     if (!dateString) return "";
     return moment(dateString).fromNow();
   };
+
   return (
     <div
       className={clsx(

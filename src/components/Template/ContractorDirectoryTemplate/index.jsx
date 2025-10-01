@@ -10,6 +10,7 @@ import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
 import AddorEditContractorModal from "@/components/organisms/Modals/AddorEditContractor";
+import classes from "./ContractorDirectoryTemplate.module.css";
 
 const ContractorDirectoryTemplate = () => {
   const [loading, setLoading] = useState(false);
@@ -32,7 +33,7 @@ const ContractorDirectoryTemplate = () => {
   return (
     <Container fluid>
       <Row>
-        <Col lg={12} className="p-0">
+        <Col lg={12} >
           <HeadingSection
             heading="Contractor Directory"
             search={true}
@@ -40,9 +41,10 @@ const ContractorDirectoryTemplate = () => {
             button={true}
             buttonText="Add Contractor"
             onClick={() => setModalShow(true)}
+            className={classes.headingSection}
           />
         </Col>
-        <Col lg={12} className="p-0">
+        <Col lg={12} >
           <Table
             tableHeader={contractorDirectoryTableHeader}
             data={data}

@@ -10,8 +10,10 @@ import {
 } from "@/developmentContext/subscriptionManagement";
 import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
-import classes from "./subscriptionManagement.module.css";
+import { popoverOptions } from "@/developmentContext/dropDownOption";
+import classes from "./subscriptionManagementTemplate.module.css";
 import PlanCards from "@/components/molecules/PlanCards";
+
 
 const SubscriptionManagement = () => {
   const [loading, setLoading] = useState(false);
@@ -22,20 +24,6 @@ const SubscriptionManagement = () => {
   const [page, setPage] = useState(1);
   const [tabs, setTabs] = useState("billing");
 
-  const popoverOptions = [
-    {
-      label: "View Details",
-      value: "viewDetails",
-    },
-    {
-      label: "Edit",
-      value: "edit",
-    },
-    {
-      label: "Delete",
-      value: "delete",
-    },
-  ];
 
   // Handle popover click
   const onClickPopover = (value, rowItem) => {
@@ -102,7 +90,7 @@ const SubscriptionManagement = () => {
     <Container fluid>
       <Row>
         <Col lg={12}>
-          <h6 className={classes.heading}>Subscription Management</h6>
+          <h6 className={classes.headerHeading}>Subscription Management</h6>
           <HeadingSection
             classNameTabs={classes.tabs}
             className={classes.headingSection}
