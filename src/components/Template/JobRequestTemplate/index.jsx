@@ -10,22 +10,38 @@ import {
 import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
+import classes from "./JobRequestTemplate.module.css";
+import { useRouter } from "next/navigation";
 
 const JobRequestTemplate = () => {
+  const router = useRouter();
+  
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(jobRequestBodyData);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
+  
+  // Handle popover click
+  const onClickPopover = (value, rowItem) => {
+    if (value === "viewDetails") {
+      router.push(`/job-requests/detail`);
+    }
+  };
 
   return (
     <Container fluid>
       <Row>
-        <Col lg={12} className="p-0">
-          <HeadingSection heading="Job Requests" search={true} filter={true} />
+        <Col lg={12}>
+          <HeadingSection
+            heading="Job Requests"
+            search={true}
+            filter={true}
+            className={classes.headingSection}
+          />
         </Col>
-        <Col lg={12} className="p-0">
+        <Col lg={12}>
           <Table
             tableHeader={jobRequestTableHeader}
             data={data}
@@ -50,12 +66,12 @@ const JobRequestTemplate = () => {
 
               if (key == "action") {
                 return (
-                    <PopOver
-                      popover={popoverOptions}
-                      onClick={(label) => {
-                        onClickPopover(label, rowItem);
-                      }}
-                    />
+                  <PopOver
+                    popover={popoverOptions}
+                    onClick={(label) => {
+                      onClickPopover(label, rowItem);
+                    }}
+                  />
                 );
               }
               return item || "";

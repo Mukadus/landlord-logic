@@ -52,6 +52,7 @@ export const ContractorSchema = Yup.object({
       "Email contains invalid characters",
       (value) => !value || emailRegex.test(value)
     ),
-  contractorCategory: Yup.string()
-    .max(100, "Category must be less than 100 characters"),
+  contractorCategory: Yup.array()
+    .required("Contractor category is required")
+    .min(1, "Contractor category is required"),
 });

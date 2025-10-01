@@ -11,6 +11,7 @@ import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
 import { useRouter } from "next/navigation";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
+import classes from "./TenantProfileTemplate.module.css";
 
 
 
@@ -22,8 +23,7 @@ const TenantProfileTemplate = () => {
   const [totalRecords, setTotalRecords] = useState(tenantProfileBodyData.length);
   const [page, setPage] = useState(1);
   const router = useRouter();
-  console.log(page);
-  console.log(totalRecords);
+
 
 
   const onClickPopover = (value, rowItem) => {
@@ -35,10 +35,10 @@ const TenantProfileTemplate = () => {
   return (
     <Container fluid>
       <Row>
-        <Col lg={12} className="p-0">
-          <HeadingSection heading="Tenant Profile" search={true} filter={true} />
+        <Col lg={12}>
+          <HeadingSection heading="Tenant Profile" search={true} filter={true} className={classes.headingSection} />
         </Col>
-        <Col lg={12} className="p-0">
+        <Col lg={12}>
           <Table
             tableHeader={tenantProfileTableHeader}
             data={data}

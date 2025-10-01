@@ -9,6 +9,7 @@ import {
 import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
+import classes from "./ComplaintManagementTemplate.module.css";
 
 const ComplaintManagement = () => {
   const [loading, setLoading] = useState(false);
@@ -22,10 +23,10 @@ const ComplaintManagement = () => {
   return (
     <Container fluid>
       <Row>
-        <Col lg={12} className="p-0">
-          <HeadingSection heading="Complaint Management" search={true} filter={true} />
+        <Col lg={12}>
+          <HeadingSection heading="Complaint Management" search={true} filter={true} className={classes.headingSection} />
         </Col>
-        <Col lg={12} className="p-0">
+        <Col lg={12}>
           <Table
             tableHeader={complaintManagementTableHeader}
             data={data}

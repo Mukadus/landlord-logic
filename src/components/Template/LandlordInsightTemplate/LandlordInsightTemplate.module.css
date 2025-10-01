@@ -4,3 +4,6 @@
   align-items: center;
   padding: 8px;
 }
+.headingSection {
+  padding-top: var(--p-16) !important;
+}

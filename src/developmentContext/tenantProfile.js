@@ -16,13 +16,13 @@ export const tenantProfileTableHeader = [
   {
     title: "Landlord",
     key: "landlord",
-    style: { width: "25%" },
+    style: { width: "20%" },
     renderValue: (item) => <RenderTextCell cellValue={item} />,
   },
   {
     title: "Joined On",
     key: "joinedOn",
-    style: { width: "10%" },
+    style: { width: "15%" },
     renderValue: (item) => <RenderDateCell cellValue={item} />,
   },
   {

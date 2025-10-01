@@ -136,7 +136,7 @@ const DropDown = ({
         />
       </div>
       {errorText && (
-        <p className={`${[classes.errorText, errorTextClass].join(" ")}`}>
+        <p className={clsx("errorText", errorTextClass)}>
           {errorText + "*"}
         </p>
       )}

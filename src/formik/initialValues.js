@@ -20,5 +20,5 @@ export const otpVerificationValues = {
 export const contractorFormValues = {
   contractorName: "",
   contractorEmail: "",
-  contractorCategory: "",
+  contractorCategory: [],
 };

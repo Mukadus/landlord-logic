@@ -44,7 +44,8 @@ a {
 }
 
 .errorText {
-  color: var(--warning);
+  margin-top: var(--m-4);
+  color: var(--error);
   font-size: var(--fs14);
   font-weight: 400;
 }

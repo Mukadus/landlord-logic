@@ -77,6 +77,7 @@ const LandlordInsightTemplate = () => {
             heading="Landlord Insights"
             search={true}
             filter={true}
+          className={classes.headingSection}
           />
         </Col>
         <Col lg={12}>

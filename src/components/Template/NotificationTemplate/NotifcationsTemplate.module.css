@@ -8,4 +8,5 @@
 }
 .headingSection {
   border-bottom: none !important;
+  padding-top: var(--p-16) !important;
 }
