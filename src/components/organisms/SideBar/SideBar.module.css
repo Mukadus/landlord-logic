@@ -70,7 +70,7 @@
   overflow-x: hidden;
 }
 .nav::-webkit-scrollbar {
-  display: none;
+  display: none !important;
 }
 
 .collapsedNav {
@@ -163,14 +163,6 @@
 }
 .closedSubBottom {
   padding-block-start: var(--p-16);
-}
-@media screen and (max-width: 1600px) {
-  .sideBar {
-    width: 21%;
-  }
-  .collapsed {
-    width: 7%;
-  }
 }
 
 @media screen and (max-width: 1500px) {

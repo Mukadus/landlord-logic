@@ -1,5 +1,7 @@
 .header {
   padding-bottom: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
   border-bottom: 0.5px solid var(--border-light);
 }
 .headerTitle {
@@ -8,7 +10,7 @@
   color: var(--gray-700);
 }
 .body {
-  margin-block-start: 32px;
+  /* margin-block-start: 32px; */
   max-height: calc(100vh - 125px);
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
