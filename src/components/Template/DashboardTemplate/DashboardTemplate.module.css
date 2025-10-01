@@ -35,3 +35,11 @@
   gap: 8px;
   width: 100%;
 }
+
+.tableWrapper {
+  border-radius: 8px;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  padding: 10px 12px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+}

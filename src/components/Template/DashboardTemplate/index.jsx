@@ -78,10 +78,12 @@ export default function DashboardTemplate() {
           </div>
         </Col>
         <Col md={12}>
-          <ResponsiveTable
-            tableHeader={registrationTableHeader}
-            data={data?.registrations}
-          />
+          <div className={classes.tableWrapper}>
+            <ResponsiveTable
+              tableHeader={registrationTableHeader}
+              data={data?.registrations}
+            />
+          </div>
         </Col>
       </Row>
     </Container>
