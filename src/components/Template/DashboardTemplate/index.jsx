@@ -2,7 +2,11 @@
 import LoadingSkeleton from "@/components/atoms/LoadingSkeleton";
 import RevenueChart from "@/components/molecules/RevenueChart";
 import StatsCard from "@/components/molecules/Stats";
-import { dashboardData, statsData } from "@/developmentContext/dashboard";
+import {
+  dashboardData,
+  registrationTableHeader,
+  statsData,
+} from "@/developmentContext/dashboard";
 import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./DashboardTemplate.module.css";
@@ -10,6 +14,7 @@ import SubscriptionCard from "@/components/molecules/SubscriptionCard";
 import clsx from "clsx";
 import Button from "@/components/atoms/Button";
 import Image from "next/image";
+import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 
 export default function DashboardTemplate() {
   const [data, setData] = useState(dashboardData);
@@ -71,6 +76,12 @@ export default function DashboardTemplate() {
               fullWidth
             />
           </div>
+        </Col>
+        <Col md={12}>
+          <ResponsiveTable
+            tableHeader={registrationTableHeader}
+            data={data?.registrations}
+          />
         </Col>
       </Row>
     </Container>

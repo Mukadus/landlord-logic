@@ -40,7 +40,11 @@ const statusClassMap = {
   },
 };
 export const RenderCurrencyCell = ({ cellValue }) => {
-  return <span className={classes.textCell}>{cellValue != null ? getFormattedPrice(cellValue) : "-"}</span>;
+  return (
+    <span className={classes.textCell}>
+      {cellValue != null ? getFormattedPrice(cellValue) : "-"}
+    </span>
+  );
 };
 
 export const RenderTextCell = ({ cellValue: item }) => {
@@ -57,7 +61,6 @@ export const RenderBoldTextCell = ({ cellValue: item }) => {
     </span>
   );
 };
-
 
 export const RenderDateCell = ({ cellValue: item }) => {
   return (
@@ -107,14 +110,15 @@ export const IconButton = ({ icon, onClick }) => {
 
 export const RenderUserCell = ({ cellValue }) => {
   if (!cellValue) return null;
-  console.log("cellValue", cellValue);
 
   return (
     <div className={classes.userDataCell}>
       {cellValue?.photo && (
         <div className={classes.userAvatar}>
           <Image
-            src={imageUrl(cellValue?.photo) || cellValue?.photo}
+            src={
+              cellValue?.photo ? imageUrl(cellValue?.photo) : cellValue?.photo
+            }
             alt={cellValue?.fullName}
             width={48}
             height={48}
@@ -129,13 +133,10 @@ export const RenderUserCell = ({ cellValue }) => {
   );
 };
 
-
 export const categoryCell = ({ cellValue: { item } }) => {
-  return (
-    item?.map((item, index) => (
-      <div title={item} key={index} className={ classes.categoryCell}>
-        {item ? capitalizeFirstLetter(item) : "-"}
-      </div>
-    ))
-  );
+  return item?.map((item, index) => (
+    <div title={item} key={index} className={classes.categoryCell}>
+      {item ? capitalizeFirstLetter(item) : "-"}
+    </div>
+  ));
 };

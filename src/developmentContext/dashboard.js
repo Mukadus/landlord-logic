@@ -1,3 +1,10 @@
+import {
+  RenderUserCell,
+  RenderTextCell,
+  RenderDateCell,
+  RenderStatusCell,
+  RenderCurrencyCell,
+} from "@/components/organisms/ResponsiveTable/CommonCells";
 import { getFormattedPrice } from "@/resources/utils/helper";
 
 export const dashboardData = {
@@ -55,6 +62,7 @@ export const dashboardData = {
   registrations: [
     {
       fullName: "Helen Emmerich",
+      photo: "/app-images/Avatar.png",
       email: "helen.emmerich@email.com",
       createdAt: "2021-01-01",
       status: true,
@@ -62,6 +70,7 @@ export const dashboardData = {
     },
     {
       fullName: "Helen Emmerich",
+      photo: "/app-images/Avatar.png",
       email: "helen.emmerich@email.com",
       createdAt: "2021-01-01",
       status: true,
@@ -69,6 +78,7 @@ export const dashboardData = {
     },
     {
       fullName: "Helen Emmerich",
+      photo: "/app-images/Avatar.png",
       email: "helen.emmerich@email.com",
       createdAt: "2021-01-01",
       status: true,
@@ -93,5 +103,37 @@ export const statsData = (data) => [
     title: "New Sign-ups",
     value: data.newUsers,
     img: "/svgs/nav-6.svg",
+  },
+];
+
+export const registrationTableHeader = [
+  {
+    title: "Landlord",
+    key: "landlord",
+    style: { width: "30%" },
+    renderItem: ({ data }) => <RenderUserCell cellValue={data} />,
+  },
+  {
+    title: "Joined On",
+    key: "createdAt",
+    style: { width: "20%" },
+    renderItem: ({ item }) => <RenderDateCell cellValue={item} />,
+  },
+  {
+    title: "Status",
+    key: "status",
+    style: { width: "20%" },
+    renderItem: ({ item }) => <RenderStatusCell cellValue={item} />,
+  },
+  {
+    title: "Total Properties",
+    key: "totalProperties",
+    style: { width: "20%" },
+    renderItem: ({ item }) => <RenderTextCell cellValue={item} />,
+  },
+  {
+    title: "",
+    key: "actions",
+    style: { width: "10%" },
   },
 ];
