@@ -5,7 +5,10 @@ import BreadCrumbSection from "@/components/organisms/BreadCrumbSection";
 import PropertyDetailSection from "@/components/organisms/PropertyDetailSection";
 import TotalProperties from "@/components/organisms/TotalProperties";
 import UserDetailSection from "@/components/organisms/UserDetailSection";
-import { landlordInsightDetailData } from "@/developmentContext/landlordInsight";
+import {
+  landlordInsightDetailData,
+  overViewData,
+} from "@/developmentContext/landlordInsight";
 import useAxios from "@/interceptor/axios-functions";
 import { getFormattedPrice } from "@/resources/utils/helper";
 import { useState } from "react";
@@ -67,7 +70,7 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
 
   const renderTabs = () => {
     if (selectedTab === "overview") {
-      return <InformationSection data={selectedProperty} />;
+      return <InformationSection data={overViewData(selectedProperty)} header={true} />;
     }
     if (selectedTab === "tenants") {
       return <TenantSection data={selectedProperty} />;

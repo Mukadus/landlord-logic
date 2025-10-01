@@ -1,5 +1,6 @@
 .dashboardRow {
   row-gap: 26px;
+  padding-top: 16px;
 }
 .subscriptionRow {
   row-gap: 10px;
