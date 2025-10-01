@@ -277,3 +277,53 @@ export const tenantProfileBodyData = [
     totalSpent: 950.25,
   },
 ];
+
+export const tenantProfileDetailData = {
+  user: {
+    fullName: "Gail Cole",
+    createdOn: "2021-01-01T00:00:00.000Z",
+    status: "active",
+    photo: "/app-images/Avatar.png",
+    lastMonthSpending: 244,
+    totalSpending: 50222,
+    totalJobs: 66,
+  },
+  properties: {
+    image: "/app-images/property-one.jpg",
+    title: "Mataram Griya Residence",
+    status: "active",
+    location: "3967 Bosco Circles, Weberboro 61294",
+    landlord: {
+      fullName: "Gustavo Lima",
+      createdOn: "2021-01-01T00:00:00.000Z",
+    },
+    jobRequests: [
+      {
+        title: "Foundation Checkup",
+        status: "completed",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        title: "Heather Maintenance",
+        status: "completed",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        title: "Roof Structure Checkup",
+        status: "pending",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        title: "Wall Structure Checkup",
+        status: "waiting",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        title: "Water Leakage Checkup",
+        status: "waiting",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+    ],
+    registrationDate: "2021-01-01T00:00:00.000Z",
+  },
+};

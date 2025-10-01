@@ -13,22 +13,20 @@ import { useRouter } from "next/navigation";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
 import classes from "./TenantProfileTemplate.module.css";
 
-
-
 const TenantProfileTemplate = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(tenantProfileBodyData);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
-  const [totalRecords, setTotalRecords] = useState(tenantProfileBodyData.length);
+  const [totalRecords, setTotalRecords] = useState(
+    tenantProfileBodyData.length
+  );
   const [page, setPage] = useState(1);
   const router = useRouter();
 
-
-
   const onClickPopover = (value, rowItem) => {
     if (value === "viewDetails") {
-      router.push(`/tenant-profile/detail`);
+      router.push(`/tenant-profiles/detail`);
     }
   };
 
@@ -36,7 +34,12 @@ const TenantProfileTemplate = () => {
     <Container fluid>
       <Row>
         <Col lg={12}>
-          <HeadingSection heading="Tenant Profile" search={true} filter={true} className={classes.headingSection} />
+          <HeadingSection
+            heading="Tenant Profile"
+            search={true}
+            filter={true}
+            className={classes.headingSection}
+          />
         </Col>
         <Col lg={12}>
           <Table
@@ -63,12 +66,12 @@ const TenantProfileTemplate = () => {
 
               if (key == "action") {
                 return (
-                    <PopOver
-                      popover={popoverOptions}
-                      onClick={(label) => {
-                        onClickPopover(label, rowItem);
-                      }}
-                    />
+                  <PopOver
+                    popover={popoverOptions}
+                    onClick={(label) => {
+                      onClickPopover(label, rowItem);
+                    }}
+                  />
                 );
               }
               return item || "";
