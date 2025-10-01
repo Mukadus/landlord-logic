@@ -32,6 +32,7 @@
 
   /* ===== GREEN SHADES ===== */
   --green: #067a58;
+  --green-light: #e8fff0;
   --green-bg: rgba(6, 122, 88, 0.2);
   --green-bg-light: rgba(10, 204, 146, 0.05);
 
@@ -53,9 +54,11 @@
 
   /* ===== DARK GRAY SHADES ===== */
   --dark-gray-100: #818898;
+  --dark-gray-150: #858585;
   --dark-gray-200: #798a9a;
   --dark-gray-300: #6b7280;
   --dark-gray-400: #666666;
+  --dark-gray-450: #606060;
   --dark-gray-500: #5a5a5a;
   --dark-gray-600: #48494c;
   --dark-gray-700: #454545;

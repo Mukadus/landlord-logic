@@ -2,13 +2,7 @@
 .container {
   display: flex;
   align-items: center;
-  margin-bottom: 0;
-}
-
-.primaryContainer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
 }
 
 /* Tab List */
@@ -26,7 +20,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px 0 20px;
+  padding: 8px 16px;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -38,7 +32,8 @@
   white-space: nowrap;
   font-family: var(--font-rethink);
   color: var(--dark-gray-600);
-  min-width: fit-content;
+
+  border-bottom: 1px solid var(--hover-primary);
 }
 
 /* Icon styling */
@@ -74,7 +69,7 @@
 }
 
 /* Active Tab Underline */
-.listSelected::after {
+/* .listSelected::after {
   content: "";
   position: absolute;
   bottom: -16px;
@@ -83,7 +78,7 @@
   height: 1px;
   background-color: var(--hover-primary);
   border-radius: 1px;
-}
+} */
 
 /* Remove default list styling */
 .ul li {

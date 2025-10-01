@@ -34,3 +34,17 @@ export const actionPopoverOptions = [
     value: "delete",
   },
 ];
+export const propertyTabs = [
+  {
+    label: "Overview",
+    value: "overview",
+  },
+  {
+    label: "Assigned Tenants",
+    value: "tenants",
+  },
+  {
+    label: "Complaints",
+    value: "complaints",
+  },
+];

@@ -1,0 +1,40 @@
+.mainDiv {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+}
+.headerDiv {
+  display: flex;
+  padding: 6px 8px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.title {
+  color: var(--black-200);
+}
+.status {
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-transform: capitalize;
+}
+.headerLeftDiv {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.activeStatus {
+  background: var(--success-bg);
+  color: var(--success);
+}
+.inactiveStatus {
+  background: var(--error-bg);
+  color: var(--error);
+}
+
+.tabsContent {
+  padding: 16px;
+}

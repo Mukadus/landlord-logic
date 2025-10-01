@@ -10,18 +10,12 @@ export default function Tabs({
   setSelected = () => {},
   listClass,
   containerClass,
-  variant = "default",
+  variant = "default", //primary, secondary
 }) {
   const tabRef = useRef(null);
 
   return (
-    <div
-      className={clsx(
-        variant === "primary" ? classes.primaryContainer : classes.container,
-        containerClass
-      )}
-      ref={tabRef}
-    >
+    <div className={clsx(classes.container, containerClass)} ref={tabRef}>
       <ul className={classes.ul}>
         {tabsData?.map((item, index) => (
           <li
@@ -34,7 +28,9 @@ export default function Tabs({
             )}
           >
             {item.icon && <span className={classes.icon}>{item.icon}</span>}
-            <span className={clsx(classes.label, "fs14  fw-500")}>{item.label}</span>
+            <span className={clsx(classes.label, "fs14  fw-500")}>
+              {item.label}
+            </span>
           </li>
         ))}
       </ul>

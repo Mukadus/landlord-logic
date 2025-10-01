@@ -4,12 +4,12 @@ import Button from "@/components/atoms/Button";
 import clsx from "clsx";
 
 export default function BreadCrumbSection({
-  title,
-  title2,
-  showStatusButton,
-  label,
-  handleStatusButton,
-  leftIcon,
+  title = "",
+  title2 = "",
+  showStatusButton = false,
+  label = "",
+  handleStatusButton = () => {},
+  leftIcon = null,
 }) {
   return (
     <div className={classes.breadCrumbSection}>
