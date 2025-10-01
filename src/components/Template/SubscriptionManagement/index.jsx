@@ -45,10 +45,11 @@ const SubscriptionManagement = () => {
   const renderContent = () => {
     if (tabs === "billing") {
       return (
-        <Col lg={12} className="p-0">
+        <Col lg={12}>
           <AppTable
             tableHeader={subscriptionManagementTableHeader}
             data={data}
+
             noDataText={"No Data Found"}
             hasPagination={true}
             loading={loading === "loading"}
@@ -82,7 +83,7 @@ const SubscriptionManagement = () => {
     }
     if (tabs === "plans") {
       return (
-        <Col lg={12} className="p-0">
+        <Col lg={12}>
           <div className={classes.plansDiv}>
             <h6 className={classes.heading}>For Landlords</h6>
             <Row>
@@ -100,9 +101,11 @@ const SubscriptionManagement = () => {
   return (
     <Container fluid>
       <Row>
-        <Col lg={12} className="p-0">
+        <Col lg={12}>
           <h6 className={classes.heading}>Subscription Management</h6>
           <HeadingSection
+            classNameTabs={classes.tabs}
+            className={classes.headingSection}
             search={true}
             filter={true}
             tabs={tabs}
