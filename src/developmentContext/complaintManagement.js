@@ -18,12 +18,12 @@ export const complaintManagementTableHeader = [
     style: { width: "15%" },
     renderItem: ({ item }) => <RenderTextCell cellValue={item} />,
   },
-  // {
-  //   title: "Message",
-  //   key: "message",
-  //   style: { width: "25%" },
-  //   renderItem: ({ item }) => <RenderTextCell cellValue={item} />,
-  // },
+  {
+    title: "Message",
+    key: "message",
+    style: { width: "25%" },
+    renderItem: ({ item }) => <RenderTextCell cellValue={item} />,
+  },
   {
     title: "Status",
     key: "status",

@@ -1,24 +1,24 @@
 "use client";
 import { useState, useEffect } from "react";
-import classes from "./LandlordInsightTemplate.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import AppTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import {
-  landlordInsightTableHeader,
-  landlordInsightBodyData,
-} from "@/developmentContext/landlordInsight";
+  subscriptionManagementTableHeader,
+  subscriptionManagementBodyData, 
+  subscriptionTabs,
+} from "@/developmentContext/subscriptionManagement";
 import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
 
-const LandlordInsightTemplate = () => {
+const SubscriptionManagement = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(landlordInsightBodyData);
+  const [data, setData] = useState(subscriptionManagementBodyData);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
- 
-  // Popover options for action menu
+  const [tabs, setTabs] = useState("billing");
+
   const popoverOptions = [
     {
       label: "View Details",
@@ -44,14 +44,17 @@ const LandlordInsightTemplate = () => {
       <Row>
         <Col lg={12} className="p-0">
           <HeadingSection
-            heading="Landlord Insights"
+            heading="Subscription Management"
             search={true}
             filter={true}
+            tabs={true}
+            tabsOptions={subscriptionTabs}
+            setTabs={setTabs}
           />
         </Col>
         <Col lg={12} className="p-0">
           <AppTable
-            tableHeader={landlordInsightTableHeader}
+            tableHeader={subscriptionManagementTableHeader}
             data={data}
             noDataText={"No Data Found"}
             hasPagination={true}
@@ -88,4 +91,4 @@ const LandlordInsightTemplate = () => {
   );
 };
 
-export default LandlordInsightTemplate;
+export default SubscriptionManagement;

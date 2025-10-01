@@ -5,6 +5,7 @@ import Filter from "@/components/atoms/Filter";
 import { FaSearch } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import Button from "@/components/atoms/Button";
+import Tabs from "@/components/molecules/Tabs/Tabs";
 
 export default function HeadingSection({
   heading,
@@ -17,6 +18,9 @@ export default function HeadingSection({
   button,
   onButtonClick,
   buttonText,
+  tabs,
+  setTabs,
+  tabsOptions,
 }) {
   return (
     <div className={classes.subHeader}>
@@ -52,6 +56,17 @@ export default function HeadingSection({
             />
           </div>
         )}
+
+        {tabs && (
+          <div className={classes.tabs}>
+            <Tabs
+              tabs={tabs}
+              setTabs={setTabs}
+              tabsOptions={tabsOptions}
+            />
+          </div>
+        )}
+
       </div>
     </div>
   );
