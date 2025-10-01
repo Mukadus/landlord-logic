@@ -5,10 +5,10 @@ import HeadingSection from "@/components/organisms/HeadingSection";
 import classes from "./NotifcationsTemplate.module.css";
 import { notificationData } from "@/developmentContext/notification";
 import NotificationCard from "@/components/molecules/NotificationCard";
-// import PaginationComponent from "@/components/molecules/Pagination";
 import { RECORDS_LIMIT } from "@/resources/utils/constant";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
-// import LoadingSkeleton from "@/components/molecules/LoadingSkeleton";
+import LoadingSkeleton from "@/components/atoms/LoadingSkeleton";
+// import Pagination from "@/components/molecules/Pagination";
 
 export default function NotificationTemplate() {
   const [search, setSearch] = useState("");
@@ -16,6 +16,7 @@ export default function NotificationTemplate() {
   const [notifications, setNotifications] = useState(notificationData);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalRecords, setTotalRecords] = useState(notificationData.length);
+
 
   return (
     <Container fluid>
@@ -30,32 +31,37 @@ export default function NotificationTemplate() {
           />
         </Col>
         <Col lg={12}>
-          {/* <div className={classes.notificationContainer}>
+          <div className={classes.notificationContainer}>
             <Row>
               {loading === "loading" ? (
-                <LoadingSkeleton height={200} />
+                <Col lg={12}>
+                  <LoadingSkeleton width={100} height={200} />
+                </Col>
               ) : notifications?.length === 0 ? (
-                <NoDataFound text="No notifications found" />
+                <Col lg={12}>
+                  <NoDataFound text="No notifications found" />
+                </Col>
               ) : (
                 notifications?.map((notifications, index) => (
-                  <NotificationCard
-                    key={index}
-                    data={notifications}
-                    onClick={onClickNotification}
-                  />
+                  <Col lg={12}>
+                    <NotificationCard
+                      key={index}
+                      data={notifications}
+                      // onClick={onClickNotification}
+                    />
+                  </Col>
                 ))
               )}
-              <PaginationComponent
-                totalPages={Math.ceil(totalRecords / RECORDS_LIMIT)}
+              {/* <Pagination
+                totalRecords={totalRecords}
                 setCurrentPage={(p) => {
                   setCurrentPage(p);
-                  getData(p);
+                  setNotifications(notificationData);
                 }}
                 currentPage={currentPage}
-                totalRecords={totalRecords}
-              />
-            </Row> */}
-          {/* </div> */}
+              /> */}
+            </Row>
+          </div>
         </Col>
       </Row>
     </Container>
