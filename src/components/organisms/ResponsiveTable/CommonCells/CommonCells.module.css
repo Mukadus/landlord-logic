@@ -99,3 +99,25 @@
   line-height: var(--lh-24);
   font-family: var(--font-rethink);
 }
+.categoryDiv {
+  border-radius: 100px;
+  border: 1px solid var(--blue-bg);
+  background: var(--blue-bg-light);
+  padding: 4px 8px;
+  font-size: var(--fs16);
+  font-weight: 400;
+  line-height: var(--lh-24);
+  font-family: var(--font-rethink);
+  color: var(--blue-bg-darker);
+}
+.countDiv {
+  border-radius: 100px;
+  border: 1px solid var(--border-light);
+  background: var(--blue-bg-light);
+  padding: 4px 8px;
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: var(--lh-20);
+  font-family: var(--font-rethink);
+  color: var(--blue-bg-darker);
+}

@@ -13,6 +13,7 @@ import {
   MdOutlineWatchLater,
 } from "react-icons/md";
 import classes from "./CommonCells.module.css";
+import ToolTip from "@/components/atoms/ToolTip";
 
 // statusClassMap - a map of status classes
 const statusClassMap = {
@@ -111,10 +112,43 @@ export const RenderUserCell = ({ cellValue }) => {
   );
 };
 
-export const categoryCell = ({ cellValue: { item } }) => {
-  return item?.map((item, index) => (
-    <div title={item} key={index} className={classes.textCell}>
-      {item ? capitalizeFirstLetter(item) : "-"}
+// export const categoryCell = ({ cellValue: { item } }) => {
+//   return item?.map((item, index) => (
+//     <div title={item} key={index} className={classes.textCell}>
+//       {item ? capitalizeFirstLetter(item) : "-"}
+//     </div>
+//   ));
+// };
+export const RenderCategoryCell = ({ cellValue: item }) => {
+  const isArray = Array.isArray(item);
+  const gradeCount = isArray ? item.length - 1 : 0;
+
+  const gradeName =
+    Array.isArray(item) && item.length > 1
+      ? item
+          .slice(1)
+          .map((e) => (e?.name ? capitalizeFirstLetter(e.name) : ""))
+          .filter(Boolean)
+          .join(" - ")
+      : "";
+
+ 
+  return (
+    <div className="d-flex justify-content-start align-items-center gap-2">
+      <span className={clsx("body05 maxLine1", classes.categoryDiv)}>
+        {isArray
+          ? item.length
+            ? capitalizeFirstLetter(item[0]?.name)
+            : "N/A"
+          : item?.name || "N/A"}
+      </span>
+      {gradeCount > 0 && isArray && (
+        <ToolTip data={gradeName} placement="top">
+          <span
+            className={clsx("body05 cursor-pointer", classes.countDiv)}
+          >{`+${gradeCount}`}</span>
+        </ToolTip>
+      )}
     </div>
-  ));
+  );
 };
