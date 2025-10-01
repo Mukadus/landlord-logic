@@ -116,6 +116,7 @@ export const subscriptionPlansData = [
   {
     plan: "Starter",
     price: 10,
+    icon: "/app-images/sub-card.png",
     features: [
       "Compliance-only plan (meaning that landlord can upload their compliances documents)    ",
       "AI compliance reminders (up to 5 documents/year)",
@@ -128,6 +129,7 @@ export const subscriptionPlansData = [
   {
     plan: "Intermediate",
     price: 10,
+    icon: "/app-images/sub-card.png",
     features: [
       "Compliance-only plan (meaning that landlord can upload their compliances documents)    ",
       "AI compliance reminders (up to 5 documents/year)",
@@ -140,6 +142,7 @@ export const subscriptionPlansData = [
   {
     plan: "Expert",
     price: 10,
+    icon: "/app-images/sub-card.png",
     features: [
       "Compliance-only plan (meaning that landlord can upload their compliances documents)    ",
       "AI compliance reminders (up to 5 documents/year)",

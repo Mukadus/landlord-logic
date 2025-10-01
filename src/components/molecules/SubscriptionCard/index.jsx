@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./SubscriptionCard.module.css";
 import clsx from "clsx";
 import { getFormattedPrice } from "@/resources/utils/helper";
+import Image from "next/image";
 
 export default function SubscriptionCard({ data }) {
   return (
@@ -11,7 +12,7 @@ export default function SubscriptionCard({ data }) {
           <div className={classes.iconContainer}>
             <div className={classes.iconBackground}>
               <div className={classes.iconSquare}>
-                {data?.icon}
+                <Image src={data?.icon} alt={data?.plan} height={16} width={16} />
               </div>
             </div>
           </div>
