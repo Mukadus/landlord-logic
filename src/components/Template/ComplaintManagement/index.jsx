@@ -7,6 +7,8 @@ import {
   complaintBodyData,
 } from "@/developmentContext/complaintManagement";
 import HeadingSection from "@/components/organisms/HeadingSection";
+import PopOver from "@/components/molecules/PopOver";
+import { popoverOptions } from "@/developmentContext/dropDownOption";
 
 const ComplaintManagement = () => {
   const [loading, setLoading] = useState(false);
@@ -14,7 +16,9 @@ const ComplaintManagement = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [totalRecords, setTotalRecords] = useState(0);
+  const [page, setPage] = useState(1);
 
+ 
   return (
     <Container fluid>
       <Row>
@@ -26,7 +30,37 @@ const ComplaintManagement = () => {
             tableHeader={complaintManagementTableHeader}
             data={data}
             loading={loading}
-            pagination={true}
+            noDataText={"No Data Found"}
+            hasPagination={true}
+            props={{
+              totalRecords: totalRecords,
+              onPageChange: (pg) => {
+                setPage(pg);
+                console.log(pg);
+                setData(complaintBodyData);
+              },
+              currentPage: page,
+            }}
+            renderItem={({ item, key, rowIndex, renderValue }) => {
+              const rowItem = data[rowIndex];
+
+              if (renderValue) {
+                return renderValue(item, rowItem);
+              }
+
+              if (key == "action") {
+                return (
+                    <PopOver
+                      popover={popoverOptions}
+                      onClick={(label) => {
+                        onClickPopover(label, rowItem);
+                      }}
+                    />
+                );
+              }
+              return item || "";
+            }}
+            
           />
         </Col>
       </Row>

@@ -40,7 +40,7 @@ export const contractorDirectoryTableHeader = [
   },
   {
     title: "",
-    key: "actions",
+    key: "action",
     style: { width: "10%" },
   },
 ];

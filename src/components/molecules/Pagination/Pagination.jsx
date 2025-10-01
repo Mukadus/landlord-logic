@@ -1,8 +1,7 @@
 import React from "react";
 import classes from "./Pagination.module.css";
-// import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
 import { RECORDS_LIMIT } from "@/resources/utils/constant";
-import { FaArrowLeftLong } from "react-icons/fa6";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 
 export default function Pagination({
@@ -27,18 +26,10 @@ export default function Pagination({
   const totalPages = Math.ceil(totalRecords / limit);
   const safeCurrentPage = Math.max(1, Math.min(currentPage, totalPages));
 
-  /**
-   * Renders the page number buttons and navigation arrows
-   * @private
-   * @returns {JSX.Element[]} Array of page button elements
-   */
   const renderPageNumbers = () => {
     const pages = [];
 
-    // Don't render pagination if only one page
-    if (totalPages <= 1) {
-      return pages;
-    }
+    if (totalPages <= 1) return pages;
 
     // Previous arrow
     pages.push(
@@ -50,9 +41,8 @@ export default function Pagination({
         aria-label="Previous page"
         type="button"
       >
-             <FaArrowLeftLong size={16} />
-        <span>Previous</span>
-   
+        <FaArrowLeftLong size={18} color="var(--blue-graph-light)"/>
+        <span className={classes.arrowButtonText}>Previous</span>
       </button>
     );
 
@@ -96,7 +86,7 @@ export default function Pagination({
 
     // Page numbers in range
     for (let i = startPage; i <= endPage; i++) {
-      if (i !== 1 || startPage === 1) { // Don't duplicate first page
+      if (i !== 1 || startPage === 1) {
         pages.push(
           <button
             key={i}
@@ -146,8 +136,8 @@ export default function Pagination({
         aria-label="Next page"
         type="button"
       >
-        <span>Next</span>
-        <FaArrowLeftLong size={16} />
+        <span className={classes.arrowButtonText}>Next</span>
+        <FaArrowRightLong size={18} color="var(--blue-graph-light)"/>
       </button>
     );
 
@@ -165,7 +155,7 @@ export default function Pagination({
       </div>
       {showResultsText && (
         <span className={classes.resultsText}>
-          Showing {startResult} - {endResult} of {totalRecords} Results
+          Showing {startResult} - {endResult} of {totalRecords}
         </span>
       )}
     </div>

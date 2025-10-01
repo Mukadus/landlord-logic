@@ -61,6 +61,7 @@
   --dark-gray-700: #454545;
   --dark-gray-800: #333333;
   --dark-gray-900: #232323;
+  --dark-gray-1000:#E7E7E7;
 
   /* ===== BLACK SHADES ===== */
   --black-50: #161a1d;
@@ -69,6 +70,7 @@
   --black-300: #232323;
   --black-400: #344054;
   --black-500: #000000;
+  --black-600: #292D32;
 
   /* ===== TEXT COLORS ===== */
   --text-primary: #111827;

@@ -1,0 +1,73 @@
+/* Modal Container */
+.modal {
+  z-index: 1050;
+}
+
+.modalDialog {
+  margin: 0 auto;
+  max-width: 430px;
+  width: 100%;
+}
+
+/* Modal Content */
+.modal-content {
+  border-radius: var(--br-8) !important;
+  border: 1px solid var(--gray-300) !important;
+  background: var(--white) !important;
+  overflow: hidden;
+  padding: var(--p-24) !important;
+}
+
+/* Backdrop */
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Header */
+.header {
+  padding: var(--p-24) var(--p-24) 0 var(--p-24);
+  
+}
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--dark-gray-1000);
+  width: 100%;
+  padding-bottom: var(--p-10);
+}
+
+.title {
+  font-size: var(--fs14);
+  font-weight: 400;
+  color: var( --dark-gray-700);
+  line-height: 1.2;
+}
+
+.closeButton {
+  background: none;
+  border: 2px solid var(--black-600);
+  cursor: pointer;
+  padding: var(--p-4);
+  border-radius: var(--br-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: var(--gray-100);
+}
+
+/* Body */
+.body {
+  padding: var(--p-24);
+  border: none !important;
+}
+
+/* Footer */
+.footer {
+  padding: var(--p-16) var(--p-24) var(--p-24) var(--p-24);
+  border-top: none !important;
+}

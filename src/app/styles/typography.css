@@ -25,9 +25,11 @@
   /* border radius */
   --br-8: 8px;
   --br-6: 6px;
+  --br-10: 10px;
 
   /* padding */
   --p-2: 2px;
+  --p-4: 4px;
   --p-6: 6px;
   --p-8: 8px;
   --p-10: 10px;
@@ -50,6 +52,11 @@
   --g-24: 24px;
 
   /* margin */
+  --m-4: 4px;
+  --m-8: 8px;
+  --m-12: 12px;
+  --m-16: 16px;
+  --m-20: 20px;
   --m-24: 24px;
 }
 

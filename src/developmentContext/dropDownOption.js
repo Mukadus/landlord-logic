@@ -34,3 +34,19 @@ export const actionPopoverOptions = [
     value: "delete",
   },
 ];
+
+
+export const categoryOptions = [
+  {
+    label: "Plumbing",
+    value: "plumbing",
+  },
+  {
+    label: "Electrician",
+    value: "electrician",
+  },
+  {
+    label: "Carpenter",
+    value: "carpenter",
+  },
+];

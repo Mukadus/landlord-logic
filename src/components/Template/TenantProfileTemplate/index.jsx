@@ -10,6 +10,7 @@ import HeadingSection from "@/components/organisms/HeadingSection";
 // import PopOver from "@/components/molecules/PopOver";
 import PopOver from "@/components/molecules/PopOver";
 import { useRouter } from "next/navigation";
+import { popoverOptions } from "@/developmentContext/dropDownOption";
 
 
 
@@ -22,13 +23,8 @@ const TenantProfileTemplate = () => {
   const [page, setPage] = useState(1);
   const router = useRouter();
   console.log(page);
+  console.log(totalRecords);
 
-  const popoverOptions = [
-    {
-      label: "View Details",
-      value: "viewDetails",
-    },
-  ];
 
   const onClickPopover = (value, rowItem) => {
     if (value === "viewDetails") {
@@ -47,13 +43,14 @@ const TenantProfileTemplate = () => {
             tableHeader={tenantProfileTableHeader}
             data={data}
             loading={loading}
+            noDataText={"No Data Found"}
             hasPagination={true}
             props={{
               totalRecords: totalRecords,
               onPageChange: (pg) => {
                 setPage(pg);
                 console.log(pg);
-                // getData({ pg });
+                setData(tenantProfileBodyData);
               },
               currentPage: page,
             }}
@@ -66,14 +63,12 @@ const TenantProfileTemplate = () => {
 
               if (key == "action") {
                 return (
-                  // <div className={classes.actionButtons}>
                     <PopOver
                       popover={popoverOptions}
                       onClick={(label) => {
                         onClickPopover(label, rowItem);
                       }}
                     />
-                  // </div>
                 );
               }
               return item || "";

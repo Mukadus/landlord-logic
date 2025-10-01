@@ -28,7 +28,7 @@ export const tenantProfileTableHeader = [
   {
     title: "Status",
     key: "status",
-    style: { width: "20%" },
+    style: { width: "15%" },
     renderValue: (item) => <RenderStatusCell cellValue={item} />,
   },
   {
@@ -40,7 +40,7 @@ export const tenantProfileTableHeader = [
   {
     title: "",
     key: "action",
-    style: { width: "5%" },
+    style: { width: "10%" },
   },
 ];
 
@@ -198,5 +198,82 @@ export const tenantProfileBodyData = [
     joinedOn: "2022-12-05",
     status: "active",
     totalSpent: 2800.5,
+  },
+  {
+    user: {
+      fullName: "David Wilson",
+      photo: "/app-images/Avatar.png",
+      email: "david.wilson@email.com",
+    },
+    landlord: "Lisa Anderson",
+    joinedOn: "2022-11-08",
+    status: "active",
+    totalSpent: 3200.75,
+  },
+  {
+    user: {
+      fullName: "Maria Garcia",
+      photo: "/app-images/Avatar.png",
+      email: "maria.garcia@email.com",
+    },
+    landlord: "Robert Taylor",
+    joinedOn: "2023-05-10",
+    status: "inactive",
+    totalSpent: 950.25,
+  },
+  {
+    user: {
+      fullName: "James Miller",
+      photo: "/app-images/Avatar.png",
+      email: "james.miller@email.com",
+    },
+    landlord: "Jennifer White",
+    joinedOn: "2023-02-28",
+    status: "active",
+    totalSpent: 4100.0,
+  },
+  {
+    user: {
+      fullName: "Sarah Thompson",
+      photo: "/app-images/Avatar.png",
+      email: "sarah.thompson@email.com",
+    },
+    landlord: "Christopher Lee",
+    joinedOn: "2023-04-12",
+    status: "pending",
+    totalSpent: 1200.0,
+  },
+  {
+    user: {
+      fullName: "Michael Johnson",
+      photo: "/app-images/Avatar.png",
+      email: "michael.johnson@email.com",
+    },
+    landlord: "Amanda Clark",
+    joinedOn: "2022-12-05",
+    status: "active",
+    totalSpent: 2800.5,
+  },
+  {
+    user: {
+      fullName: "David Wilson",
+      photo: "/app-images/Avatar.png",
+      email: "david.wilson@email.com",
+    },
+    landlord: "Lisa Anderson",
+    joinedOn: "2022-11-08",
+    status: "active",
+    totalSpent: 3200.75,
+  },
+  {
+    user: {
+      fullName: "Maria Garcia",
+      photo: "/app-images/Avatar.png",
+      email: "maria.garcia@email.com",
+    },
+    landlord: "Robert Taylor",
+    joinedOn: "2023-05-10",
+    status: "inactive",
+    totalSpent: 950.25,
   },
 ];

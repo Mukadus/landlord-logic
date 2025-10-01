@@ -16,3 +16,9 @@ export const forgotPasswordValues = {
 export const otpVerificationValues = {
   code: "",
 };
+
+export const contractorFormValues = {
+  contractorName: "",
+  contractorEmail: "",
+  contractorCategory: "",
+};

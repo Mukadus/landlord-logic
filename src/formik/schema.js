@@ -38,3 +38,20 @@ export const UpdatePasswordSchema = Yup.object({
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
   currentPassword: Yup.string().required("Current password is required"),
 });
+
+export const ContractorSchema = Yup.object({
+  contractorName: Yup.string()
+    .required("Contractor name is required")
+    .min(2, "Contractor name must be at least 2 characters")
+    .max(50, "Contractor name must be less than 50 characters"),
+  contractorEmail: Yup.string()
+    .email("Invalid email address")
+    .required("Contractor email is required")
+    .test(
+      "no-special-chars",
+      "Email contains invalid characters",
+      (value) => !value || emailRegex.test(value)
+    ),
+  contractorCategory: Yup.string()
+    .max(100, "Category must be less than 100 characters"),
+});

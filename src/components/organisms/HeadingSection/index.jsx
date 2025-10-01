@@ -16,11 +16,13 @@ export default function HeadingSection({
   filterOptions,
   filterTitle,
   button,
-  onButtonClick,
+  onClick,
   buttonText,
   tabs,
   setTabs,
   tabsData,
+  searchValue,  
+  setSearchValue,
 }) {
   return (
     <div className={classes.subHeader}>
@@ -36,6 +38,8 @@ export default function HeadingSection({
             <Input
               type="text"
               placeholder="Search"
+              value={searchValue}
+              setValue={setSearchValue}
               inputClass={classes.input}
               leftIcon={<LuSearch color="var(--dark-gray-100)" size={22} />}
             />
@@ -44,7 +48,7 @@ export default function HeadingSection({
         {button && (
           <div className={classes.button}>
             <Button
-              onClick={onButtonClick}
+              onClick={onClick}
               label={buttonText}
               leftIcon={<FiUser />}
               className={classes.button}

@@ -1,0 +1,8 @@
+.notificationContainer {
+  border-radius: var(--br-10);
+  border: 1px solid var(--border-light);
+  background: var(--white);
+  padding:var(--p-12) var(--p-24);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+  height: 100%;
+}
