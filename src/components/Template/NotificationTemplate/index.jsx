@@ -28,6 +28,7 @@ export default function NotificationTemplate() {
             filter={true}
             searchValue={search}
             setSearchValue={setSearch}
+            className={classes.headingSection}
           />
         </Col>
         <Col lg={12}>

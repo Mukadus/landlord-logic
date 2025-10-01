@@ -19,10 +19,10 @@ export default function NotificationCard({ data, onClick }) {
       onClick={() => onClick(data)}
     >
       <div className={classes.notificationCardHeader}>
-        <h3 className="fs14 fw500">{capitalizeFirstLetter(data?.title)}</h3>
-        <p className="fs14 fw500">{formatDate(data?.createdAt)}</p>
+        <h3 className={clsx(classes.title, "fs14 fw500")}>{capitalizeFirstLetter(data?.title)}</h3>
+        <p className={clsx(classes.date, "fs14 fw500")}>{formatDate(data?.createdAt)}</p>
       </div>
-      <p className="fs14 fw400 maxLine2">{data?.message}</p>
+      <p className={clsx(classes.message, "fs14 fw400 maxLine2")}>{data?.message}</p>
     </div>
   );
 }
