@@ -6,6 +6,11 @@ import {
   RenderCurrencyCell,
   RenderCategoryCell,
 } from "@/components/organisms/ResponsiveTable/CommonCells";
+import { LuUser } from "react-icons/lu";
+import { IoCalendarClearOutline } from "react-icons/io5";
+import { GrLocation } from "react-icons/gr";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import moment from "moment-timezone";
 
 export const jobRequestTableHeader = [
   {
@@ -204,4 +209,39 @@ export const jobRequestDetailData = {
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
-// export const jobRequestDetailData = {
+
+export const overViewDataJobRequestDetail = (data) => [
+    {
+      icon: <LuUser />,
+      label: "Tenant Name",
+      value: data?.tenant?.fullName,
+    },
+    {
+      icon: <IoCalendarClearOutline />,
+      label: "Requested On",
+      value: moment(data?.requestedOn).format("MMMM DD, YYYY"),
+    },
+    {
+      icon: <FaRegCircleCheck />,
+      label: "Status",
+      type: "status",
+      value: data?.status,
+    },
+    {
+      label: "Amount",
+      value: data?.amount,
+    },
+    {
+      label: "Category",
+      value: data?.category?.map((item) => item?.name).join(", "),
+    },
+    {
+      label: "Urgency",
+      value: data?.urgency,
+    },
+    {
+      label: "Description",
+      value: data?.description,
+    },
+  ];
+  

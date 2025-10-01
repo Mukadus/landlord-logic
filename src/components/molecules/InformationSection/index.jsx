@@ -5,6 +5,7 @@ import { LuPencil } from "react-icons/lu";
 import { overViewData } from "@/developmentContext/landlordInsight";
 
 export default function InformationSection({ data }) {
+  console.log(data)
   return (
     <div className={classes.informationSection}>
       <div className={classes.headerDiv}>
