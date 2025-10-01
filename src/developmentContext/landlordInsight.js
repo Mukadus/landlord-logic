@@ -4,6 +4,13 @@ import {
   RenderTextCell,
   RenderUserCell,
 } from "@/components/organisms/ResponsiveTable/CommonCells";
+import { CiCalendar } from "react-icons/ci";
+import { LuUser } from "react-icons/lu";
+
+import { GrLocation } from "react-icons/gr";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import moment from "moment-timezone";
+import { IoCalendarClearOutline } from "react-icons/io5";
 
 export const landlordInsightTableHeader = [
   {
@@ -242,5 +249,146 @@ export const landlordInsightDetailData = {
         },
       ],
     },
+    {
+      image: "/app-images/property-one.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+      complains: [
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+
+          createdOn: "2021-01-01T00:00:00.000Z", //time stamp
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+      ],
+    },
+    {
+      image: "/app-images/property-two.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+      complains: [
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+
+          createdOn: "2021-01-01T00:00:00.000Z", //time stamp
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+      ],
+    },
+    {
+      image: "/app-images/property-three.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+      complains: [
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+
+          createdOn: "2021-01-01T00:00:00.000Z", //time stamp
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+        {
+          message:
+            "Figma ipsum component variant main layer. Hand effect rotate duplicate flatten flows arrange.",
+          status: "pending",
+          role: "landlord",
+          createdOn: "2021-01-01T00:00:00.000Z",
+        },
+      ],
+    },
   ],
 };
+
+export const overViewData = (data) => [
+  {
+    icon: <LuUser />,
+    label: "Tenant Name",
+    value: data?.tenant?.fullName,
+  },
+  {
+    icon: <IoCalendarClearOutline />,
+    label: "Registration",
+    value: moment(data?.registrationDate).format("MMMM DD, YYYY"),
+  },
+  {
+    icon: <GrLocation />,
+    label: "Location",
+    value: data?.location,
+  },
+  {
+    icon: <FaRegCircleCheck />,
+    label: "Status",
+    type: "status",
+    value: data?.status,
+  },
+];

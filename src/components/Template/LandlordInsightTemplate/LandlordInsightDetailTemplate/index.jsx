@@ -14,6 +14,9 @@ import { CiCircleMinus } from "react-icons/ci";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import classes from "./LandlordInsightDetailTemplate.module.css";
 import { propertyTabs } from "@/developmentContext/dropDownOption";
+import InformationSection from "@/components/molecules/InformationSection";
+import TenantSection from "@/components/organisms/TenantSection";
+import ComplaintsSection from "@/components/organisms/ComplaintsSection";
 
 export default function LandlordInsightDetailTemplate({ slug = "" }) {
   // HOOKS
@@ -64,7 +67,13 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
 
   const renderTabs = () => {
     if (selectedTab === "overview") {
-      return "Hello";
+      return <InformationSection data={selectedProperty} />;
+    }
+    if (selectedTab === "tenants") {
+      return <TenantSection data={selectedProperty} />;
+    }
+    if (selectedTab === "complaints") {
+      return <ComplaintsSection data={selectedProperty} />;
     }
   };
 

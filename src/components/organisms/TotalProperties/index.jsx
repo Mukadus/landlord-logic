@@ -14,10 +14,10 @@ export default function TotalProperties({ data, setSelectedProperty }) {
         </p>
       </div>
       <div className={classes.bodyDiv}>
-        {data?.map((item) => (
+        {data?.map((item, index) => (
           <div
             className={classes.propertyDiv}
-            key={item?._id}
+            key={index}
             onClick={() => setSelectedProperty(item)}
           >
             <div className={classes.propertyLeftCol}>
@@ -25,7 +25,9 @@ export default function TotalProperties({ data, setSelectedProperty }) {
                 <Image src={item?.image} alt={item?.title} fill />
               </div>
               <div className={classes.propertyInfo}>
-                <p className={clsx(classes.propertyName, "fs16 fw500")}>
+                <p
+                  className={clsx(classes.propertyName, "fs16 fw500 maxLine1")}
+                >
                   {item?.title}
                 </p>
                 <p className={clsx(classes.propertyStatus, "fs14 fw500")}>

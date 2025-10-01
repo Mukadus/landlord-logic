@@ -1,0 +1,62 @@
+.title {
+  color: var(--black-200);
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editIcon {
+  color: var(--dark-gray-600);
+  width: var(--w-20);
+  cursor: pointer;
+  height: var(--h-20);
+}
+
+.informationSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.informationItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.informationItem svg {
+  width: 16px;
+  color: var(--black-200);
+  height: 16px;
+}
+
+.label {
+  color: var(--black-200);
+}
+
+.value {
+  color: var(--dark-gray-600);
+}
+
+.statusValue {
+  display: flex;
+  padding: 2px 12px;
+  align-items: center;
+  text-transform: capitalize;
+  gap: 4px;
+  border-radius: 100px;
+}
+
+.activeStatus {
+  background: var(--secondary-bg);
+  color: var(--secondary-dark);
+}
+
+.inactiveStatus {
+  background: var(--error-bg);
+  color: var(--error);
+}

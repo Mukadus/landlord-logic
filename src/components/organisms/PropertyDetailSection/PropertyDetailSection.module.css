@@ -2,8 +2,10 @@
   width: 100%;
   background: var(--white);
   border: 1px solid var(--gray-300);
+  height: 100%;
   border-radius: 8px;
 }
+
 .headerDiv {
   display: flex;
   padding: 6px 8px;
@@ -37,4 +39,7 @@
 
 .tabsContent {
   padding: 16px;
+}
+.tabs {
+  border-bottom: 1px solid var(--gray-300);
 }

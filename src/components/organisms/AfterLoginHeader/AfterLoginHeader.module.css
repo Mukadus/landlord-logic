@@ -14,3 +14,54 @@
   max-height: calc(100vh - 125px);
   overflow-y: auto;
 }
+
+/* Custom Scrollbar Styles */
+.body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.body::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.body::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.body::-webkit-scrollbar-thumb:active {
+  background: var(--text-secondary);
+}
+
+.body::-webkit-scrollbar-corner {
+  background: var(--bg-secondary);
+}
+
+/* Remove all scrollbar buttons and arrows */
+.body::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.body::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  display: none !important;
+}
+
+.body::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: none !important;
+}
+
+.body::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment {
+  display: none !important;
+}

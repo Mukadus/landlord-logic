@@ -44,6 +44,7 @@ export default function PropertyDetailSection({
       </div>
       <div className={classes.tabsSection}>
         <Tabs
+          containerClass={classes.tabs}
           variant="primary"
           tabsData={tabsData}
           selected={selected}

@@ -1,3 +1,7 @@
+import { BiMessageSquareError } from "react-icons/bi";
+import { LuSquareDashed } from "react-icons/lu";
+import { RxCounterClockwiseClock } from "react-icons/rx";
+
 export const FILTER_OPTIONS = [
   {
     label: "All",
@@ -38,14 +42,17 @@ export const propertyTabs = [
   {
     label: "Overview",
     value: "overview",
+    icon: <LuSquareDashed />
   },
   {
     label: "Assigned Tenants",
     value: "tenants",
+    icon:<RxCounterClockwiseClock />
   },
   {
     label: "Complaints",
     value: "complaints",
+    icon: <BiMessageSquareError />
   },
 ];
 
