@@ -8,6 +8,7 @@ import NotificationCard from "@/components/molecules/NotificationCard";
 import { RECORDS_LIMIT } from "@/resources/utils/constant";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
 import LoadingSkeleton from "@/components/atoms/LoadingSkeleton";
+import { notificationFilterOptions } from "@/developmentContext/dropDownOption";
 // import Pagination from "@/components/molecules/Pagination";
 
 export default function NotificationTemplate() {
@@ -29,6 +30,7 @@ export default function NotificationTemplate() {
             searchValue={search}
             setSearchValue={setSearch}
             className={classes.headingSection}
+            filterOptions={notificationFilterOptions}
           />
         </Col>
         <Col lg={12}>
