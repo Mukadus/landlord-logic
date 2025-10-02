@@ -1,8 +1,6 @@
-import Filter from "@/components/atoms/Filter";
-import { FILTER_OPTIONS } from "@/developmentContext/dropDownOption";
+import Tabs from "@/components/molecules/Tabs/Tabs";
 import clsx from "clsx";
 import classes from "./PropertyDetailSection.module.css";
-import Tabs from "@/components/molecules/Tabs/Tabs";
 
 export default function PropertyDetailSection({
   renderTabs = () => {},
@@ -11,7 +9,6 @@ export default function PropertyDetailSection({
   selected = "",
   setSelected = () => {},
 }) {
-  console.log(data);
   return (
     <div className={classes.mainDiv}>
       <div className={classes.headerDiv}>

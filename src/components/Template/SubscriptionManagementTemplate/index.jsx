@@ -15,7 +15,6 @@ import classes from "./subscriptionManagementTemplate.module.css";
 import PlanCards from "@/components/molecules/PlanCards";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
 
-
 const SubscriptionManagement = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(subscriptionManagementBodyData);
@@ -25,12 +24,6 @@ const SubscriptionManagement = () => {
   const [page, setPage] = useState(1);
   const [tabs, setTabs] = useState("billing");
 
-
-  // Handle popover click
-  const onClickPopover = (value, rowItem) => {
-    console.log("Popover clicked:", value, rowItem);
-  };
-
   const renderContent = () => {
     if (tabs === "billing") {
       return (
@@ -38,7 +31,6 @@ const SubscriptionManagement = () => {
           <AppTable
             tableHeader={subscriptionManagementTableHeader}
             data={data}
-
             noDataText={"No Data Found"}
             hasPagination={true}
             loading={loading === "loading"}
@@ -48,24 +40,6 @@ const SubscriptionManagement = () => {
               // getData({ pg });
             }}
             currentPage={page}
-            renderItem={({ item, key, rowIndex, renderValue }) => {
-              const rowItem = data[rowIndex];
-              if (renderValue) {
-                return renderValue(item, rowItem);
-              }
-
-              if (key === "action") {
-                return (
-                  <PopOver
-                    popover={popoverOptions}
-                    onClick={(value) => {
-                      onClickPopover(value, rowItem);
-                    }}
-                  />
-                );
-              }
-              return item || "";
-            }}
           />
         </Col>
       );
@@ -77,7 +51,10 @@ const SubscriptionManagement = () => {
             <h6 className={classes.heading}>For Landlords</h6>
             <Row>
               {subscriptionPlansData?.length === 0 ? (
-                <Col lg={12}> <NoDataFound text="No data found" size="small" /></Col>
+                <Col lg={12}>
+                  {" "}
+                  <NoDataFound text="No data found" size="small" />
+                </Col>
               ) : (
                 subscriptionPlansData?.map((item, index) => (
                   <Col lg={4} key={index}>

@@ -13,30 +13,25 @@ export const subscriptionManagementTableHeader = [
     title: "Landlord",
     key: "user",
     style: { width: "30%" },
-    renderValue: ( item, data ) => <RenderUserCell cellValue={data?.user} />,
+    renderValue: (item, data) => <RenderUserCell cellValue={data?.user} />,
   },
   {
     title: "Billing Month",
     key: "billingMonth",
-    style: { width: "20%" },
-    renderValue: ( item ) => <RenderBillingMonthCell cellValue={item} />,
+    style: { width: "25%" },
+    renderValue: (item) => <RenderBillingMonthCell cellValue={item} />,
   },
   {
     title: "Status",
     key: "status",
-    style: { width: "20%" },
-    renderValue: ( item ) => <RenderStatusCell cellValue={item} />,
+    style: { width: "25%" },
+    renderValue: (item) => <RenderStatusCell cellValue={item} />,
   },
   {
     title: "Amount",
     key: "amount",
     style: { width: "20%" },
-    renderValue: ( item ) => <RenderCurrencyCell cellValue={item} />,
-  },
-  {
-    title: "",
-    key: "action",
-    style: { width: "10%" },
+    renderValue: (item) => <RenderCurrencyCell cellValue={item} />,
   },
 ];
 
