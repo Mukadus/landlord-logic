@@ -6,6 +6,8 @@ export default function InformationSection({
   header = false,
   containerClass = "",
 }) {
+  console.log(data);
+
   return (
     <div className={clsx(classes.informationSection, containerClass)}>
       {header && (
@@ -21,7 +23,9 @@ export default function InformationSection({
                 <h3 className={clsx("fs18 fw600", classes.descriptionTitle)}>
                   {item?.label}
                 </h3>
-                <div className={classes.descriptionContent}>{item?.value}</div>
+                <div className={classes.descriptionContent}>
+                  {item?.value || "-"}
+                </div>
               </div>
             ) : (
               <>
@@ -41,7 +45,7 @@ export default function InformationSection({
                     classes.value
                   )}
                 >
-                  {item?.value}
+                  {item?.value || "-"}
                 </p>
               </>
             )}

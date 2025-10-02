@@ -317,6 +317,14 @@ export const tenantProfileDetailData = {
     title: "Mataram Griya Residence",
     status: "active",
     location: "3967 Bosco Circles, Weberboro 61294",
+    landlord: {
+      fullName: "Gustavo Lima",
+      createdOn: "2021-01-01T00:00:00.000Z",
+      photo: "/app-images/Avatar.png",
+      email: "Gustavo@yopmail.com",
+      phone: "1234567890",
+      callingCode: "+1",
+    },
     tenant: {
       fullName: "Gail Cole",
       createdOn: "2021-01-01T00:00:00.000Z",
