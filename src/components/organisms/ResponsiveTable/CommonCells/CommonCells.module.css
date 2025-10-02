@@ -80,7 +80,7 @@
 .userEmail {
   font-size: var(--fs12);
   font-weight: 400;
-  color: var(--blue-bg-darker);
+  color: var(--blue-bg-dark);
   font-family: var(--font-rethink);
   line-height: var(--lh-20);
 }
@@ -95,7 +95,7 @@
 .textCell {
   color: var(--blue-bg-dark);
   font-size: var(--fs16);
-  font-weight: 600;
+  font-weight: 400;
   line-height: var(--lh-24);
   font-family: var(--font-rethink);
 }

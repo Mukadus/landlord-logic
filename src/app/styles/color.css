@@ -18,8 +18,9 @@
   /* ===== SUCCESS COLORS ===== */
   --success: #006644;
   --success-light: #067a58;
-  --success-bg: #e6f4eb;
+  --success-bg: rgba(10, 204, 146, 0.05);
   --success-bg-light: #e3fcef;
+  --success-bg-dark: #E6F4EB;
 
   /* ===== BLUE SHADES ===== */
   --blue: #1c75bc;
@@ -103,7 +104,7 @@
   --info: #1c75bc;
   --error: #db1717;
   --error-bg: #ffe6e6;
-  --error-bg-light: #ffe6e6;
+  --error-bg-light: #e5b3b3;
 
   /* ===== PENDING STATUS COLORS ===== */
   --pending: #f59e0b;

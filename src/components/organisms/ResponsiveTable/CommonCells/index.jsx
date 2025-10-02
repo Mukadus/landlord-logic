@@ -19,23 +19,23 @@ import ToolTip from "@/components/atoms/ToolTip";
 const statusClassMap = {
   active: {
     className: classes.activeStatus,
-    icon: <FaRegCheckCircle />,
+    icon: <FaRegCheckCircle size={13}/>,
   },
   inactive: {
     className: classes.deactiveStatus,
-    icon: <MdOutlineCancel />,
+    icon: <MdOutlineCancel size={13}/>,
   },
 
   completed: {
-    icon: <FaRegCheckCircle />,
+    icon: <FaRegCheckCircle size={13}/>,
     className: classes.statusCompleted,
   },
   ongoing: {
-    icon: <MdOutlinePending />,
+    icon: <MdOutlinePending size={13}/>,
     className: classes.statusOngoing,
   },
   pending: {
-    icon: <MdOutlineWatchLater />,
+    icon: <MdOutlineWatchLater size={13}/>,
     className: classes.statusPending,
   },
 };
@@ -73,7 +73,7 @@ export const RenderStatusCell = ({ cellValue: item }) => {
     <span
       className={clsx(
         classes.status,
-        "fs-12 fw-600 lh-18",
+        "fs12 fw600 lh18",
         statusClass && statusClass?.className
       )}
     >
