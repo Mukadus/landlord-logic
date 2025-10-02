@@ -115,3 +115,17 @@ export const categoryOptions = [
     value: "carpenter",
   },
 ];
+export const notificationFilterOptions = [
+  {
+    label: "All",
+    value: "all",
+  },
+  {
+    label: "Latest",
+    value: "latest",
+  },
+  {
+    label: "Oldest",
+    value: "oldest",
+  },
+];
