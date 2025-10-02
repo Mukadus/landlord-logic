@@ -8,5 +8,5 @@
   color: var(--black-200);
 }
 .propertyDetailSection {
-  margin-block: 24px;
+  margin-block-start: 24px !important;
 }

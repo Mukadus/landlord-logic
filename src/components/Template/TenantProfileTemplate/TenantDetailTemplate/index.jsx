@@ -83,7 +83,7 @@ export default function TenantDetailTemplate({ slug = "" }) {
       );
     }
     if (selectedTab === "ratingAndReviews") {
-      return <ReviewCard data={data?.reviews} />;
+      return <ReviewCard data={data?.reviews} user={data?.user} />;
     }
   };
 

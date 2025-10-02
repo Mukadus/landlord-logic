@@ -6,7 +6,7 @@ import clsx from "clsx";
 import moment from "moment-timezone";
 import StarRatings from "react-star-ratings";
 
-function ReviewCard({ data = [] }) {
+function ReviewCard({ data = [], user = null }) {
   const reviews = Array.isArray(data) ? data : [];
 
   return (
@@ -15,7 +15,7 @@ function ReviewCard({ data = [] }) {
         {reviews?.map((review, index) => {
           // Determine who gave the review
           const givenBy = review?.givenBy;
-          const reviewerName = givenBy?.fullName;
+          const reviewerName = givenBy?.fullName || user?.fullName;
           const reviewerType = review?.givenBy?.role;
 
           return (

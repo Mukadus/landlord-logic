@@ -23,6 +23,12 @@
   justify-content: space-between;
   width: 100%;
 }
+.ratingDiv {
+  display: flex;
+  gap: 4px;
+  height: max-content;
+  align-items: center;
+}
 .userDetailSectionHeaderLeft {
   display: flex;
   gap: 12px;

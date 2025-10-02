@@ -32,14 +32,19 @@ export default function UserDetailSection({
           </div>
         </div>
         {data?.rating && data?.role === "contractor" && (
-          <StarRatings
-            rating={data?.rating}
-            numberOfStars={5}
-            starDimension="24px"
-            starSpacing="2px"
-            starRatedColor="#fbbf24"
-            starEmptyColor="#e4e5e9"
-          />
+          <div className={classes.ratingDiv}>
+            <StarRatings
+              rating={data?.rating}
+              numberOfStars={5}
+              starDimension="20px"
+              starSpacing="2px"
+              starRatedColor="#fbbf24"
+              starEmptyColor="#e4e5e9"
+            />
+            <p className={clsx("fs14 fw500", classes.ratingText)}>
+              {`${data?.rating}`}
+            </p>
+          </div>
         )}
       </div>
       <div className={classes.userDetailSectionFooter}>
