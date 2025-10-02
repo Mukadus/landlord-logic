@@ -19,12 +19,16 @@ const ComplaintManagement = () => {
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
 
- 
   return (
     <Container fluid>
       <Row>
         <Col lg={12}>
-          <HeadingSection heading="Complaint Management" search={true} filter={true} className={classes.headingSection} />
+          <HeadingSection
+            heading="Complaint Management"
+            search={true}
+            filter={true}
+            className={classes.headingSection}
+          />
         </Col>
         <Col lg={12}>
           <Table
@@ -37,7 +41,6 @@ const ComplaintManagement = () => {
               totalRecords: totalRecords,
               onPageChange: (pg) => {
                 setPage(pg);
-                console.log(pg);
                 setData(complaintBodyData);
               },
               currentPage: page,
@@ -51,17 +54,16 @@ const ComplaintManagement = () => {
 
               if (key == "action") {
                 return (
-                    <PopOver
-                      popover={popoverOptions}
-                      onClick={(label) => {
-                        onClickPopover(label, rowItem);
-                      }}
-                    />
+                  <PopOver
+                    popover={popoverOptions}
+                    onClick={(label) => {
+                      onClickPopover(label, rowItem);
+                    }}
+                  />
                 );
               }
               return item || "";
             }}
-            
           />
         </Col>
       </Row>

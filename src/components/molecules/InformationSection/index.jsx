@@ -6,8 +6,6 @@ export default function InformationSection({
   header = false,
   containerClass = "",
 }) {
-  console.log(data);
-
   return (
     <div className={clsx(classes.informationSection, containerClass)}>
       {header && (

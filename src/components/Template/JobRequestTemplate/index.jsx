@@ -15,14 +15,14 @@ import { useRouter } from "next/navigation";
 
 const JobRequestTemplate = () => {
   const router = useRouter();
-  
+
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(jobRequestBodyData);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
-  
+
   // Handle popover click
   const onClickPopover = (value, rowItem) => {
     if (value === "viewDetails") {
@@ -52,7 +52,7 @@ const JobRequestTemplate = () => {
               totalRecords: totalRecords,
               onPageChange: (pg) => {
                 setPage(pg);
-                console.log(pg);
+
                 setData(jobRequestBodyData);
               },
               currentPage: page,
