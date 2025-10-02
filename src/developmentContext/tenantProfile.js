@@ -291,6 +291,21 @@ export const tenantProfileDetailData = {
     lastMonthSpending: 244,
     totalSpending: 50222,
     totalJobs: 66,
+    rating: 4.5,
+    reviews: [
+      {
+        rating: 4.5,
+        review: "Great service",
+        property: "Mataram Griya Residence",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        rating: 4,
+        review: "Good service",
+        property: "Mataram Griya",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+    ],
   },
   properties: {
     image: "/app-images/property-one.jpg",
@@ -314,17 +329,17 @@ export const tenantProfileDetailData = {
       },
       {
         title: "Roof Structure Checkup",
-        status: "pending",
+        status: "ongoing",
         createdOn: "2021-01-01T00:00:00.000Z",
       },
       {
         title: "Wall Structure Checkup",
-        status: "waiting",
+        status: "pending",
         createdOn: "2021-01-01T00:00:00.000Z",
       },
       {
         title: "Water Leakage Checkup",
-        status: "waiting",
+        status: "pending",
         createdOn: "2021-01-01T00:00:00.000Z",
       },
     ],

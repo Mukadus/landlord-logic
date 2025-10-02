@@ -126,6 +126,7 @@ export default function TenantDetailTemplate({ slug = "" }) {
             setSelected={setSelectedTab}
             setFilter={setFilter}
             renderTabs={renderTabs}
+            showAddress={true}
           />
         </Col>
       </Row>

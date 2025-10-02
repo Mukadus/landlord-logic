@@ -36,6 +36,7 @@
     "react-phone-number-input": "^3.4.12",
     "react-redux": "^9.2.0",
     "react-select": "^5.10.2",
+    "react-star-ratings": "^2.3.0",
     "react-svg": "^16.3.0",
     "react-toastify": "^11.0.5",
     "recharts": "^3.2.1",

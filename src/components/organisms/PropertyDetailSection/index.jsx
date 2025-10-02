@@ -13,33 +13,43 @@ export default function PropertyDetailSection({
   tabsData = [],
   selected = "",
   setSelected = () => {},
+  showAddress = false,
 }) {
+  console.log(data);
   return (
     <div className={classes.mainDiv}>
+      <div></div>
       <div className={classes.headerDiv}>
-        <div className={classes.headerLeftDiv}>
-          <p className={clsx(classes.title, "fs18 fw600")}>{data?.title}</p>
-          <p
-            className={clsx(
-              classes.status,
-              data?.status === "active"
-                ? classes.activeStatus
-                : classes.inactiveStatus,
-              "fs12 fw500"
-            )}
-          >
-            {data?.status}
-          </p>
-        </div>
-        {showFilter && (
-          <div className={classes.filter}>
-            <Filter
-              setFilter={setFilter}
-              filters={filter}
-              options={FILTER_OPTIONS}
-              title={"Filter"}
-            />
+        <div className={classes.headerDivContent}>
+          <div className={classes.headerLeftDiv}>
+            <p className={clsx(classes.title, "fs18 fw600")}>{data?.title}</p>
+            <p
+              className={clsx(
+                classes.status,
+                data?.status === "active"
+                  ? classes.activeStatus
+                  : classes.inactiveStatus,
+                "fs12 fw500"
+              )}
+            >
+              {data?.status}
+            </p>
           </div>
+          {showFilter && (
+            <div className={classes.filter}>
+              <Filter
+                setFilter={setFilter}
+                filters={filter}
+                options={FILTER_OPTIONS}
+                title={"Filter"}
+              />
+            </div>
+          )}
+        </div>
+        {showAddress && (
+          <p className={clsx(classes.address, "fs14 fw500")}>
+            {data?.location}
+          </p>
         )}
       </div>
       <div className={classes.tabsSection}>

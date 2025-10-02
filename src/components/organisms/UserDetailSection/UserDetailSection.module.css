@@ -20,6 +20,12 @@
 .userDetailSectionHeader {
   display: flex;
   gap: 12px;
+  justify-content: space-between;
+  width: 100%;
+}
+.userDetailSectionHeaderLeft {
+  display: flex;
+  gap: 12px;
   align-items: center;
 }
 

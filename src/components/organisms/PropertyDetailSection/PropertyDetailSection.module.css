@@ -9,11 +9,18 @@
 .headerDiv {
   display: flex;
   padding: 6px 8px;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   border-bottom: 1px solid var(--gray-300);
 }
-
+.headerDivContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.address {
+  color: var(--black-200);
+}
 .title {
   color: var(--black-200);
 }

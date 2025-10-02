@@ -1,9 +1,10 @@
-import React from "react";
-import classes from "./InformationSection.module.css";
 import clsx from "clsx";
-import { LuPencil } from "react-icons/lu";
 import moment from "moment-timezone";
-// import { overViewData } from "@/developmentContext/landlordInsight";
+import { BsClockHistory } from "react-icons/bs";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { FaRegClock } from "react-icons/fa6";
+import { LuPencil } from "react-icons/lu";
+import classes from "./InformationSection.module.css";
 
 export default function InformationSection({
   data,
@@ -11,7 +12,12 @@ export default function InformationSection({
   containerClass = "",
   jobRequests,
 }) {
-  // console.log(jobRequests);
+  const statusIcon = {
+    completed: <FaRegCheckCircle />,
+    ongoing: <BsClockHistory />,
+    pending: <FaRegClock />,
+  };
+
   return (
     <div className={jobRequests ? classes.mainDiv : ""}>
       <div
@@ -29,7 +35,7 @@ export default function InformationSection({
         )}
         {Array.isArray(data) &&
           data?.map((item, index) => (
-            <div key={index} className={classes.informationItem}>
+            <div key={index} className={clsx(classes.informationItem)}>
               {item?.label?.toLowerCase() === "description" ? (
                 <div className={classes.descriptionContainer}>
                   <h3 className={clsx("fs16 fw600", classes.descriptionTitle)}>
@@ -71,11 +77,39 @@ export default function InformationSection({
           </p>
           <div className={classes.jobRequestsSection}>
             {jobRequests?.map((item, index) => (
-              <div key={index} className={classes.informationItem}>
-                <p className={clsx("fs14 fw500", classes.label)}>
-                  {item?.title}
-                </p>
-                <p className={clsx("fs14 fw500", classes.value)}>
+              <div
+                key={index}
+                className={clsx(
+                  classes.informationItem,
+                  classes.informationItemJobRequests
+                )}
+              >
+                <div className={classes.jobRequestsItem}>
+                  <div className={classes.statusContainer}>
+                    <div
+                      className={clsx(classes.status, classes[item?.status])}
+                    >
+                      {statusIcon[item?.status]}
+                    </div>
+                    <div
+                      className={clsx(
+                        classes.statusDot,
+                        jobRequests.length - 1 === index &&
+                          classes.lastStatusDot
+                      )}
+                    />
+                  </div>
+                  <p
+                    className={clsx(
+                      "fs14 fw500",
+                      classes.jobRequestsLabel,
+                      classes.label
+                    )}
+                  >
+                    {item?.title}
+                  </p>
+                </div>
+                <p className={clsx("fs14 fw500", classes.jobRequestsDate)}>
                   {moment(item?.createdOn).format("MMMM DD, YYYY")}
                 </p>
               </div>
