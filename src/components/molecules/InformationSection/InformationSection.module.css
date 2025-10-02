@@ -39,6 +39,7 @@
 }
 
 .value {
+  text-transform: capitalize;
   color: var(--dark-gray-600);
 }
 
@@ -88,4 +89,13 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   font-family: var(--font-rethink);
+}
+
+.pendingStatus {
+  background: var(--pending-bg);
+  color: var(--pending);
+  border: 1px solid var(--pending-bg-light);
+  text-transform: capitalize;
+  padding: 2px 8px;
+  border-radius: 50px;
 }

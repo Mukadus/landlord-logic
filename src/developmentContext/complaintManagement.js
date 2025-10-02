@@ -4,31 +4,33 @@ import {
   RenderTextCell,
   RenderUserCell,
 } from "@/components/organisms/ResponsiveTable/CommonCells";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { LuMessageSquare, LuUser } from "react-icons/lu";
 
 export const complaintManagementTableHeader = [
   {
-    title: "Tenant",
-    key: "tenant",
+    title: "Name",
+    key: "user",
     style: { width: "25%" },
-    renderValue: (item, data ) => <RenderUserCell cellValue={data?.tenant} />,
+    renderValue: (item, data) => <RenderUserCell cellValue={data?.user} />,
   },
   {
     title: "Role",
-    key: "role",
+    key: "user",
     style: { width: "15%" },
-    renderValue: (item ) => <RenderTextCell cellValue={item} />,
+    renderValue: (item) => <RenderTextCell cellValue={item?.role} />,
   },
   {
     title: "Message",
     key: "message",
     style: { width: "25%" },
-    renderValue: (item ) => <RenderTextCell cellValue={item} />,
+    renderValue: (item) => <RenderTextCell cellValue={item} />,
   },
   {
     title: "Status",
     key: "status",
     style: { width: "20%" },
-    renderValue: (item ) => <RenderStatusCell cellValue={item} />,
+    renderValue: (item) => <RenderStatusCell cellValue={item} />,
   },
   {
     title: "",
@@ -39,52 +41,87 @@ export const complaintManagementTableHeader = [
 
 export const complaintBodyData = [
   {
-    tenant: {
+    user: {
       fullName: "John Smith",
+      role: "tenant",
     },
-    role: "Tenant",
     message: "Water leakage in bathroom, needs immediate attention",
     status: "pending",
   },
   {
-    tenant: {
+    user: {
       fullName: "Sarah Johnson",
+      role: "landlord",
     },
-    role: "Tenant",
     message:
       "Heating system not working properly in winter ,Heating system not working properly in winter,Heating system not working properly in winter",
     status: "ongoing",
   },
   {
-    tenant: {
+    user: {
       fullName: "Mike Wilson",
+      role: "tenant",
     },
-    role: "Tenant",
     message: "Noise complaint from upstairs neighbors",
     status: "completed",
   },
   {
-    tenant: {
+    user: {
       fullName: "Emily Davis",
+      role: "tenant",
     },
-    role: "Tenant",
     message: "Broken window in living room",
     status: "pending",
   },
   {
-    tenant: {
+    user: {
       fullName: "David Brown",
+      role: "tenant",
     },
-    role: "Tenant",
     message: "Elevator maintenance required",
     status: "ongoing",
   },
   {
-    tenant: {
+    user: {
       fullName: "Lisa Anderson",
+      role: "landlord",
     },
-    role: "Tenant",
     message: "Internet connectivity issues",
     status: "completed",
   },
 ];
+
+export const complaintDetailData = {
+  user: {
+    fullName: "John Smith",
+    role: "tenant",
+  },
+  message: "Water leakage in bathroom, needs immediate attention",
+  status: "pending",
+  createdOn: "2021-01-01T00:00:00.000Z",
+};
+
+export const overViewData = (data) => {
+  return [
+    {
+      label: "Full Name",
+      value: data?.user?.fullName,
+      icon: <LuUser />,
+    },
+    {
+      label: "Role",
+      value: data?.user?.role,
+      icon: <LuUser />,
+    },
+    {
+      label: "Status",
+      value: data?.status,
+      icon: <FaRegCircleCheck />,
+    },
+    {
+      label: "Message",
+      value: data?.message,
+      type: "text",
+    },
+  ];
+};

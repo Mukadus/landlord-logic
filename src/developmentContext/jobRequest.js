@@ -214,40 +214,40 @@ export const jobRequestDetailData = {
 };
 
 export const overViewDataJobRequestDetail = (data) => [
-    {
-      icon: <LuUser />,
-      label: "Tenant Name",
-      value: data?.tenant?.fullName,
-    },
-    {
-      icon: <IoCalendarClearOutline />,
-      label: "Requested On",
-      value: moment(data?.requestedOn).format("MMMM DD, YYYY"),
-    },
-    {
-      icon: <FaRegCircleCheck />,
-      label: "Status",
-      type: "status",
-      value: data?.status,
-    },
-    {
-      icon: <IoCalendarClearOutline />,
-      label: "Category",
-      value:<RenderCategoryCell cellValue={data?.category} />,
-    },
-    {
-      icon: <PiSpinner />,
-      label: "Urgency",
-      value: data?.urgency,
-    },
-    {
-      icon: <RiMoneyPoundCircleLine />,
-      label: "Contractor Amount",
-      value: getFormattedPrice(data?.amount),
-    },
-    {
-      label: "Description",
-      value: data?.description,
-    },
-  ];
-  
+  {
+    icon: <LuUser />,
+    label: "Tenant Name",
+    value: data?.tenant?.fullName,
+  },
+  {
+    icon: <IoCalendarClearOutline />,
+    label: "Requested On",
+    value: moment(data?.requestedOn).format("MMMM DD, YYYY"),
+  },
+  {
+    icon: <FaRegCircleCheck />,
+    label: "Status",
+    type: "status",
+    value: data?.status,
+  },
+  {
+    icon: <IoCalendarClearOutline />,
+    label: "Category",
+    value: <RenderCategoryCell cellValue={data?.category} />,
+  },
+  {
+    icon: <PiSpinner />,
+    label: "Urgency",
+    value: data?.urgency,
+  },
+  {
+    icon: <RiMoneyPoundCircleLine />,
+    label: "Contractor Amount",
+    value: getFormattedPrice(data?.amount),
+  },
+  {
+    label: "Description",
+    value: data?.description,
+    type: "text",
+  },
+];

@@ -10,14 +10,24 @@ import HeadingSection from "@/components/organisms/HeadingSection";
 import PopOver from "@/components/molecules/PopOver";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
 import classes from "./ComplaintManagementTemplate.module.css";
+import { useRouter } from "next/navigation";
 
 const ComplaintManagement = () => {
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(complaintBodyData);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
+
+  // Handle popover click
+  const onClickPopover = (value, rowItem) => {
+    if (value === "viewDetails") {
+      router.push(`/complains-management/detail`);
+    }
+  };
 
   return (
     <Container fluid>
@@ -37,14 +47,12 @@ const ComplaintManagement = () => {
             loading={loading}
             noDataText={"No Data Found"}
             hasPagination={true}
-            props={{
-              totalRecords: totalRecords,
-              onPageChange: (pg) => {
-                setPage(pg);
-                setData(complaintBodyData);
-              },
-              currentPage: page,
+            totalRecords={totalRecords}
+            onPageChange={(pg) => {
+              setPage(pg);
+              setData(complaintBodyData);
             }}
+            currentPage={page}
             renderItem={({ item, key, rowIndex, renderValue }) => {
               const rowItem = data[rowIndex];
 

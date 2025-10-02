@@ -16,7 +16,7 @@ export default function InformationSection({
       {Array.isArray(data) &&
         data?.map((item, index) => (
           <div key={index} className={clsx(classes.informationItem)}>
-            {item?.label?.toLowerCase() === "description" ? (
+            {item?.type === "text" ? (
               <div className={classes.descriptionContainer}>
                 <h3 className={clsx("fs18 fw600", classes.descriptionTitle)}>
                   {item?.label}
@@ -36,9 +36,15 @@ export default function InformationSection({
                 <p
                   className={clsx(
                     "fs14 fw500",
-                    item?.value === "active"
+                    item?.value === "active" || item?.value === "completed"
                       ? classes.activeStatus
-                      : item?.value === "inactive" && classes.inactiveStatus,
+                      : item?.value === "inactive"
+                      ? classes.inactiveStatus
+                      : item?.value === "pending"
+                      ? classes.pendingStatus
+                      : item?.value === "ongoing"
+                      ? classes.ongoingStatus
+                      : "",
                     item?.type === "status" ? classes.statusValue : "",
                     classes.value
                   )}
