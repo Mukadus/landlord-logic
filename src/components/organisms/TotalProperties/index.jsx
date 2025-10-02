@@ -4,7 +4,11 @@ import classes from "./TotalProperties.module.css";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
 
-export default function TotalProperties({ data, setSelectedProperty }) {
+export default function TotalProperties({
+  data,
+  setSelectedProperty,
+  selectedProperty,
+}) {
   return (
     <div className={classes.mainDiv}>
       <div className={classes.headerDiv}>
@@ -16,7 +20,10 @@ export default function TotalProperties({ data, setSelectedProperty }) {
       <div className={classes.bodyDiv}>
         {data?.map((item, index) => (
           <div
-            className={classes.propertyDiv}
+            className={clsx(
+              classes.propertyDiv,
+              selectedProperty === item && classes.selectedPropertyDiv
+            )}
             key={index}
             onClick={() => setSelectedProperty(item)}
           >
