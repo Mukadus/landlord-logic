@@ -13,25 +13,25 @@ export const subscriptionManagementTableHeader = [
     title: "Landlord",
     key: "user",
     style: { width: "30%" },
-    renderValue: ( item, data ) => <RenderUserCell cellValue={data?.user} />,
+    renderValue: (item, data) => <RenderUserCell cellValue={data?.user} />,
   },
   {
     title: "Billing Month",
     key: "billingMonth",
     style: { width: "20%" },
-    renderValue: ( item ) => <RenderBillingMonthCell cellValue={item} />,
+    renderValue: (item) => <RenderBillingMonthCell cellValue={item} />,
   },
   {
     title: "Status",
     key: "status",
     style: { width: "20%" },
-    renderValue: ( item ) => <RenderStatusCell cellValue={item} />,
+    renderValue: (item) => <RenderStatusCell cellValue={item} />,
   },
   {
     title: "Amount",
     key: "amount",
     style: { width: "20%" },
-    renderValue: ( item ) => <RenderCurrencyCell cellValue={item} />,
+    renderValue: (item) => <RenderCurrencyCell cellValue={item} />,
   },
   {
     title: "",
@@ -134,7 +134,7 @@ export const subscriptionPlansData = [
     features: [
       "Compliance-only plan (meaning that landlord can upload their compliances documents)",
       "AI compliance reminders (up to 5 documents/year)",
-"Document uploads with auto-expiry detection",
+      "Document uploads with auto-expiry detection",
       "Dashboard countdowns + push/email reminders",
       "Export basic compliance report (CSV/Excel)",
       "No tenant job reporting, contractor acces, payments, or messaging",
@@ -146,7 +146,7 @@ export const subscriptionPlansData = [
     price: 10,
     icon: "/app-images/sub-card.png",
     features: [
-      "Full automation package",  
+      "Full automation package",
       "Stripe escrow for job payments",
       "Repair float wallet for urgent jobs",
       "Contractor payouts via Stripe Connect",
