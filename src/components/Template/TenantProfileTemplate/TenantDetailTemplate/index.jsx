@@ -17,8 +17,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import { CiCircleMinus } from "react-icons/ci";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import classes from "./TenantDetailTemplate.module.css";
-import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
 import ReviewCard from "@/components/organisms/ReviewCard";
+import JobHistorySection from "@/components/molecules/JobHistorySection";
 
 export default function TenantDetailTemplate({ slug = "" }) {
   // HOOKS
@@ -26,10 +26,9 @@ export default function TenantDetailTemplate({ slug = "" }) {
 
   // STATE
   const [data, setData] = useState(tenantProfileDetailData ?? null);
-
   const [loading, setLoading] = useState("");
-  const [filter, setFilter] = useState("");
   const [selectedTab, setSelectedTab] = useState(tenantProfileTabs[0]?.value);
+
   // API FUNCTION
   const getData = async () => {
     setLoading("getData");
@@ -72,12 +71,16 @@ export default function TenantDetailTemplate({ slug = "" }) {
       return (
         <InformationSection
           data={overViewData(data?.properties)}
-          jobRequests={data?.properties?.jobRequests}
+          header={true}
         />
       );
     }
     if (selectedTab === "allJobsHistory") {
-      return <NoDataFound title="No data found" subtitle="No data found" />;
+      return data?.properties?.jobRequests?.length > 0 ? (
+        <JobHistorySection jobRequests={data?.properties?.jobRequests} />
+      ) : (
+        <NoDataFound title="No job requests found" />
+      );
     }
     if (selectedTab === "ratingAndReviews") {
       return <ReviewCard data={data?.reviews} />;
@@ -119,14 +122,10 @@ export default function TenantDetailTemplate({ slug = "" }) {
         <Col lg={12} className={classes.propertyDetailSection}>
           <PropertyDetailSection
             data={data?.properties}
-            filter={filter}
-            showFilter={true}
             tabsData={tenantProfileTabs}
             selected={selectedTab}
             setSelected={setSelectedTab}
-            setFilter={setFilter}
             renderTabs={renderTabs}
-            showAddress={true}
           />
         </Col>
       </Row>

@@ -6,13 +6,20 @@ import {
   RenderCurrencyCell,
   RenderCategoryCell,
 } from "@/components/organisms/ResponsiveTable/CommonCells";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { GrLocation } from "react-icons/gr";
+import { IoCalendarClearOutline } from "react-icons/io5";
+import { LuUser } from "react-icons/lu";
+import moment from "moment-timezone";
 
 export const contractorDirectoryTableHeader = [
   {
     title: "Contractor",
     key: "contractor",
     style: { width: "25%" },
-    renderValue: (item, data) => <RenderUserCell cellValue={data?.contractor} />,
+    renderValue: (item, data) => (
+      <RenderUserCell cellValue={data?.contractor} />
+    ),
   },
   {
     title: "Category",
@@ -133,5 +140,218 @@ export const contractorBodyData = [
     createdOn: "2023-08-30",
     status: "pending",
     amount: 1200,
+  },
+];
+
+export const contractorDirectoryDetailData = {
+  reviews: [
+    {
+      rating: 4.5,
+      message: "Great service",
+      givenBy: {
+        fullName: "Gail Cole",
+        photo: "/app-images/Avatar.png",
+        role: "tenant",
+      },
+      property: {
+        title: "Mataram Griya Residence",
+      },
+      createdOn: "2021-01-01T00:00:00.000Z",
+    },
+    {
+      rating: 4,
+      message: "Good service",
+      givenBy: {
+        fullName: "Gustavo Lima",
+        photo: "/app-images/Avatar.png",
+        role: "landlord",
+      },
+      property: {
+        title: "Mataram Griya Residence",
+      },
+      createdOn: "2021-01-01T00:00:00.000Z",
+    },
+  ],
+  user: {
+    fullName: "Gail Cole",
+    createdOn: "2021-01-01T00:00:00.000Z",
+    status: "active",
+    photo: "/app-images/Avatar.png",
+    lastMonthSpending: 244,
+    totalSpending: 50222,
+    totalJobs: 66,
+    rating: 4.5,
+    categories: [{ name: "Plumbing" }, { name: "Electrical" }],
+    role: "contractor",
+
+    portfolio: [
+      { documentName: "Deutchhome_portfolio.pdf", size: "100KB" },
+      { documentName: "Deutchhome_portfolio.png", size: "100KB" },
+      { documentName: "Deutchhome_portfolio.jpg", size: "100KB" },
+      { documentName: "Deutchhome_portfolio.jpg", size: "100KB" },
+    ],
+  },
+  properties: {
+    image: "/app-images/property-one.jpg",
+    title: "Mataram Griya Residence",
+    status: "active",
+    location: "3967 Bosco Circles, Weberboro 61294",
+    tenant: {
+      fullName: "Gail Cole",
+      createdOn: "2021-01-01T00:00:00.000Z",
+      photo: "/app-images/Avatar.png",
+      email: "Gail@yopmail.com",
+      phone: "1234567890",
+      callingCode: "+1",
+    },
+    jobRequests: [
+      {
+        title: "Foundation Checkup",
+        status: "completed",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        title: "Heather Maintenance",
+        status: "completed",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        title: "Roof Structure Checkup",
+        status: "ongoing",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        title: "Wall Structure Checkup",
+        status: "pending",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+      {
+        title: "Water Leakage Checkup",
+        status: "pending",
+        createdOn: "2021-01-01T00:00:00.000Z",
+      },
+    ],
+
+    registrationDate: "2021-01-01T00:00:00.000Z",
+  },
+  previousProperties: [
+    {
+      image: "/app-images/property-one.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+    },
+    {
+      image: "/app-images/property-two.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: null,
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+    },
+    {
+      image: "/app-images/property-three.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+    },
+    {
+      image: "/app-images/property-one.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+    },
+    {
+      image: "/app-images/property-two.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+    },
+    {
+      image: "/app-images/property-three.jpg",
+      title: "Mataram Griya Residence",
+      status: "active",
+      location: "3967 Bosco Circles, Weberboro 61294",
+      tenant: {
+        fullName: "Gail Cole",
+        createdOn: "2021-01-01T00:00:00.000Z",
+        photo: "/app-images/Avatar.png",
+        email: "Gail@yopmail.com",
+        phone: "1234567890",
+        callingCode: "+1",
+      },
+
+      registrationDate: "2021-01-01T00:00:00.000Z",
+    },
+  ],
+};
+
+export const overViewData = (data, user) => [
+  {
+    icon: <LuUser />,
+    label: "Contractor Name",
+    value: data?.contractor?.fullName,
+  },
+  {
+    icon: <IoCalendarClearOutline />,
+    label: "Registration",
+    value: moment(data?.registrationDate).format("MMMM DD, YYYY"),
+  },
+  {
+    icon: <IoCalendarClearOutline />,
+    label: "Categories",
+    value: <RenderCategoryCell cellValue={user?.categories} />,
+  },
+  {
+    icon: <GrLocation />,
+    label: "Location",
+    value: data?.location,
+  },
+  {
+    icon: <FaRegCircleCheck />,
+    label: "Status",
+    type: "status",
+    value: data?.status,
   },
 ];

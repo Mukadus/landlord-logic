@@ -1,0 +1,75 @@
+.mainDiv {
+  border-radius: 12px;
+  background: var(--success-bg-dark);
+  width: 100%;
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+.title {
+  color: var(--dark-gray-400);
+}
+.portfolioContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+.portfolioItem {
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 12px;
+  flex: 1 0 0;
+  background: var(--white);
+  border-radius: 12px;
+}
+.portfolioItemImage {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  background: var(--primary-cyan);
+}
+
+.icon {
+  color: var(--secondary);
+  width: var(--w-24);
+  height: var(--h-24);
+}
+
+.title {
+  line-height: 140%;
+  color: var(--dark-gray-800);
+}
+
+.subDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+.sizeDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.size {
+  color: var(--gray-650);
+  line-height: 140%;
+}
+
+.sizeDiv button {
+  height: fit-content !important;
+}
+
+.downloadIcon {
+  color: var(--black-200);
+  width: var(--w-24);
+  height: var(--h-24);
+}

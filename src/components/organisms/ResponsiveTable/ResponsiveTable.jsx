@@ -14,8 +14,8 @@ export default function ResponsiveTable({
   noDataText = "Data not found",
   renderTableHeader = null,
   hasPagination,
-  props,
   renderItem,
+  ...props
 }) {
   return (
     <>

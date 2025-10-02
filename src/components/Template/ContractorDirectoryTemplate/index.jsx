@@ -11,8 +11,13 @@ import PopOver from "@/components/molecules/PopOver";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
 import AddorEditContractorModal from "@/components/organisms/Modals/AddorEditContractor";
 import classes from "./ContractorDirectoryTemplate.module.css";
+import { useRouter } from "next/navigation";
 
 const ContractorDirectoryTemplate = () => {
+  // ROUTER
+  const router = useRouter();
+
+  // STATE
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(contractorBodyData);
   const [search, setSearch] = useState("");
@@ -20,20 +25,21 @@ const ContractorDirectoryTemplate = () => {
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
 
+  // MODAL
   const [modalShow, setModalShow] = useState(false);
 
+  // HANDLE POPOVER
   const onClickPopover = (label, rowItem) => {
-    console.log("Popover clicked:", label, rowItem);
-    // Handle popover actions here
-    if (label === "Edit") {
-      setModalShow(true);
+    if (label === "viewDetails") {
+      router.push(`/contractor-profiles/detail`);
     }
   };
 
+  // JSX
   return (
     <Container fluid>
       <Row>
-        <Col lg={12} >
+        <Col lg={12}>
           <HeadingSection
             heading="Contractor Directory"
             search={true}
@@ -44,22 +50,19 @@ const ContractorDirectoryTemplate = () => {
             className={classes.headingSection}
           />
         </Col>
-        <Col lg={12} >
+        <Col lg={12}>
           <Table
             tableHeader={contractorDirectoryTableHeader}
             data={data}
             loading={loading}
             noDataText={"No Data Found"}
             hasPagination={true}
-            props={{
-              totalRecords: totalRecords,
-              onPageChange: (pg) => {
-                setPage(pg);
-                console.log(pg);
-                setData(contractorBodyData);
-              },
-              currentPage: page,
+            totalRecords={totalRecords}
+            onPageChange={(pg) => {
+              setPage(pg);
+              setData(contractorBodyData);
             }}
+            currentPage={page}
             renderItem={({ item, key, rowIndex, renderValue }) => {
               const rowItem = data[rowIndex];
 
@@ -69,12 +72,12 @@ const ContractorDirectoryTemplate = () => {
 
               if (key == "action") {
                 return (
-                    <PopOver
-                      popover={popoverOptions}
-                      onClick={(label) => {
-                        onClickPopover(label, rowItem);
-                      }}
-                    />
+                  <PopOver
+                    popover={popoverOptions}
+                    onClick={(label) => {
+                      onClickPopover(label, rowItem);
+                    }}
+                  />
                 );
               }
               return item || "";
@@ -88,7 +91,6 @@ const ContractorDirectoryTemplate = () => {
         loading={loading}
       />
     </Container>
-    
   );
 };
 

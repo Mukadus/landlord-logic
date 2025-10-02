@@ -4,8 +4,14 @@ import Image from "next/image";
 import React from "react";
 import classes from "./UserDetailSection.module.css";
 import StarRatings from "react-star-ratings";
+import PortfolioSection from "../PortfolioSection";
 
-export default function UserDetailSection({ data, text, stats }) {
+export default function UserDetailSection({
+  data,
+  text,
+  stats,
+  showPortfolio = false,
+}) {
   return (
     <div className={clsx(classes.userDetailSection)}>
       <div className={classes.userDetailSectionHeader}>
@@ -25,7 +31,7 @@ export default function UserDetailSection({ data, text, stats }) {
             )}
           </div>
         </div>
-        {data?.rating && (
+        {data?.rating && data?.role === "contractor" && (
           <StarRatings
             rating={data?.rating}
             numberOfStars={5}
@@ -44,6 +50,8 @@ export default function UserDetailSection({ data, text, stats }) {
           </div>
         ))}
       </div>
+
+      {showPortfolio && <PortfolioSection data={data?.portfolio} />}
     </div>
   );
 }

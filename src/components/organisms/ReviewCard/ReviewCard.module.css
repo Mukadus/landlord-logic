@@ -1,70 +1,6 @@
-.container {
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 100%;
-}
-
-.header {
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.title {
-  color: var(--text-primary);
-  font-family: var(--font-rethink);
-}
-
-.ratingSummary {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-}
-
-.averageRating {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ratingNumber {
-  color: var(--text-primary);
-  font-family: var(--font-rethink);
-}
-
-.starsContainer {
-  display: flex;
-  gap: 2px;
-}
-
-.star {
-  font-size: 14px;
-  color: var(--border-medium);
-  transition: color 0.2s ease;
-}
-
-.starFilled {
-  color: #fbbf24;
-}
-
-.reviewCount {
-  color: var(--text-secondary);
-  font-family: var(--font-rethink);
-  margin: 0;
-}
-
 .reviewsList {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
   overflow-y: auto;
   flex-grow: 1;
@@ -72,12 +8,14 @@
 }
 
 .reviewCard {
+  justify-content: space-between;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-medium);
   border-radius: 8px;
   padding: 16px;
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 12px;
   transition: all 0.2s ease;
 }
@@ -110,6 +48,11 @@
   border: 1px solid var(--border-light);
   flex-shrink: 0;
 }
+.reviewCardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
 .reviewerDetails {
   display: flex;
@@ -127,6 +70,14 @@
   text-overflow: ellipsis;
 }
 
+.reviewerType {
+  color: var(--primary-light);
+  font-family: var(--font-rethink);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .reviewDate {
   color: var(--text-secondary);
   font-family: var(--font-rethink);
@@ -135,8 +86,14 @@
 
 .ratingContainer {
   display: flex;
-  gap: 2px;
+  align-items: center;
+  gap: 8px;
   flex-shrink: 0;
+}
+
+.ratingValue {
+  color: var(--text-primary);
+  font-family: var(--font-rethink);
 }
 
 .reviewContent {
@@ -171,16 +128,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  .ratingSummary {
-    align-items: flex-start;
-  }
-
   .reviewHeader {
     flex-direction: column;
     align-items: flex-start;

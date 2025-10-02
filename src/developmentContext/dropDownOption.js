@@ -1,8 +1,9 @@
 import { BiMessageSquareError } from "react-icons/bi";
+import { CiStar } from "react-icons/ci";
 import { IoIosCheckboxOutline } from "react-icons/io";
 import { LuSquareDashed } from "react-icons/lu";
-import { PiStarFill } from "react-icons/pi";
 import { RxCounterClockwiseClock } from "react-icons/rx";
+import { VscListUnordered } from "react-icons/vsc";
 
 export const FILTER_OPTIONS = [
   {
@@ -72,7 +73,31 @@ export const tenantProfileTabs = [
   {
     label: "Rating and Reviews",
     value: "ratingAndReviews",
-    icon: <PiStarFill />,
+    icon: <CiStar />,
+  },
+];
+
+export const contractorDirectoryTabs = [
+  {
+    label: "Overview",
+    value: "overview",
+    icon: <LuSquareDashed />,
+  },
+  {
+    label: "All Jobs History",
+    value: "allJobsHistory",
+    icon: <IoIosCheckboxOutline />,
+  },
+
+  {
+    label: "Rating and Reviews",
+    value: "ratingAndReviews",
+    icon: <CiStar />,
+  },
+  {
+    label: "Properties worked on",
+    value: "propertiesWorkedOn",
+    icon: <VscListUnordered />,
   },
 ];
 

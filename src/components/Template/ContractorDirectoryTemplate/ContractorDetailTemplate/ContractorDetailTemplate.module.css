@@ -1,0 +1,17 @@
+.breadCrumbSection {
+  margin-top: 12px;
+}
+
+.statusIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--black-200);
+}
+.propertyDetailSection {
+  margin-block: 24px;
+}
+.propertyCardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}

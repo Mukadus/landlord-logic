@@ -1,0 +1,92 @@
+.jobRequestsLabel {
+  margin-top: 3px;
+}
+
+.statusDot {
+  width: 1px;
+  height: 20px;
+  border-radius: 100px;
+  background: var(--gray-300);
+}
+
+.lastStatusDot {
+  height: 0px;
+  width: 0px;
+}
+.jobRequestsDate {
+  color: var(--black-200);
+  margin-top: 3px;
+}
+.jobRequestsItem {
+  display: flex;
+  gap: 8px;
+  /* align-items: center; */
+}
+
+.status {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+}
+
+.status svg {
+  width: 16px;
+  height: 16px;
+}
+
+.completed {
+  background: var(--success-bg-light);
+}
+
+.completed svg {
+  color: var(--success);
+}
+
+.ongoing {
+  background: var(--secondary-bg);
+}
+
+.ongoing svg {
+  color: var(--hover-secondary);
+}
+
+.pending {
+  background: var(--gray-100);
+}
+
+.pending svg {
+  color: var(--black-200);
+}
+.statusContainer {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-direction: column;
+}
+.informationItemJobRequests {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.jobRequestsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.jobRequestsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.informationItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}

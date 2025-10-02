@@ -7,6 +7,7 @@ import {
 } from "@/components/organisms/ResponsiveTable/CommonCells";
 import moment from "moment-timezone";
 import { FaRegCircleCheck } from "react-icons/fa6";
+import { GrLocation } from "react-icons/gr";
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { LuUser } from "react-icons/lu";
 
@@ -291,30 +292,38 @@ export const tenantProfileDetailData = {
     lastMonthSpending: 244,
     totalSpending: 50222,
     totalJobs: 66,
-    rating: 4.5,
-    reviews: [
-      {
-        rating: 4.5,
-        review: "Great service",
-        property: "Mataram Griya Residence",
-        createdOn: "2021-01-01T00:00:00.000Z",
-      },
-      {
-        rating: 4,
-        review: "Good service",
-        property: "Mataram Griya",
-        createdOn: "2021-01-01T00:00:00.000Z",
-      },
-    ],
+    role: "tenant",
   },
+  reviews: [
+    {
+      rating: 4.5,
+      message: "Great service",
+      property: {
+        title: "Mataram Griya Residence",
+      },
+      createdOn: "2021-01-01T00:00:00.000Z",
+    },
+    {
+      rating: 4,
+      message: "Good service",
+      property: {
+        title: "Mataram Griya",
+      },
+      createdOn: "2021-01-01T00:00:00.000Z",
+    },
+  ],
   properties: {
     image: "/app-images/property-one.jpg",
     title: "Mataram Griya Residence",
     status: "active",
     location: "3967 Bosco Circles, Weberboro 61294",
-    landlord: {
-      fullName: "Gustavo Lima",
+    tenant: {
+      fullName: "Gail Cole",
       createdOn: "2021-01-01T00:00:00.000Z",
+      photo: "/app-images/Avatar.png",
+      email: "Gail@yopmail.com",
+      phone: "1234567890",
+      callingCode: "+1",
     },
     jobRequests: [
       {
@@ -343,8 +352,9 @@ export const tenantProfileDetailData = {
         createdOn: "2021-01-01T00:00:00.000Z",
       },
     ],
-    registrationDate: "2021-01-01T00:00:00.000Z",
   },
+
+  registrationDate: "2021-01-01T00:00:00.000Z",
 };
 
 export const overViewData = (data) => [
@@ -357,6 +367,11 @@ export const overViewData = (data) => [
     icon: <IoCalendarClearOutline />,
     label: "Registration",
     value: moment(data?.registrationDate).format("MMMM DD, YYYY"),
+  },
+  {
+    icon: <GrLocation />,
+    label: "Location",
+    value: data?.location,
   },
 
   {
