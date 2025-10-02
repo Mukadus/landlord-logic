@@ -36,15 +36,19 @@
 .propertyDiv {
   display: flex;
   border-radius: 4px;
-  background: var(--green-light);
   display: flex;
   cursor: pointer;
   transition: all 0.25s ease;
   padding: 4px 8px;
   justify-content: space-between;
   align-items: center;
+}
+
+.selectedPropertyDiv {
+  background: var(--green-light);
   border: 1px solid var(--gray-300);
 }
+
 .propertyDiv:hover {
   transform: translateY(1px);
   background: var(--success-bg);

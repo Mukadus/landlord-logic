@@ -70,7 +70,12 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
 
   const renderTabs = () => {
     if (selectedTab === "overview") {
-      return <InformationSection data={overViewData(selectedProperty)} header={true} />;
+      return (
+        <InformationSection
+          data={overViewData(selectedProperty)}
+          header={true}
+        />
+      );
     }
     if (selectedTab === "tenants") {
       return <TenantSection data={selectedProperty} />;
@@ -113,6 +118,7 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
         </Col>
         <Col lg={4}>
           <TotalProperties
+            selectedProperty={selectedProperty}
             data={data?.properties}
             setSelectedProperty={setSelectedProperty}
           />
