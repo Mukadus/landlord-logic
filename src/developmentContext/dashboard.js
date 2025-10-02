@@ -89,7 +89,7 @@ export const dashboardData = {
 
 export const statsData = (data) => [
   {
-    title: "Active Users",
+    title: "Contractors",
     value: data.totalUsers,
     img: "/svgs/nav-3.svg",
     subTitle: "Users",
@@ -102,7 +102,7 @@ export const statsData = (data) => [
     route: "/subscription-management",
   },
   {
-    title: "New Sign-ups",
+    title: "Tenants",
     value: data.newUsers,
     img: "/svgs/nav-6.svg",
   },
