@@ -13,6 +13,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 import moment from "moment-timezone";
 import { PiSpinner } from "react-icons/pi";
 import { RiMoneyPoundCircleLine } from "react-icons/ri";
+import { getFormattedPrice } from "@/resources/utils/helper";
 
 export const jobRequestTableHeader = [
   {
@@ -232,7 +233,7 @@ export const overViewDataJobRequestDetail = (data) => [
     {
       icon: <IoCalendarClearOutline />,
       label: "Category",
-      value: data?.category?.map((item) => item?.name).join(", "),
+      value:<RenderCategoryCell cellValue={data?.category} />,
     },
     {
       icon: <PiSpinner />,
@@ -242,7 +243,7 @@ export const overViewDataJobRequestDetail = (data) => [
     {
       icon: <RiMoneyPoundCircleLine />,
       label: "Contractor Amount",
-      value: data?.amount,
+      value: getFormattedPrice(data?.amount),
     },
     {
       label: "Description",

@@ -50,7 +50,7 @@ export default function SideBar({ isCollapsed, setIsCollapsed }) {
           {NAV_DATA?.map((item, index) => (
             <div
               className={clsx(
-                item?.path === pathName && classes.selectedNavItem,
+                (item?.path === pathName || pathName.startsWith(item?.path)) && classes.selectedNavItem,
                 classes.navItem,
                 isCollapsed && classes.closedNavItem
               )}
@@ -63,7 +63,7 @@ export default function SideBar({ isCollapsed, setIsCollapsed }) {
               </div>
               {!isCollapsed && (
                 <p
-                  className={`${item?.path === pathName ? "fw-700" : "fw-500"}`}
+                  className={`${(item?.path === pathName || pathName.startsWith(item?.path)) ? "fw-700" : "fw-500"}`}
                 >
                   {item?.title}
                 </p>

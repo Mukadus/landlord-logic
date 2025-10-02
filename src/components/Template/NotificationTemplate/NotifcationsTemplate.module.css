@@ -10,3 +10,6 @@
   border-bottom: none !important;
   padding-top: var(--p-16) !important;
 }
+.notificationCards:last-child .notificationCard{
+  border-bottom: none !important;
+}

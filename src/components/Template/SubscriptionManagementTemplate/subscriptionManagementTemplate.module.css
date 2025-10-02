@@ -16,7 +16,7 @@
   padding-top: var(--p-24);
 }
 .headingSection {
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 .tabs {
   margin-block-start: 26px;

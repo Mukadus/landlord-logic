@@ -1,7 +1,7 @@
 import {
   RenderDateCell,
   RenderStatusCell,
-  RenderTextCell,
+  RenderBillingMonthCell,
   RenderUserCell,
   RenderCurrencyCell,
 } from "@/components/organisms/ResponsiveTable/CommonCells";
@@ -16,10 +16,10 @@ export const subscriptionManagementTableHeader = [
     renderValue: ( item, data ) => <RenderUserCell cellValue={data?.user} />,
   },
   {
-    title: "Joined On",
-    key: "joinedOn",
+    title: "Billing Month",
+    key: "billingMonth",
     style: { width: "20%" },
-    renderValue: ( item ) => <RenderDateCell cellValue={item} />,
+    renderValue: ( item ) => <RenderBillingMonthCell cellValue={item} />,
   },
   {
     title: "Status",
@@ -45,7 +45,7 @@ export const subscriptionManagementBodyData = [
     user: {
       fullName: "Corey George",
     },
-    joinedOn: "2021-01-01",
+    billingMonth: "2021-01-01",
     status: "ongoing",
     amount: 10,
   },
@@ -53,7 +53,7 @@ export const subscriptionManagementBodyData = [
     user: {
       fullName: "Corey George",
     },
-    joinedOn: "2021-01-01",
+    billingMonth: "2021-01-01",
     status: "pending",
     amount: 10,
   },
@@ -61,7 +61,7 @@ export const subscriptionManagementBodyData = [
     user: {
       fullName: "Corey George",
     },
-    joinedOn: "2021-01-01",
+    billingMonth: "2021-01-01",
     status: "completed",
     amount: 10,
   },
@@ -69,7 +69,7 @@ export const subscriptionManagementBodyData = [
     user: {
       fullName: "Corey George",
     },
-    joinedOn: "2021-01-01",
+    billingMonth: "2021-01-01",
     status: "ongoing",
     amount: 10,
   },
@@ -77,7 +77,7 @@ export const subscriptionManagementBodyData = [
     user: {
       fullName: "Corey George",
     },
-    joinedOn: "2021-01-01",
+    billingMonth: "2021-01-01",
     status: "completed",
     amount: 10,
   },
@@ -85,15 +85,16 @@ export const subscriptionManagementBodyData = [
     user: {
       fullName: "Corey George",
     },
-    joinedOn: "2021-01-01",
+    billingMonth: "2021-01-01",
     status: "pending",
     totalProperties: 10,
+    amount: 10,
   },
   {
     user: {
       fullName: "Corey George",
     },
-    joinedOn: "2021-01-01",
+    billingMonth: "2021-01-01",
     status: "completed",
     amount: 10,
   },
