@@ -4,10 +4,12 @@ import Image from "next/image";
 import clsx from "clsx";
 import Button from "@/components/atoms/Button";
 import { LuSquareArrowOutUpRight } from "react-icons/lu";
+import { useRouter } from "next/navigation";
 
 export default function StatsCard({ data }) {
+  const router = useRouter();
   return (
-    <div className={classes.statsCard}>
+    <div className={classes.statsCard} onClick={() => router.push(data.route)}>
       <div className={classes.statsCardHeader}>
         <div className={classes.statsLeftCol}>
           <div className={classes.iconDiv}>
@@ -30,7 +32,12 @@ export default function StatsCard({ data }) {
             </p>
           )}
         </div>
-        <Button label={"Details"} variant={"outlined"} className={classes.detailsBtn} leftIcon={<LuSquareArrowOutUpRight />}/>
+        <Button
+          label={"Details"}
+          variant={"outlined"}
+          className={classes.detailsBtn}
+          leftIcon={<LuSquareArrowOutUpRight />}
+        />
       </div>
     </div>
   );

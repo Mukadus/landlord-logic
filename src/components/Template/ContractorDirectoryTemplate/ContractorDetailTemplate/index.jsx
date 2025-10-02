@@ -1,4 +1,5 @@
 "use client";
+
 import LoadingSkeleton from "@/components/atoms/LoadingSkeleton";
 import InformationSection from "@/components/molecules/InformationSection";
 import BreadCrumbSection from "@/components/organisms/BreadCrumbSection";

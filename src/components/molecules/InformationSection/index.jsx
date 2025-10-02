@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { LuPencil } from "react-icons/lu";
 import classes from "./InformationSection.module.css";
 
 export default function InformationSection({
@@ -19,7 +18,7 @@ export default function InformationSection({
           <div key={index} className={clsx(classes.informationItem)}>
             {item?.label?.toLowerCase() === "description" ? (
               <div className={classes.descriptionContainer}>
-                <h3 className={clsx("fs16 fw600", classes.descriptionTitle)}>
+                <h3 className={clsx("fs18 fw600", classes.descriptionTitle)}>
                   {item?.label}
                 </h3>
                 <div className={classes.descriptionContent}>{item?.value}</div>

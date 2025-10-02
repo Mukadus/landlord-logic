@@ -36,14 +36,6 @@ const ContractorDirectoryTemplate = () => {
   };
 
   const handleSubmit = (values) => {
-    console.log("Submit data:", values);
-    setLoading("submitData");
-
-    setModalShow(false);
-  };
-
-  const handleSubmit = (values) => {
-    console.log("Submit data:", values);
     setLoading("submitData");
 
     setModalShow(false);

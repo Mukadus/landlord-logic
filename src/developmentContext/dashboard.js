@@ -93,11 +93,13 @@ export const statsData = (data) => [
     value: data.totalUsers,
     img: "/svgs/nav-3.svg",
     subTitle: "Users",
+    route: "/tenant-profiles",
   },
   {
     title: "Total Revenue",
     value: getFormattedPrice(data.totalRevenue),
     img: "/svgs/nav-7.svg",
+    route: "/subscription-management",
   },
   {
     title: "New Sign-ups",
