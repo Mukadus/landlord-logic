@@ -16,7 +16,7 @@ export default function SubscriptionCard({ data }) {
         </p>
       </div>
       <div className={classes.amountDiv}>
-        <p className={clsx(classes.nextPaymentDate, "fw500 fs14")}>
+        <p className={clsx(classes.nextPaymentDate, "fw500 fs12")}>
           Due by,  {moment(data?.nextPaymentDate).format("MMM DD, YYYY") || "-"}
         </p>
         <p className={clsx(classes.amount, "fw500 fs14")}>

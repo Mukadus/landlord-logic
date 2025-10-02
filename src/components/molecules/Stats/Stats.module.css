@@ -103,3 +103,19 @@
     transform: translateY(0);
   }
 }
+.detailsBtn svg{
+  display: none;
+
+}
+@media (max-width: 1200px) {
+  .detailsBtn label {
+    display: none;
+  }
+  .detailsBtn {
+    padding: 9px 11px;
+    height: 34px;
+  }
+  .detailsBtn svg{
+    display: block;
+  }
+}

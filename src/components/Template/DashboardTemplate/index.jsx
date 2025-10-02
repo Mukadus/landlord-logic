@@ -46,9 +46,11 @@ export default function DashboardTemplate() {
   //   getData();
   // }, []);
 
-  // JSX
-  const onClickPopover = (value, rowItem) => {
-    console.log("Popover clicked:", value, rowItem);
+   // Handle popover click
+   const onClickPopover = (value, rowItem) => {
+    if (value === "viewDetails") {
+      router.push(`/landlord-insights/detail`);
+    }
   };
 
   return (
@@ -69,14 +71,14 @@ export default function DashboardTemplate() {
                 ))}
           </Row>
         </Col>
-        <Col md={8}>
+        <Col  xxl={8} xl={7} md={12}>
           <RevenueChart
             data={data.revenueGraph}
             year={year}
             setYear={setYear}
           />
         </Col>
-        <Col md={4}>
+        <Col xxl={4} xl={5} md={12}>
           <div className={classes.subscriptionDiv}>
             <div className={classes.subscriptionHeader}>
               <div className={classes.iconDiv}>

@@ -26,6 +26,7 @@
 }
 .nextPaymentDate {
   color: var(--gray-600);
+  white-space: nowrap;
 }
 .amount {
   color: var(--info);
