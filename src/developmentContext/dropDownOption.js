@@ -117,6 +117,10 @@ export const categoryOptions = [
 ];
 export const notificationFilterOptions = [
   {
+    label: "All",
+    value: "all",
+  },
+  {
     label: "Latest",
     value: "latest",
   },
