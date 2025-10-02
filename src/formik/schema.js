@@ -53,6 +53,6 @@ export const ContractorSchema = Yup.object({
       (value) => !value || emailRegex.test(value)
     ),
   contractorCategory: Yup.array()
-    .required("Contractor category is required")
-    .min(1, "Contractor category is required"),
+    .optional()
+    // .min(1, "Contractor category is required"),
 });

@@ -3,6 +3,7 @@ import classes from "./Stats.module.css";
 import Image from "next/image";
 import clsx from "clsx";
 import Button from "@/components/atoms/Button";
+import { LuSquareArrowOutUpRight } from "react-icons/lu";
 
 export default function StatsCard({ data }) {
   return (
@@ -29,7 +30,7 @@ export default function StatsCard({ data }) {
             </p>
           )}
         </div>
-        <Button label={"Details"} variant={"outlined"} />
+        <Button label={"Details"} variant={"outlined"} className={classes.detailsBtn} leftIcon={<LuSquareArrowOutUpRight />}/>
       </div>
     </div>
   );

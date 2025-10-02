@@ -152,3 +152,11 @@ export const RenderCategoryCell = ({ cellValue: item }) => {
     </div>
   );
 };
+
+export const RenderBillingMonthCell = ({ cellValue: item }) => {
+  return (
+    <span className={clsx(classes?.date)}>
+      {moment(item).format("MMMM YYYY")}
+    </span>
+  );
+};

@@ -13,6 +13,7 @@ import PopOver from "@/components/molecules/PopOver";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
 import classes from "./subscriptionManagementTemplate.module.css";
 import PlanCards from "@/components/molecules/PlanCards";
+import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
 
 
 const SubscriptionManagement = () => {
@@ -75,11 +76,15 @@ const SubscriptionManagement = () => {
           <div className={classes.plansDiv}>
             <h6 className={classes.heading}>For Landlords</h6>
             <Row>
-              {subscriptionPlansData?.map((item, index) => (
-                <Col lg={4} key={index}>
-                  <PlanCards data={item} />
-                </Col>
-              ))}
+              {subscriptionPlansData?.length === 0 ? (
+                <Col lg={12}> <NoDataFound text="No data found" size="small" /></Col>
+              ) : (
+                subscriptionPlansData?.map((item, index) => (
+                  <Col lg={4} key={index}>
+                    <PlanCards data={item} />
+                  </Col>
+                ))
+              )}
             </Row>
           </div>
         </Col>

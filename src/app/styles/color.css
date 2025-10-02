@@ -111,6 +111,7 @@
   --pending-light: #fbbf24;
   --pending-bg: #fef3c7;
   --pending-bg-light: #fffbeb;
+  --pending-bg-dark: #DDAA00;
 
   /* ===== ONGOING STATUS COLORS ===== */
   --ongoing: #3b82f6;

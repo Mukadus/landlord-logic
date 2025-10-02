@@ -1,24 +1,36 @@
 .notificationCard {
   background: var(--white);
-  padding: var(--p-16) 0;
+  padding: var(--p-16) var(--p-10);
   cursor: pointer;
   border-bottom: 1px solid var(--gray-200);
   transition: all 0.3s ease;
+}
+.notificationCard:hover {
+  border-radius: var(--br-8);
+  background-color: var(--success-bg);
+  padding: var(--p-16);
+  /* border: 1px solid var(--gray-200); */
 }
 
 .notificationCardHeader {
   display: flex;
   justify-content: space-between;
 }
-.message , .title , .date {
-    font-family: var(--font-rethink);
+.message,
+.title,
+.date {
+  font-family: var(--font-rethink);
 }
-.title{
-    color: var( --text-primary);
+.title {
+  color: var(--text-primary);
 }
-.message , .date{
-    color: var(  --dark-gray-300);
+.message,
+.date {
+  color: var(--dark-gray-300);
 }
-/* .unseenNotificationCard{
-    background: var(--green-bg);
+/* .unseenNotificationCard {
+  background: var(--success-bg);
+  border-left: 4px solid var(--success);
+  border-radius: var(--br-8);
+  margin-block: var(--m-10);
 } */

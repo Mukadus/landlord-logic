@@ -35,6 +35,20 @@ const ContractorDirectoryTemplate = () => {
     }
   };
 
+  const handleSubmit = (values) => {
+    console.log("Submit data:", values);
+    setLoading("submitData");
+
+    setModalShow(false);
+  };
+
+  const handleSubmit = (values) => {
+    console.log("Submit data:", values);
+    setLoading("submitData");
+
+    setModalShow(false);
+  };
+
   // JSX
   return (
     <Container fluid>
@@ -88,7 +102,8 @@ const ContractorDirectoryTemplate = () => {
       <AddorEditContractorModal
         show={modalShow}
         setShow={setModalShow}
-        loading={loading}
+        loading={loading === "submitData"}
+        handleSubmit={handleSubmit}
       />
     </Container>
   );

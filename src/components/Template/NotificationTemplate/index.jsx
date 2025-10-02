@@ -33,7 +33,7 @@ export default function NotificationTemplate() {
         </Col>
         <Col lg={12}>
           <div className={classes.notificationContainer}>
-            <Row>
+            <Row className={classes.notificationCards}>
               {loading === "loading" ? (
                 <Col lg={12}>
                   <LoadingSkeleton width={100} height={200} />
@@ -44,10 +44,11 @@ export default function NotificationTemplate() {
                 </Col>
               ) : (
                 notifications?.map((notifications, index) => (
-                  <Col lg={12}>
+                  <Col lg={12} key={index} >
                     <NotificationCard
                       key={index}
                       data={notifications}
+                      className={classes.notificationCard}
                       // onClick={onClickNotification}
                     />
                   </Col>

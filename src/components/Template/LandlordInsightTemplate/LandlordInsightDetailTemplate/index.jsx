@@ -116,14 +116,14 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
             stats={userStats}
           />
         </Col>
-        <Col lg={4}>
+        <Col xl={4} lg={5}>
           <TotalProperties
             selectedProperty={selectedProperty}
             data={data?.properties}
             setSelectedProperty={setSelectedProperty}
           />
         </Col>
-        <Col lg={8} className={classes.propertyDetailSection}>
+        <Col xl={8} lg={7} className={classes.propertyDetailSection}>
           {selectedProperty ? (
             <PropertyDetailSection
               data={selectedProperty}

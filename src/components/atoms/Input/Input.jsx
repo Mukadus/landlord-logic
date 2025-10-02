@@ -17,7 +17,7 @@ export default function Input({
   inputStyle = {}, //Input inline Style
   labelStyle = {}, //Label inline Style
   error = "", // Error Text
-  leftIcon = null, // Icon For Input
+  leftIcon = null, // Icon For  console.log(contractorForm.values);Input
   rightIcon = null,
   inputRef = null,
   inputClass = "",
@@ -25,6 +25,7 @@ export default function Input({
   className = "",
   containerStyles = {},
   containerClass = "",
+  required = false,
   ...props
 }) {
   const [show, setShow] = useState(false);
@@ -44,7 +45,7 @@ export default function Input({
             )}
             style={labelStyle}
           >
-            {label} {label2 && label2}
+            {label} {label2 && label2} {required && <span style={{ color: "var(--pending-bg-dark)", marginLeft: "2px" }}>*</span>}
           </label>
         )}
         <div
