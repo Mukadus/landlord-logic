@@ -1,6 +1,6 @@
 .dashboardRow {
   row-gap: 26px;
-  padding-top: 16px;
+  padding-top: var(--p-32);
 }
 .subscriptionRow {
   row-gap: 10px;
@@ -43,4 +43,13 @@
   background: var(--white);
   padding: 10px 12px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+}
+.registrationDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heading{
+  color: var(--gray-900);
+  font-family: var(--font-rethink);
 }

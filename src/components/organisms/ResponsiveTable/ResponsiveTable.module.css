@@ -15,7 +15,7 @@
 .tableHeader th {
   color: var(--blue-bg-dark);
   font-size: var(--fs12);
-
+  font-family: var(--font-rethink);
   font-weight: 600;
   padding: 15px 12px;
 }
@@ -37,7 +37,7 @@
 }
 
 .tableBody .bodyRow:nth-child(even) {
-  background: var(--success-bg);
+  background: var(--success-bg-dark);
 }
 
 .tableBody .bodyRow:hover {

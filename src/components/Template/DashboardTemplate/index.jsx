@@ -18,11 +18,12 @@ import Image from "next/image";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./DashboardTemplate.module.css";
+import { useRouter } from "next/navigation";
 
 export default function DashboardTemplate() {
   // HOOKS
   const { Get } = useAxios();
-
+  const router = useRouter();
   // STATE
   const [data, setData] = useState(dashboardData);
   const [loading, setLoading] = useState("");
@@ -103,7 +104,14 @@ export default function DashboardTemplate() {
               label={"View all Subscriptions"}
               variant={"outlined"}
               fullWidth
+              onClick={() => router.push("/subscription-management")}
             />
+          </div>
+        </Col>
+        <Col md={12}>
+          <div className={classes.registrationDiv}>
+            <h6 className={clsx(classes.heading, "fw500 fs20")}>Recent Registrations</h6>
+            <Button label={"View all"} variant={"outlined"} onClick={() => router.push("/landlord-insights")} />
           </div>
         </Col>
         <Col md={12}>
