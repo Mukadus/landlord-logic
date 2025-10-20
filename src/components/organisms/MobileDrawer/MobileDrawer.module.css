@@ -1,0 +1,209 @@
+.header {
+    /* background-color: var(  --primary-dark); */
+    color: var(--primary-color);
+    width: 100%;
+    padding-block: 10px;
+    height: 80px;
+    padding-inline: 32px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    border-bottom: 1px solid var(--gray-500);
+}
+
+.mainDiv {
+    height: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.MobileDrawer {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    height: 100%;
+    /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.headerDiv {
+    padding: 32px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-dark);
+}
+
+.logoDiv {
+    width: 83PX;
+    height: 58px;
+    position: relative;
+}
+
+.logoDiv img {
+    object-fit: contain;
+}
+
+
+.itemIcon {
+    position: relative !important;
+    height: 27px;
+    width: 20px;
+}
+
+.barsIcon {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 15px;
+}
+
+.drawerDiv {
+    display: none;
+}
+
+.drawerLogo {
+    width: 140px;
+    position: relative;
+    height: 55px;
+}
+
+.drawerLogo img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.navigationDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: var(--fs16);
+    font-family: var(--font-rethink);
+    cursor: pointer !important;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.active {
+    color: var(--yellow);
+    background-color: var(--yellow);
+    border-radius: 10px;
+    color: var(--primary-color);
+    padding: 10px;
+}
+
+.buttonDiv {
+    gap: 10px;
+    flex-direction: column;
+    display: flex;
+}
+
+.dashboardButton {
+    width: 100%;
+}
+
+.btnStyles {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.bottomSection {
+    border-top: 1px solid var(--grey-700);
+    padding: 20px;
+}
+
+.buttonSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttonSection button {
+    width: 100%;
+    padding-inline: 20px;
+}
+
+.navItemIcon {
+    color: var(--gray-600);
+    width: 20px;
+    height: 20px;
+    flex: none;
+    position: relative;
+}
+
+.logo {
+    margin-inline: 0px;
+    position: relative;
+    width: 50px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.logo img {
+    object-fit: contain;
+}
+
+.logoText {
+    font-size: var(--fs16);
+    font-weight: 400;
+    color: var(--white);
+    font-family: var(--font-libre);
+    margin-block: 0px;
+    text-align: center;
+}
+
+.navItem {
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-bottom: 4px;
+    transform: translateX(0px);
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.active {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 4px;
+    transform: translateX(0px);
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.active .navItemIcon {
+    filter: brightness(0) invert(1);
+}
+
+
+@media (max-width: 500px) {
+    .header {
+        padding-inline: 15px;
+    }
+}

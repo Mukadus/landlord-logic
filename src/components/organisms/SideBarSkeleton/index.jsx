@@ -6,9 +6,12 @@ import SideBar from "../SideBar";
 import classes from "./SideBarSkeleton.module.css";
 import { pagesWithoutSideBar } from "@/developmentContext/app-data";
 import AfterLoginHeader from "../AfterLoginHeader";
+import { useMobileViewHook } from "@/resources/hooks/useMobileViewHook";
+import MobileDrawer from "../MobileDrawer";
 
 export default function SideBarSkeleton({ children }) {
   const pathName = usePathname();
+  const { isMobile } = useMobileViewHook(991);
 
   const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -18,7 +21,13 @@ export default function SideBarSkeleton({ children }) {
 
   return (
     <div className={classes.mainDiv}>
-      <SideBar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+      {isMobile ? (
+        <MobileDrawer/>
+      ) : (
+        <> 
+         <SideBar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+        </>
+      )}
       <div className={clsx(isCollapsed ? classes.closedDiv : classes.bodyDiv)}>
         <AfterLoginHeader>{children}</AfterLoginHeader>
       </div>

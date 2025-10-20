@@ -16,3 +16,8 @@
     width: calc(100vw - 24.6%);
   }
 }
+@media (max-width: 991px) {
+  .bodyDiv {
+    width: 100%;
+  }
+}

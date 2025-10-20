@@ -4,11 +4,13 @@
   margin-right: 16px;
   border-bottom: 0.5px solid var(--border-light);
 }
+
 .headerTitle {
   font-size: var(--fs20);
   font-weight: 500;
   color: var(--gray-700);
 }
+
 .body {
   /* margin-block-start: 32px; */
   max-height: calc(100vh - 125px);
@@ -64,4 +66,17 @@
 .body::-webkit-scrollbar-button:horizontal:start:decrement,
 .body::-webkit-scrollbar-button:horizontal:end:increment {
   display: none !important;
+}
+
+@media screen and (max-width: 991px) {
+
+  .header {
+    padding-bottom: 60px;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: none;
+  }
+  .headerTitle {
+    display: none;
+  }
 }

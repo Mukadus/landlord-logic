@@ -1,32 +1,27 @@
-export function useMobileViewHook(setIsMobile, width = 992) {
-    window?.addEventListener("load", () => {
-      getWidthAndDecideScreen(setIsMobile, width);
-    });
-    window?.addEventListener("resize", () => {
-      getWidthAndDecideScreen(setIsMobile, width);
-    });
-    getWidthAndDecideScreen(setIsMobile, width);
-  }
-  
-  function getWidthAndDecideScreen(setIsMobile, width) {
-    if (window?.screen.width < width || window?.innerWidth < width) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
+import { useState, useEffect } from "react";
+
+export function useMobileViewHook(width = 576) {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" &&
+      (window.innerWidth < width || window.screen.width < width)
+  );
+
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      const currentWidth = window.innerWidth;
+      setWindowWidth(currentWidth);
+      setIsMobile(currentWidth < width || window.screen.width < width);
     }
-  }
-  
-  export function getWindowWidth(setIsMobile) {
-    window.addEventListener("load", () => {
-      getWidth(setIsMobile);
-    });
-    window.addEventListener("resize", () => {
-      getWidth(setIsMobile);
-    });
-    getWidth(setIsMobile);
-  }
-  
-  function getWidth(setIsMobile) {
-    setIsMobile(window.innerWidth);
-  }
-  
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call initially
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [width]);
+
+  return { isMobile, windowWidth };
+}

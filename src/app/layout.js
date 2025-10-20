@@ -1,6 +1,7 @@
 import { CustomProvider } from "@/store/customProvider";
 import "aos/dist/aos.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-modern-drawer/dist/index.css";
 import { Libre_Baskerville, Rethink_Sans } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
