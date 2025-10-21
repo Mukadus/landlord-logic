@@ -36,10 +36,10 @@ export default function ComplaintManagementDetailTemplate({ slug = "" }) {
     setLoading("resolveComplaint");
     const { response } = await Patch({ route: `complaints/${slug}`, data: { status: "resolved" } });
     if (response) {
-      RenderToast({
-        message: "Complaint resolved successfully",
-        type: "success",
-      });
+      // RenderToast({
+      //   message: "Complaint resolved successfully",
+      //   type: "success",
+      // });
       setShowModal(false);
       getData();
     }

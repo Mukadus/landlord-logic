@@ -9,10 +9,22 @@ import {
 } from "@/developmentContext/jobRequest";
 import { useState } from "react";
 import InformationSection from "@/components/molecules/InformationSection";
+import useAxios from "@/interceptor/axios-functions";
 
 const JobRequestDetailTemplate = ({ slug = "" }) => {
+  const { Get } = useAxios();
   const [data, setData] = useState(jobRequestDetailData);
   const [loading, setLoading] = useState(false);
+
+  // API FUNCTION
+  const getData = async () => {
+    setLoading("getData");
+    const { response } = await Get({ route: `job-requests/${slug}` });
+    if (response) {
+      setData(response?.data?.data);
+    }
+    setLoading("");
+  };
 
   return (
     <Container fluid>

@@ -95,12 +95,12 @@ export default function TenantDetailTemplate({ slug = "" }) {
     setLoading("disableTenant");
     const { response } = await Patch({ route: `tenant-profiles/${slug}`, data: { status: "inactive" } });
     if (response) {
-      RenderToast({
-        message: "Tenant disabled successfully",
-        type: "success",
-      });
+      // RenderToast({
+      //   message: "Tenant disabled successfully",
+      //   type: "success",
+      // });
       setShowModal(false);
-      getData();
+      // getData();
     }
     setLoading("");
   };

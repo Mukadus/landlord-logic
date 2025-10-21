@@ -96,11 +96,11 @@ const ContractorDirectoryTemplate = () => {
     });
     if (response) {
       setModalShow(false);
-      getData();
-      RenderToast({
-        message: `Contractor ${slug ? "updated" : "added"} successfully`,
-        type: "success",
-      });
+      // getData();
+      // RenderToast({
+      //   message: `Contractor ${slug ? "updated" : "added"} successfully`,
+      //   type: "success",
+      // });
     }
     setLoading("");
   };
