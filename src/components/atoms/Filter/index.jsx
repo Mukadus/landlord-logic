@@ -46,6 +46,8 @@ export default function Filter ({ setFilter, filters, options, title }) {
   const handleFilterClick = (filterOption) => {
     setIsOpen(false);
     setFilter(filterOption);
+    console.log("filterOption", filterOption);
+    console.log("filters", filters);
   };
 
   const filtersOptions = options ?? FILTER_OPTIONS;

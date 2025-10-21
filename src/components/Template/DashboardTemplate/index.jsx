@@ -19,6 +19,7 @@ import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./DashboardTemplate.module.css";
 import { useRouter } from "next/navigation";
+import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
 
 export default function DashboardTemplate() {
   // HOOKS
@@ -35,7 +36,7 @@ export default function DashboardTemplate() {
 
     const { response } = await Get({ route: "dashboard" });
     if (response) {
-      setData(response.data);
+      setData(response?.data);
     }
     setLoading("");
   };
@@ -73,7 +74,7 @@ export default function DashboardTemplate() {
         </Col>
         <Col  xxl={8} xl={7} md={12}>
           <RevenueChart
-            data={data.revenueGraph}
+            data={data?.revenueGraph}
             year={year}
             setYear={setYear}
           />
@@ -96,11 +97,17 @@ export default function DashboardTemplate() {
               </p>
             </div>
             <Row className={classes.subscriptionRow}>
-              {data?.transactions?.map((item, index) => (
-                <Col md={12} key={index}>
-                  <SubscriptionCard data={item} />
+              {data?.transactions?.length > 0 ? (
+                data?.transactions?.map((item, index) => (
+                  <Col md={12} key={index}>
+                    <SubscriptionCard data={item} />
+                  </Col>
+                ))
+              ) : (
+                <Col md={12}>
+                  <NoDataFound title="No recent subscriptions found" size="small" />
                 </Col>
-              ))}
+              )}
             </Row>
             <Button
               label={"View all Subscriptions"}

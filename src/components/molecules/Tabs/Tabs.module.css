@@ -87,6 +87,11 @@
 
 
 /* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .list {
+    padding: 8px 11px;
+  }
+}
 @media screen and (max-width: 768px) {
   .list {
     padding: 10px 16px;

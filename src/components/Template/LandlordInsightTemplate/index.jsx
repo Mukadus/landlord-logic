@@ -9,7 +9,7 @@ import {
 } from "@/developmentContext/landlordInsight";
 import useAxios from "@/interceptor/axios-functions";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./LandlordInsightTemplate.module.css";
 
@@ -28,6 +28,7 @@ const LandlordInsightTemplate = () => {
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
 
+
   // API FUNCTION
   const getData = async ({
     _page = page,
@@ -40,7 +41,7 @@ const LandlordInsightTemplate = () => {
       page: _page,
       limit: 10,
       search: _search,
-      filter: _filter?.value,
+      filter: _filter,
     };
 
     const queryParams = new URLSearchParams(params).toString();
@@ -48,6 +49,7 @@ const LandlordInsightTemplate = () => {
     const { response } = await Get({
       route: `landlord-insights?${queryParams}`,
     });
+
     if (response) {
       setData(response?.data?.data);
       setTotalRecords(response?.data?.totalRecords);
@@ -77,7 +79,11 @@ const LandlordInsightTemplate = () => {
             heading="Landlord Insights"
             search={true}
             filter={true}
-          className={classes.headingSection}
+            setFilter={setFilter}
+            filters={filter}
+            className={classes.headingSection}
+            searchValue={search}  
+            setSearchValue={setSearch}
           />
         </Col>
         <Col lg={12}>

@@ -11,9 +11,15 @@ import PopOver from "@/components/molecules/PopOver";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
 import classes from "./ComplaintManagementTemplate.module.css";
 import { useRouter } from "next/navigation";
+import { jobRequestFilterOptions } from "@/developmentContext/dropDownOption";
+import useAxios from "@/interceptor/axios-functions";
 
 const ComplaintManagement = () => {
+  const { Get } = useAxios();
+
   const router = useRouter();
+
+
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(complaintBodyData);
@@ -21,6 +27,36 @@ const ComplaintManagement = () => {
   const [filter, setFilter] = useState("");
   const [totalRecords, setTotalRecords] = useState(0);
   const [page, setPage] = useState(1);
+
+
+  // API FUNCTION
+  const getData = async ({
+    _page = page,
+    _search = search,
+    _filter = filter,
+  }) => {
+    setLoading("getData");
+    const params = {
+      page: _page,
+      limit: 10,
+      search: _search,
+      filter: _filter,
+    };
+    const queryParams = new URLSearchParams(params).toString();
+
+    const { response } = await Get({ route: `complaints?${queryParams}` });
+    if (response) {
+      setData(response?.data?.data);
+      setTotalRecords(response?.data?.totalRecords);
+      setPage(_page);
+    }
+    setLoading("");
+  };
+
+  // useEffect
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   // Handle popover click
   const onClickPopover = (value, rowItem) => {
@@ -38,6 +74,11 @@ const ComplaintManagement = () => {
             search={true}
             filter={true}
             className={classes.headingSection}
+            searchValue={search}
+            setSearchValue={setSearch}
+            filters={filter}
+            setFilter={setFilter}
+            filterOptions={jobRequestFilterOptions}
           />
         </Col>
         <Col lg={12}>

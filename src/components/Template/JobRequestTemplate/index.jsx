@@ -12,9 +12,13 @@ import PopOver from "@/components/molecules/PopOver";
 import { popoverOptions } from "@/developmentContext/dropDownOption";
 import classes from "./JobRequestTemplate.module.css";
 import { useRouter } from "next/navigation";
+import useAxios from "@/interceptor/axios-functions";
+import { jobRequestFilterOptions } from "@/developmentContext/dropDownOption";
 
 const JobRequestTemplate = () => {
   const router = useRouter();
+
+  const { Get } = useAxios();
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(jobRequestBodyData);
@@ -30,6 +34,34 @@ const JobRequestTemplate = () => {
     }
   };
 
+  // API FUNCTION
+  const getData = async ({
+    _page = page,
+    _search = search,
+    _filter = filter,
+  }) => {
+    setLoading("getData");
+    const params = {
+      page: _page,
+      limit: 10,
+      search: _search,
+      filter: _filter,
+    };
+    const queryParams = new URLSearchParams(params).toString();
+    const { response } = await Get({ route: `job-requests?${queryParams}` });
+    if (response) {
+      setData(response?.data?.data);
+      setTotalRecords(response?.data?.totalRecords);
+      setPage(_page);
+    }
+    setLoading("");
+  };
+
+  // useEffect
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
   return (
     <Container fluid>
       <Row>
@@ -39,6 +71,11 @@ const JobRequestTemplate = () => {
             search={true}
             filter={true}
             className={classes.headingSection}
+            searchValue={search}  
+            setSearchValue={setSearch}
+            filters={filter}
+            setFilter={setFilter}
+            filterOptions={jobRequestFilterOptions}
           />
         </Col>
         <Col lg={12}>

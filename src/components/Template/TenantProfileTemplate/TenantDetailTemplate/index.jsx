@@ -19,15 +19,18 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 import classes from "./TenantDetailTemplate.module.css";
 import ReviewCard from "@/components/organisms/ReviewCard";
 import JobHistorySection from "@/components/molecules/JobHistorySection";
+import AreYouSureModal from "@/components/organisms/Modals/AreYouSureModal";
+import RenderToast from "@/components/atoms/RenderToast";
 
 export default function TenantDetailTemplate({ slug = "" }) {
   // HOOKS
-  const { Get } = useAxios();
+  const { Get, Patch } = useAxios();
 
   // STATE
   const [data, setData] = useState(tenantProfileDetailData ?? null);
   const [loading, setLoading] = useState("");
   const [selectedTab, setSelectedTab] = useState(tenantProfileTabs[0]?.value);
+  const [showModal, setShowModal] = useState(false);
 
   // API FUNCTION
   const getData = async () => {
@@ -87,6 +90,21 @@ export default function TenantDetailTemplate({ slug = "" }) {
     }
   };
 
+  // HANDLE DISABLE TENANT
+  const handleDisableTenant = async () => {
+    setLoading("disableTenant");
+    const { response } = await Patch({ route: `tenant-profiles/${slug}`, data: { status: "inactive" } });
+    if (response) {
+      RenderToast({
+        message: "Tenant disabled successfully",
+        type: "success",
+      });
+      setShowModal(false);
+      getData();
+    }
+    setLoading("");
+  };
+
   return (
     <Container fluid>
       <Row>
@@ -95,9 +113,8 @@ export default function TenantDetailTemplate({ slug = "" }) {
             title="Tenant Profiles"
             title2="Tenant Details"
             showStatusButton={true}
-            label={`${
-              data?.user?.status === "active" ? "Disable" : "Enable"
-            } Tenant`}
+            label={`${data?.user?.status === "active" ? "Disable" : "Enable"
+              } Tenant`}
             leftIcon={
               data?.user?.status === "active" ? (
                 <CiCircleMinus className={classes.statusIcon} />
@@ -108,7 +125,9 @@ export default function TenantDetailTemplate({ slug = "" }) {
                 />
               )
             }
-            handleStatusButton={() => {}}
+            handleStatusButton={() => {
+              setShowModal(true);
+            }}
           />
         </Col>
         <Col lg={12}>
@@ -129,6 +148,18 @@ export default function TenantDetailTemplate({ slug = "" }) {
           />
         </Col>
       </Row>
+      <AreYouSureModal
+        show={showModal}
+        setShow={setShowModal}
+        title="Are You Sure You Want to Disable This Tenant?"
+        subTitle="This action cannot be undone. Please confirm to proceed."
+        onClick={() => {
+          handleDisableTenant();
+        }}
+        showCloseIcon={true}
+        isLoading={false}
+        type="warning"
+      />
     </Container>
   );
 }

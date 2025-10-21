@@ -90,20 +90,20 @@ export const dashboardData = {
 export const statsData = (data) => [
   {
     title: "Contractors",
-    value: data.totalUsers,
+    value: data?.totalUsers,
     img: "/svgs/nav-3.svg",
     subTitle: "Users",
     route: "/contractor-profiles",
   },
   {
     title: "Total Revenue",
-    value: getFormattedPrice(data.totalRevenue),
+    value: getFormattedPrice(data?.totalRevenue),
     img: "/svgs/nav-7.svg",
     route: "/subscription-management",
   },
   {
     title: "Tenants",
-    value: data.newUsers,
+    value: data?.newUsers,
     img: "/svgs/nav-6.svg",
     route: "/tenant-profiles",
   },

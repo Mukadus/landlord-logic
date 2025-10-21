@@ -18,6 +18,33 @@
 }
 @media (max-width: 991px) {
   .bodyDiv {
-    width: 100%;
+    width: calc(100vw - 9.1%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bodyDiv {
+    width: calc(100vw - 10.1%);
+  }
+}
+@media screen and (max-width: 576px) {
+  .bodyDiv {
+    width: calc(100vw - 12%);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bodyDiv {
+    width: calc(100vw - 14%);
+  }
+}
+@media screen and (max-width: 400px) {
+  .bodyDiv {
+    width: calc(100vw - 16%);
+  }
+}
+@media screen and (max-width: 360px) {
+  .bodyDiv {
+    width: calc(100vw - 19%);
   }
 }

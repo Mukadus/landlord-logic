@@ -1,5 +1,6 @@
 import { emailRegex, passwordRegex } from "@/resources/utils/regex";
 import * as Yup from "yup";
+import { statusOptions } from "@/developmentContext/dropDownOption";
 
 export const LoginSchema = Yup.object({
   email: Yup.string()
@@ -53,6 +54,8 @@ export const ContractorSchema = Yup.object({
       (value) => !value || emailRegex.test(value)
     ),
   contractorCategory: Yup.array()
-    .optional()
-    // .min(1, "Contractor category is required"),
+    .optional(),
+  status: Yup.string()
+    .required("Status is required")
+    .oneOf(statusOptions.map((option) => option?.value || ""), "Invalid status"),
 });

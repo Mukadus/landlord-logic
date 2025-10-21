@@ -72,7 +72,7 @@ export const contractorBodyData = [
     },
     category: [{ name: "Carpentry" }, { name: "Painting" }],
     createdOn: "2023-02-20",
-    status: "pending",
+    status: "active",
     amount: 1800,
   },
   {
@@ -105,7 +105,7 @@ export const contractorBodyData = [
     },
     category: [{ name: "Electrical" }, { name: "Security Systems" }],
     createdOn: "2023-05-12",
-    status: "completed",
+    status: "inactive",
     amount: 1500,
   },
   {
@@ -116,7 +116,7 @@ export const contractorBodyData = [
     },
     category: [{ name: "Flooring" }, { name: "Interior Design" }],
     createdOn: "2023-06-18",
-    status: "ongoing",
+    status: "active",
     amount: 2800,
   },
   {
@@ -127,7 +127,7 @@ export const contractorBodyData = [
     },
     category: [{ name: "Concrete" }, { name: "Masonry" }],
     createdOn: "2023-07-22",
-    status: "active",
+    status: "inactive",
     amount: 3500,
   },
   {
@@ -138,7 +138,7 @@ export const contractorBodyData = [
     },
     category: [{ name: "Cleaning" }, { name: "Maintenance" }],
     createdOn: "2023-08-30",
-    status: "pending",
+    status: "active",
     amount: 1200,
   },
 ];

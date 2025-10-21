@@ -20,10 +20,12 @@ import { propertyTabs } from "@/developmentContext/dropDownOption";
 import InformationSection from "@/components/molecules/InformationSection";
 import TenantSection from "@/components/organisms/TenantSection";
 import ComplaintsSection from "@/components/organisms/ComplaintsSection";
+import AreYouSureModal from "@/components/organisms/Modals/AreYouSureModal";
+import RenderToast from "@/components/atoms/RenderToast";
 
 export default function LandlordInsightDetailTemplate({ slug = "" }) {
   // HOOKS
-  const { Get } = useAxios();
+  const { Get, Patch } = useAxios();
 
   // STATE
   const [data, setData] = useState(landlordInsightDetailData ?? null);
@@ -31,6 +33,7 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
   const [loading, setLoading] = useState("");
   const [filter, setFilter] = useState("");
   const [selectedTab, setSelectedTab] = useState(propertyTabs[0]?.value);
+  const [showModal, setShowModal] = useState(false);
   // API FUNCTION
   const getData = async () => {
     setLoading("getData");
@@ -85,6 +88,21 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
     }
   };
 
+  // HANDLE DISABLE LANDLORD
+  const handleDisableLandlord = async () => {
+    setLoading("disableLandlord");
+    const { response } = await Patch({ route: `landlord-insights/${slug}`, data: { status: "inactive" } });
+    if (response) {
+      RenderToast({
+        message: "Landlord disabled successfully",
+        type: "success",
+      });
+      setShowModal(false);
+      getData();
+    }
+    setLoading("");
+  };
+
   return (
     <Container fluid>
       <Row>
@@ -106,7 +124,9 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
                 />
               )
             }
-            handleStatusButton={() => {}}
+            handleStatusButton={() => {
+              setShowModal(true);
+            }}
           />
         </Col>
         <Col lg={12}>
@@ -141,6 +161,18 @@ export default function LandlordInsightDetailTemplate({ slug = "" }) {
           )}
         </Col>
       </Row>
+      <AreYouSureModal
+        show={showModal}
+        setShow={setShowModal}
+        title="Are You Sure You Want to Disable This Landlord?"
+        subTitle="This action cannot be undone. Please confirm to proceed."
+        onClick={() => {
+          handleDisableLandlord();
+        }}
+        showCloseIcon={true}
+        isLoading={false}
+        type="warning"
+      />
     </Container>
   );
 }

@@ -14,6 +14,8 @@ import { popoverOptions } from "@/developmentContext/dropDownOption";
 import classes from "./subscriptionManagementTemplate.module.css";
 import PlanCards from "@/components/molecules/PlanCards";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
+import { jobRequestFilterOptions  } from "@/developmentContext/dropDownOption";
+
 
 const SubscriptionManagement = () => {
   const [loading, setLoading] = useState(false);
@@ -49,15 +51,15 @@ const SubscriptionManagement = () => {
         <Col lg={12}>
           <div className={classes.plansDiv}>
             <h6 className={classes.heading}>For Landlords</h6>
-            <Row>
+            <Row className="gy-4">
               {subscriptionPlansData?.length === 0 ? (
                 <Col lg={12}>
-                  {" "}
+                  
                   <NoDataFound text="No data found" size="small" />
                 </Col>
               ) : (
                 subscriptionPlansData?.map((item, index) => (
-                  <Col lg={4} key={index}>
+                  <Col xl={4} md={6} sm={12} key={index}>
                     <PlanCards data={item} />
                   </Col>
                 ))
@@ -81,6 +83,11 @@ const SubscriptionManagement = () => {
             tabs={tabs}
             tabsData={subscriptionTabs}
             setTabs={setTabs}
+            searchValue={search}  
+            setSearchValue={setSearch}
+            filters={filter}
+            filterOptions={jobRequestFilterOptions}
+            setFilter={setFilter}
           />
         </Col>
         {renderContent()}

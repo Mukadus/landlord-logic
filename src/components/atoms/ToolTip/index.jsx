@@ -1,13 +1,13 @@
-import { useMobileViewHook } from "@/resources/hooks/useMobileViewHook";
+import useMobileViewHook from "@/resources/hooks/useMobileViewHook";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 import { useEffect, useRef, useState } from "react";
  
 export default function ToolTip({ data, children, placement }) {
   const [open, setOpen] = useState(false);
- 
-  const [isMobile, setIsMobile] = useState(false);
- 
+
+  const { isMobile } = useMobileViewHook(576);
+
   const tooltipRef = useRef(null);
  
   const LightTooltip = styled(({ className, ...props }) => (
@@ -57,9 +57,6 @@ export default function ToolTip({ data, children, placement }) {
     setOpen(!open);
   };
  
-  useEffect(() => {
-    useMobileViewHook(setIsMobile, 576);
-  }, []);
  
   return (
     <LightTooltip

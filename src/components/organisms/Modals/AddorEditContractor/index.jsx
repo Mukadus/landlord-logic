@@ -6,7 +6,7 @@ import classes from "./AddorEditContractorModal.module.css";
 import Button from "@/components/atoms/Button";
 import { contractorFormValues } from "@/formik/initialValues";
 import { ContractorSchema } from "@/formik/schema";
-import { categoryOptions } from "@/developmentContext/dropDownOption";
+import { categoryOptions,  statusOptions } from "@/developmentContext/dropDownOption";
 import { MdOutlineEmail } from "react-icons/md";
 
 export default function AddorEditContractorModal({ show, setShow, loading, handleSubmit }) {
@@ -103,6 +103,27 @@ export default function AddorEditContractorModal({ show, setShow, loading, handl
             error={
               contractorForm.touched.contractorCategory &&
               contractorForm.errors.contractorCategory
+            }
+            disabled={loading}
+            loading={loading}
+          />
+        </div>
+        <div className={classes.formGroup}>
+          <DropDown
+            label="Status"
+            name="status"
+            isMulti={false}
+            placeholder="Status"
+            value={
+              statusOptions.find((option) => option?.value === contractorForm.values?.status) || null
+            }
+            setValue={(option) => {
+              contractorForm.setFieldValue("status", option?.value || statusOptions[0]?.value || "");
+            }}
+            options={statusOptions}
+            errorText={
+              contractorForm.touched.status &&
+              contractorForm.errors.status
             }
             disabled={loading}
             loading={loading}

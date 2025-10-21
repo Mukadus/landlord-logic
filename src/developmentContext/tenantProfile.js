@@ -69,7 +69,7 @@ export const tenantProfileBodyData = [
     },
     landlord: "Michael Brown",
     joinedOn: "2023-03-22",
-    status: "pending",
+    status: "inactive",
     totalSpent: 1800.5,
   },
   {
@@ -113,7 +113,7 @@ export const tenantProfileBodyData = [
     },
     landlord: "Christopher Lee",
     joinedOn: "2023-04-12",
-    status: "pending",
+    status: "inactive",
     totalSpent: 1200.0,
   },
   {
@@ -190,7 +190,7 @@ export const tenantProfileBodyData = [
     },
     landlord: "Christopher Lee",
     joinedOn: "2023-04-12",
-    status: "pending",
+    status: "inactive",
     totalSpent: 1200.0,
   },
   {
@@ -245,7 +245,7 @@ export const tenantProfileBodyData = [
     },
     landlord: "Christopher Lee",
     joinedOn: "2023-04-12",
-    status: "pending",
+    status: "inactive",
     totalSpent: 1200.0,
   },
   {

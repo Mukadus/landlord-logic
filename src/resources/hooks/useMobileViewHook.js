@@ -1,6 +1,7 @@
+"use client";
 import { useState, useEffect } from "react";
 
-export function useMobileViewHook(width = 576) {
+export default function useMobileViewHook(width = 576) {
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" &&
       (window.innerWidth < width || window.screen.width < width)

@@ -129,3 +129,34 @@ export const notificationFilterOptions = [
     value: "oldest",
   },
 ];
+
+
+export const jobRequestFilterOptions = [
+  {
+    label: "All",
+    value: "all",
+  },
+  {
+    label: "Pending",
+    value: "pending",
+  },
+  {
+    label: "Completed",
+    value: "completed",
+  },
+  {
+    label: "Ongoing",
+    value: "ongoing",
+  }
+];
+
+export const statusOptions = [
+  {
+    label: "Active",
+    value: "active",
+  },
+  {
+    label: "Inactive",
+    value: "inactive",
+  },
+];
