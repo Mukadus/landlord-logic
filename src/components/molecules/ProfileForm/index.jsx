@@ -2,7 +2,7 @@ import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input/Input";
 import UploadImageBoxNew from "@/components/atoms/UploadImageBoxNew";
 import { Col, Container, Row } from "react-bootstrap";
-import classes from "./ContactForm.module.css";
+import classes from "./ProfileForm.module.css";
 
 
 export default function ProfileForm({ form, setShowModal, handleSubmit, loading }) {
