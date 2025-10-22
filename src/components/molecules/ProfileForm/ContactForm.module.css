@@ -1,0 +1,30 @@
+.rowGap {
+  row-gap: 20px;
+}
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.buttonContainer button {
+  width: fit-content !important;
+}
+.photoContainer {
+  border-radius: 16px;
+  background: var(--mint-whisper);
+  padding: 14px;
+}
+.uploadImageBox {
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease-in-out !important;
+  &:hover {
+    transform: scale(1.05) !important;
+  }
+}

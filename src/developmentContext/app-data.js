@@ -39,6 +39,11 @@ export const NAV_DATA = [
     path: "/notifications-center",
     image: "/svgs/nav-8.svg",
   },
+  {
+    title: "CMS",
+    path: "/cms",
+    image: "/svgs/nav-8.svg",
+  },
 ];
 
 export const pagesWithoutSideBar = [
@@ -46,3 +51,12 @@ export const pagesWithoutSideBar = [
   "/verify-otp",
   "/reset-password",
 ];
+
+
+export const userData = {
+  fullName: "John Smith",
+  email: "john.smith@email.com",
+  phoneNumber: "1234567890",
+  location: "3967 Bosco Circles, Weberboro 61294",
+  photo: "/app-images/Avatar.png",
+};

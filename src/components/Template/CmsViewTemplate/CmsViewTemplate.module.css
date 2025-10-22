@@ -1,0 +1,9 @@
+.actionButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+  .headingSection {
+    padding-block: var(--p-16) !important;
+  }

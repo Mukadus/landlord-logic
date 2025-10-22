@@ -10,11 +10,17 @@ import { ForgotPasswordSchema } from "@/formik/schema";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import RenderToast from "@/components/atoms/RenderToast";
+import useAxios from "@/interceptor/axios-functions";
+import { setEmailCookie } from "@/resources/utils/cookie";
+
 
 export default function ForgotPasswordTemplate() {
   const router = useRouter();
 
-  const [loading, setLoading] = useState(false);
+  const { Post } = useAxios();
+
+  const [loading, setLoading] = useState("");
 
   const forgotPasswordForm = useFormik({
     initialValues: forgotPasswordValues,
@@ -24,8 +30,23 @@ export default function ForgotPasswordTemplate() {
     },
   });
 
+
   const handleSubmit = async (values) => {
-    setLoading("forgotPassword");
+    setLoading("submit");
+    const response = await Post({
+      route: "auth/forgot/password",
+      data: values,
+    });
+
+    if (response) {
+      setEmailCookie(values?.email);
+      RenderToast({
+        message: "OTP has been sent to this email",
+        type: "success",
+      });
+      router.push("/verify-otp");
+    }
+    setLoading("");
   };
 
   return (

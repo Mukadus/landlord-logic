@@ -77,7 +77,7 @@ export default function SideBar({ isCollapsed, setIsCollapsed }) {
             isCollapsed && classes.closedSubBottom
           )}
         >
-          <div className={clsx(classes.profile, classes.navItem)}>
+          <div className={clsx(classes.profile, classes.navItem)} onClick={() => router.push("/profile-setting")}>
             <HiOutlineUserCircle className={classes.navItemIcon} />
             {!isCollapsed && (
               <p className={clsx(classes.navItemText)}>Profile</p>

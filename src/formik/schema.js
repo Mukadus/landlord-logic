@@ -37,7 +37,6 @@ export const UpdatePasswordSchema = Yup.object({
   confirmPassword: Yup.string()
     .required("Confirm password is required")
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
-  currentPassword: Yup.string().required("Current password is required"),
 });
 
 export const ContractorSchema = Yup.object({
@@ -58,4 +57,42 @@ export const ContractorSchema = Yup.object({
   status: Yup.string()
     .required("Status is required")
     .oneOf(statusOptions.map((option) => option?.value || ""), "Invalid status"),
+});
+
+export const ProfileSchema = Yup.object({
+  fullName: Yup.string()
+    .required("Full name is required")
+    .min(2, "Full name must be at least 2 characters")
+    .max(50, "Full name must be less than 50 characters"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required")
+    .test(
+      "no-special-chars",
+      "Email contains invalid characters",
+      (value) => !value || emailRegex.test(value)
+    ),
+  phoneNumber: Yup.string()
+    .required("Phone is required")
+    .min(10, "Phone must be at least 10 characters")
+    .max(10, "Phone must be less than 10 characters"),
+  location: Yup.string()
+    .required("Address is required")
+    .min(2, "Location must be at least 2 characters")
+    .max(50, "Location must be less than 50 characters"),
+});
+
+export const UpdatePasswordFormSchema = Yup.object({
+  currentPassword: Yup.string()
+    .required("Current password is required"),
+  password: Yup.string()
+    .required("Password is required")
+    .test(
+      "password-regex",
+      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+      (value) => passwordRegex.test(value)
+    ),
+  confirmPassword: Yup.string()
+    .required("Confirm password is required")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
 });

@@ -5,15 +5,24 @@ import { otpVerificationValues } from "@/formik/initialValues";
 import { OtpVerificationSchema } from "@/formik/schema";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { MdOutlinePrivacyTip } from "react-icons/md";
 import classes from "../../LoginTemplate/LoginTemplate.module.css";
 import Image from "next/image";
+import useAxios from "@/interceptor/axios-functions";
+import RenderToast from "@/components/atoms/RenderToast";
+import { getEmailCookie } from "@/resources/utils/cookie";
+import { setOtpCodeCookie } from "@/resources/utils/cookie";
 
 export default function VerifyOtpTemplate() {
+  const { Post } = useAxios();
+
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState("");
+  const [timer, setTimer] = useState(60);
+  const [canResend, setCanResend] = useState(false);
+  let timerInterval;
 
   const verifyOtpForm = useFormik({
     initialValues: otpVerificationValues,
@@ -23,13 +32,68 @@ export default function VerifyOtpTemplate() {
     },
   });
 
+  const email = getEmailCookie();
+
   const handleSubmit = async (values) => {
-    setLoading("verifyOtp");
+    const payload = {
+      email,
+      code: String(values?.code),
+      fromForgotPassword: true,
+    };
+
+    setLoading("submit");
+    const response = await Post({
+      route: "auth/verify/otp",
+      data: payload,
+    });
+
+    if (response) {
+      setOtpCodeCookie(payload?.code);
+      RenderToast({
+        message: "OTP verified Successfully!",
+        type: "success",
+      });
+      router.push("/reset-password");
+    }
+
+    setLoading("");
   };
 
+
   const resendCode = async () => {
-    console.log("resendCode");
+    setLoading("resendCode");
+
+    const response = await Post({
+      route: "auth/resend/otp",
+      data: email,
+    })
+    if (response) {
+      RenderToast({
+        message: "OTP resent successfully!",
+        type: "success",
+      });
+    }
+    setLoading("");
   };
+
+  function startResendTimer(setTimer, setCanResend) {
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(() => {
+      setTimer((prev) => {
+        if (prev <= 1) {
+          clearInterval(timerInterval);
+          setCanResend(true);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  }
+
+  useEffect(() => {
+    startResendTimer(setTimer, setCanResend);
+  }, []);
 
   return (
     <div className={classes.loginWrapper}>
@@ -79,8 +143,9 @@ export default function VerifyOtpTemplate() {
                   />
                 </div>
 
-                <p className={classes.forgotPassword} onClick={resendCode}>
-                  Resend code
+                <p className={classes.forgotPassword} onClick={resendCode} style={{ cursor: canResend ? "pointer" : "not-allowed" }}>
+                  {canResend ? "Resend code" : `Resend code in ${timer} seconds`}
+                
                 </p>
 
                 <Button

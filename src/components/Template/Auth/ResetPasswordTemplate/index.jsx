@@ -9,9 +9,17 @@ import { updatePasswordValues } from "@/formik/initialValues";
 import { UpdatePasswordSchema } from "@/formik/schema";
 import { useFormik } from "formik";
 import Image from "next/image";
+import useAxios from "@/interceptor/axios-functions";
+import RenderToast from "@/components/atoms/RenderToast";
+import { removeEmailCookie, getEmailCookie } from "@/resources/utils/cookie";
+import { removeOtpCodeCookie, getOtpCodeCookie } from "@/resources/utils/cookie";
+import { useRouter } from "next/navigation";
 
 export default function ResetPasswordTemplate() {
-  const [loading, setLoading] = useState(false);
+
+  const { Post } = useAxios();
+  const router = useRouter();
+  const [loading, setLoading] = useState("");
 
   const resetPasswordForm = useFormik({
     initialValues: updatePasswordValues,
@@ -20,8 +28,40 @@ export default function ResetPasswordTemplate() {
       handleSubmit(values);
     },
   });
+  console.log(resetPasswordForm.values);
+  console.log(resetPasswordForm.errors);
+
+
+
+  const email = getEmailCookie();
+  const otpCode = getOtpCodeCookie();
+
+
   const handleSubmit = async (values) => {
     setLoading("resetPassword");
+
+    const payload = {
+      email,
+      code: otpCode,
+      password: values?.password,
+      confirmPassword: values?.confirmPassword,
+    };
+
+    const response = await Post({
+      route: "auth/reset/password",
+      data: payload,
+    });
+
+    if (response) {
+      removeEmailCookie();
+      removeOtpCodeCookie();
+      RenderToast({
+        message: "Password updated successfully",
+        type: "success",
+      });
+      router.push("/");
+    }
+    setLoading("");
   };
 
   return (

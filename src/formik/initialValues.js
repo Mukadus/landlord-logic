@@ -6,7 +6,6 @@ export const loginFormValues = {
 };
 
 export const updatePasswordValues = {
-  currentPassword: "",
   password: "",
   confirmPassword: "",
 };
@@ -24,4 +23,20 @@ export const contractorFormValues = {
   contractorEmail: "",
   contractorCategory: [],
   status: statusOptions[0]?.value || "",
+};
+
+export const profileFormValues = (userData) => {
+  return {
+    fullName: userData?.fullName || "",
+    email: userData?.email || "",
+    phoneNumber: userData?.phoneNumber || "",
+    location: userData?.location || "",
+    photo: userData?.photo || "",
+  };
+};
+
+export const changePasswordFormValues = {
+  currentPassword: "",
+  password: "",
+  confirmPassword: "",
 };
